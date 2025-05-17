@@ -41,7 +41,7 @@
 * A location tracking app https://github.com/sarthakagrawal927/location-tracker-app
 * An app that lets you find relevant places based on user’s feedback, something like nomad list but for similar stuff. https://github.com/sarthakagrawal927/maps-server
 * The family tree app https://github.com/sarthakagrawal927/Tree
-* Storytunes https://github.com/sarthakagrawal927/storytunes-backend
+* Storytunes. An app where people can write stories with voted collaboration from peers 0r public. Each single line can be voted against other lines, can involve AI in it. Overall a voted collaboration writing experience. Can move to spreadsheet and others as well later on. Also each on-site event is also like a story, people can collaborate their ideas and have a nice event summary towards the end.
 * https://docs.google.com/spreadsheets/d/1s_ZDKtOoGqi1FtTyPeeS0h_0d96jOFJ-TuzwjWnnCPo/edit?gid=1478931401#gid=1478931401
 * https://www.ycombinator.com/rfs
 * https://octolens.com/
