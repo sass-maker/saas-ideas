@@ -62,3 +62,4 @@
 - Build a project using t3-app and party-kit
 - Since people now a days love reels and games, how about ab app that combines both. An app where you swipe and get to play a new game or next level of old game. Can also have reels on the side. Will make revenue with ads ofc. Would be even better if you can somehow let people submit games, maybe embed web app that has been integrated well.
 - An app that lets you build walkable 3d worlds, you can choose design each building and stuff.
+- An app that summarises git commits and posts them on twitter (also build the tweet scheduling bot)
