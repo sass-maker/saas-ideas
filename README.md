@@ -1,16 +1,16 @@
 # Saas Ideas
 - A browser that remembers everything you have searched and lets you handle things accordingly 
-- Create a directory maker for fun. And release a bunch of directories for fun, they all can use the same DB, ofc. E.g., the AI Wrapper directory. All lists (directories or such) in the market should be collaborative and modifiable via votes. The problem with this would be verifying accounts. They should be able to be visible and absent based on votes. Categorized, ranked.
+- Create a directory maker for fun. And release a bunch of directories for fun, they all can use the same DB, ofc. E.g., the AI Wrapper directory. All lists (directories or such) in the market should be collaborative and modifiable via votes. The problem with this would be verifying accounts. They should be able to be visible and absent based on votes. Categorised, ranked.
 - This directory can also act as a market place for domain selling. Will need to verify domain? Can do that by dns forwarding or whatever people do to take charge of what website domain points to. And can add a back link to my website there. Also need to know how to un verify it, ie someone verified and sold it elsewhere. can have auction system built it? 
 - Why don’t people selling SASS, don’t have a bid system. For bidders you can create a profile (with social profile connected for added verification). Can gamify it a bit by adding: bids placed (and unique products bidded on), bids won and actual payment count. 
 - An app that quickly creates mock APi using AI and deploys it. Can just use redis to store the sample data and generate random query params to make it work. 
 - An app that tells you what anime character you are based on your tweets or you can write your bio. Might have to scrap anime characters from their own wiki pages, Reddit reviews etc
 
-- An app to handle timeseries geographical data from various sources and view them like a heat map in the map. Can be used for Swiggy orders or stuff like that. Should be able to handle multiple sources and try to approximate future demand. Can also use take input as IP address. Useful for all kinds of analytics and to see active people and how many people are active on the app. Using timeseries DB or CH.  https://en.wikipedia.org/wiki/Kalman_filter, https://en.wikipedia.org/wiki/Viterbi_algorithm
+- An app to handle time series geographical data from various sources and view them like a heat map in the map. Can be used for Swiggy orders or stuff like that. Should be able to handle multiple sources and try to approximate future demand. Can also use take input as IP address. Useful for all kinds of analytics and to see active people and how many people are active on the app. Using timeseries DB or CH.  https://en.wikipedia.org/wiki/Kalman_filter, https://en.wikipedia.org/wiki/Viterbi_algorithm
 - Summarise threads - twitter, reddit etc
 
 * A pluggable recommendation system that anyone can plug in with custom field inputs and custom interactions with weightages. Something that I did for feed, simple vector search just scaled and made much more configurable. Can also add a beta mode to let them test my new developments and a test env to let people test various configs. Will store recommendation items and user interactions in my db. 
-* A super app to help you prepare for tests, integrate AI based questioning, anki notes and is extremely personalised.
+* A super app to help you prepare for tests, integrate AI-based questioning, anki notes and is extremely personalised.
 * A browser extension that has your various info and just fills all the forms for you. Be it regular form, post/comment creation. How can it go beyond what browsers are already capable of doing
 * An extension that can read everything on web and lets you query on it.
 * An app that can teach any concept in an interactive story with cartoons and stuff.
@@ -26,10 +26,10 @@
 * An app (maybe integrated in SH as list or something like feature list in saasmaker). People can recommend books/movies in groups
 * EverythingRated.com - a website where people can rate anything and everything on different aspects. People can create new aspects, new categories , new things to rate etc
 * An app like pager duty but for orders live. Just need to build a system that will be used everywhere (elixir sounds good)
-* What about having a podcaster embedded ? At ALL places.
+* What about having a podcaster embedded? At ALL places.
 * Bizarre idea: fluid apps - apps that let users prompt and modify the app to their liking.
-* Tree Visiualizer - An app to visualize tree algo, let users build tree and write algo there itself. Can extend this with an ide for people to collaborate on leetcode problems, which lets them test and submit for all collaborators as well.
-* An website which tells you complexity of your code if you write your code on it. Tests your code for possible edges cases when described with time of input is expected. An exception handling class which can detect infinite loops, misc errors etc Tells you the execution time of your code on various inputs, jato judge the complexity.
+* Tree Visualizer - An app to visualise tree algorithms, let users build tree and write algo there itself. Can extend this with an ide for people to collaborate on leetcode problems, which lets them test and submit for all collaborators as well.
+* A website that tells you the complexity of your code if you write your code on it. Tests your code for possible edge cases when described with time of input is expected. An exception handling class which can detect infinite loops, misc errors etc Tells you the execution time of your code on various inputs, jato judge the complexity.
 * A dedicated app for lawyers, CA to highlight and provide their services - like practo and all for health. Plumber, carpenter , driver for rent can also be available. Assuming they are as educated as swiggy drivers. But there are different skill levels. People can add voice prompts to decrease the overhead of understanding the requirements before the professional accepts the requests.
 * An app that lets you book transport for local tourism. Provides you with a lot of packages of travelling, main target audience would be tourists. We will probably have to partner with a lot of agencies. Soon we can shift towards one one-stop platform for tourism. This will be like mmt but for taxis.
 * Vodka vanilla Oreo drink. A website where cocktails across different places are rated and reviewed. Just directly make EverythingIsRated?
@@ -54,12 +54,15 @@
 - An app that requires you to answer some questions before opening up. Difficulty keeps on increasing with the count you opened the app already. An app that allows you to set the amount of time u use your phone when u start using it. It's asks Everytime for how long u want to use whenever u unlock the phone. Also it can keep decreasing the contrast of phone. Eventually converting it to black n white.
 - Anti Chess App
 - Monopoly Game
-- Game of catan but at a much larger scale, playable online for companies. Main feature of catans can be scaled : more bricks, dice roll numbers can be repeated.
-- A dashboard filled with mini games.
-- A poker game with stakes of tasks instead of money. Everyone playing can add few tasks on others, their value can be decided via consensus among other players. This will let you have some solid stake without involving money. Something like truth and dare but for poker. Can be extended to different betting/gambling games.
+- Game of catan but at a much larger scale, playable online for companies. Main feature of catans can be scaled: more bricks, dice roll numbers can be repeated.
+- A dashboard filled with mini-games.
+- A poker game with stakes of tasks instead of money. Everyone playing can add a few tasks on others, their value can be decided via consensus among other players. This will let you have some solid stake without involving money. Something like truth and dare but for poker. Can be extended to different betting/gambling games.
 - A JS implementation of the game in which people match glasses. People predict an initial order of glasses, then the computer will give you the number of correct glass positions
 - Small web. Games directory
 - Build a project using t3-app and party-kit
 - Since people now a days love reels and games, how about ab app that combines both. An app where you swipe and get to play a new game or next level of old game. Can also have reels on the side. Will make revenue with ads ofc. Would be even better if you can somehow let people submit games, maybe embed web app that has been integrated well.
-- An app that lets you build walkable 3d worlds, you can choose design each building and stuff.
-- An app that summarises git commits and posts them on twitter (also build the tweet scheduling bot)
+- An app that lets you build walkable 3d worlds, you can choose to design each building and stuff.
+- An app that summarises git commits and posts them on Twitter (also build the tweet scheduling bot)
+- An agent that deep dives into someone and finds out almost everything about them. Once they have their full info, they use it to trade info from other people and then try to verify that info from other sources, eventually gaining more and more info. Will have to create a source authenticity framework where each source will be rated based on past info (can be part of everythingIsRated)
+-  A chatbot arena where I put in some thought, where LLMs argue and come to a consensus (something is already built). Are results always better when the same questions is asked to multiple models? can we do it something like a consensus algorithm of blockchain? Or they feel better for complex reasoning tasks, and a multi-agent approach essentially breaks it into simpler pieces, resulting in better results.
+-  An app to understand users' needs. Can be used to sell (software, medicine, cosmetics, clothes, food etc)
