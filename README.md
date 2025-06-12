@@ -48,6 +48,7 @@
 * Scalable n8n or similar tool
 * performance marketing agents
 * cctv app that is able to customize for various special queries like for how long was the doctor sitting, how long the patient sat etc. The bin is in the position or not.
+* a meeting helper (https://www.shadow.do/, https://cluely.com)
 
 ## Games
 - A tambola game which takes real money and sends back real money. Custom rooms can be created with or without money. Like the IPL betting game.
