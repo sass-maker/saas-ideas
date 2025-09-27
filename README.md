@@ -72,3 +72,5 @@
 -  A chatbot arena where I put in some thought, where LLMs argue and come to a consensus (something is already built). Are results always better when the same questions is asked to multiple models? can we do it something like a consensus algorithm of blockchain? Or they feel better for complex reasoning tasks, and a multi-agent approach essentially breaks it into simpler pieces, resulting in better results.
 -  An app to understand users' needs. Can be used to sell (software, medicine, cosmetics, clothes, food etc)
 - TD (https://github.com/maciej-trebacz/tower-of-time-game?tab=readme-ov-file)
+- Learning App (purpose is active recall, anki, journal, mind maps & general notes), plus access to general wike (aka AI, try Apple AI also). Focus on [interportability](https://chatgpt.com/share/68d77d9f-594c-8008-aa81-a9faeb3b1779)
+- Complete Movies, Anime, Manga APp with watchlist and active recommendations. Already have manga, anime setup. For movies/tv check [this](https://chatgpt.com/share/68d77dff-7a6c-8008-bab4-a252c26d241d)
