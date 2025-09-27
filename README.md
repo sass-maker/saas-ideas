@@ -75,3 +75,5 @@
 - Since people now a days love reels and games, how about ab app that combines both. An app where you swipe and get to play a new game or next level of old game. Can also have reels on the side. Will make revenue with ads ofc. Would be even better if you can somehow let people submit games, maybe embed web app that has been integrated well.
 - An app that lets you build walkable 3d worlds, you can choose to design each building and stuff.
 - TD (https://github.com/maciej-trebacz/tower-of-time-game?tab=readme-ov-file)
+
+- An app (chrome extension) to download a good amount of blogs as pdf. People index already, why can't I render what I index in a pretty way. Since most websites use SPA, we might need to use AI to ask it to add tailwind classes to it after cleaning the html.
