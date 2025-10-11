@@ -315,7 +315,7 @@ The strongest neural connections are always formed with things that are out of t
 > exercise and diet (we’re becoming fatter and more vain by the day) 
 > mental health & mindfulness (stress, anxiety and burnout are at an all time high) 
 > self-improvement & productivity (people are opsessed about optimising their lives)
-> can integrate something like dayflow
+> can integrate something like dayflow. Also an app called time sink which essentially just asks user what you are going to do for the next 30mins and tracks whether u do it or not.
 
 Interesting: (we can give people their spirit animal/pokemon/entity based on their answers?)
 - if you give people the chance to place a label on themselves that makes them feel unique, they’ll take it.
