@@ -181,3 +181,6 @@ Let people follow the products and let product owners write updates about them.
 Let the user authorisation be handled by this, by letting users pay for the product via here through either direct Dollars, personal coin, some crypto, personal crypto or some wallet. Can charge just enough to make a little money (or brake even ) after paying payment provider fees.
 Will provide APIs for user authorisation & payment confirmation and other important stuff. Can also provide dynamic billing components.
 Also, lets users manage their subscriptions on the app itself. All incoming subscription payments, payoffs to influencers or maybe job people can go through the app itself. Can also get the tax part handled there?
+
+https://www.getbirddog.ai/
+Something like this, where companies can come and describe in detail about what problems they solve, and people who use this service can rate them (time, customer weighted). Clients can come and look for solutions for their problems.
