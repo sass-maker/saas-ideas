@@ -74,6 +74,7 @@ https://pmfm.ai
 An app that keeps you posted on everything new happening in the subreddit. Just check out the few trending posts every 8hr or so from the selected repos. Collects all the interesting info, uses gpt to distill it and then slacks you. To get SEO, can include Reddit hot posts summary. People can come and enter their favourite subReddit and see info about it. If it exists just return it, if it doesn’t make it and store in db for refreshing in future.
 Allow user to immediate refresh if they have premium or it’s been a while that subReddit is refreshed. This way cron isn’t needed to be settled up and people can see my cool server side push events implementation.
 Can everyone a new page is added or updated, can I debounce and send Google a reindex request. Can have weekly and monthly pages for the subreddit, along with history. Can also chat with subreddits.
+Can allow people to set their own prompts for summarising the content of community or use other's prompts while the underlying data remains same.
 
 To get info about any reddit page just add ".json" at end
 
