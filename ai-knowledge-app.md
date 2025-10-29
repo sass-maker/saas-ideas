@@ -75,6 +75,7 @@ An app that keeps you posted on everything new happening in the subreddit. Just 
 Allow user to immediate refresh if they have premium or it’s been a while that subReddit is refreshed. This way cron isn’t needed to be settled up and people can see my cool server side push events implementation.
 Can everyone a new page is added or updated, can I debounce and send Google a reindex request. Can have weekly and monthly pages for the subreddit, along with history. Can also chat with subreddits.
 Can allow people to set their own prompts for summarising the content of community or use other's prompts while the underlying data remains same.
+Can charge for latest data as it saves time from browsing reddits and comments. Faster refreshes. Dynamic prompts, ability to export the data etc.
 
 To get info about any reddit page just add ".json" at end
 
