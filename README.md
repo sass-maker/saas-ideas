@@ -79,6 +79,7 @@ Will research what’s trending and suggest ideas. Can be part of propaganda.
 - An application to help companies track the location of their employees, give them directions/tasks etc.
 - storyTunes - an app on which people can collaborate on scenarios/stories. Best voted sentence/part wins its place. Can have AI contributers and realtime collaboration.
 - use n throw splitwise
+- build something like https://www.wikiboard.org, but for entire net, click to zoom on tab, multiple parallel threads etc. AI summary and reasoning.
 
 ## Games
 - A tambola game which takes real money and sends back real money. Custom rooms can be created with or without money. Like the IPL betting game.
