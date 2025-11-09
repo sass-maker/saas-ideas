@@ -184,3 +184,8 @@ Also, lets users manage their subscriptions on the app itself. All incoming subs
 
 https://www.getbirddog.ai/
 Something like this, where companies can come and describe in detail about what problems they solve, and people who use this service can rate them (time, customer weighted). Clients can come and look for solutions for their problems.
+
+Introduce maker.sassmaker.com for people to get their profiles of what they have done till now.
+
+
+
