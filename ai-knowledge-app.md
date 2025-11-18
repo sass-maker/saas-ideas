@@ -23,7 +23,7 @@ Where we break myths of various food items.
 Also let’s you choose foods as per your requirements
 
 For each generic query, auto create a blog via db insertions
-Can redeploy the web everyday to make it work with SSG
+Can redeploy the web everyday to make it work with SSG (JAMStack blogging platform - like superblog)
 Something like dukaan but more specific to advice and show products
 Also should always give proper disclaimer and inform doctors need
 
