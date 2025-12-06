@@ -188,4 +188,120 @@ Something like this, where companies can come and describe in detail about what 
 Introduce maker.sassmaker.com for people to get their profiles of what they have done till now.
 
 
+## LLM Routing agent
+An app to test various LLMs for various tasks and their evals
+
+Details:
+1. **Task System**
+
+   * Define tasks with IDs, description, input schema.
+   * Task types: generation, classification, extraction, code/SQL, tool-calls.
+   * Per-task metadata (tags, owner, status: draft/active/deprecated).
+
+2. **Prompt & Parameters Management**
+
+   * One or more prompt templates per task (with variables).
+   * Prompt versions (v1, v2, …) with change history.
+   * Per-prompt sampling params (temperature, max tokens, etc.).
+   * Mark “active” prompt version per task.
+
+3. **Model Registry**
+
+   * Register models from multiple providers (OpenAI, Anthropic, OpenRouter, local).
+   * Store pricing, rate limits, max context, capabilities.
+   * Enable/disable models globally or per tenant.
+
+4. **Test Cases**
+
+   * Attach test cases to tasks (input payloads matching schema).
+   * Optional expected labels/fields for classification/extraction.
+   * Optional reference outputs for gold-standard comparison.
+   * Tagging of test cases (easy / hard / edge / regression).
+
+5. **Eval Framework**
+
+   * Exact/label accuracy evals (classification, extraction fields).
+   * Regex/constraint evals (length bounds, required/forbidden patterns).
+   * LLM-as-judge evals with configurable rubric and scoring scale.
+   * Execution-based evals (code/SQL/tests/tool calls).
+   * Support multiple evals per task with weights → aggregate score.
+   * Store per-run eval breakdown (per-eval scores and final score).
+
+6. **Experiment Runner (Benchmarks)**
+
+   * Run selected tasks + test cases against multiple models/prompts in parallel.
+   * Capture outputs, latency, tokens, cost, eval scores.
+   * Compare models side-by-side for a task.
+   * Compare prompt versions for a task on the same model set.
+   * Export runs/results (CSV/JSON).
+
+7. **Routing & Deployment Config**
+
+   * Per-task deployment config:
+
+     * Active prompt version.
+     * Default model or traffic split across models.
+   * Policy options:
+
+     * “Cheapest above score threshold.”
+     * Fixed traffic splits (e.g., 80/20).
+     * Latency / cost constraints.
+   * Environment-specific configs (dev/staging/prod).
+
+8. **Runtime API & SDK**
+
+   * Single `runTask(taskId, input)` API.
+   * SDKs (at least TypeScript) that hide model/prompt details.
+   * Return payload with output, model used, estimated score, latency, cost.
+   * Optional online cheap checks (format/constraints) before returning.
+
+9. **Runs Storage & History**
+
+   * Persist run records (task, prompt version, model, env, metrics, hashes).
+   * Optional partial input/output storage (preview+hash).
+   * Filterable history by task, model, prompt version, env, time.
+
+10. **Analytics & Monitoring**
+
+    * Per-task dashboards:
+
+      * Volume, latency (avg/p95), tokens, cost.
+      * Breakdown by model and prompt version.
+    * Per-model performance across tasks.
+    * Score/time series if evals exist.
+    * Simple anomaly flags (e.g., score drop, latency spike, cost spike).
+
+11. **Prod Quality Re-analysis**
+
+    * “Analyze last N prod runs” per task:
+
+      * Re-run full eval suite (including LLM judge) on sampled recent runs.
+      * Compute current average score vs previous window/baseline.
+      * Surface worst examples (lowest scores) for inspection.
+    * Optionally schedule periodic re-analysis (e.g., daily).
+
+12. **Human Feedback Integration**
+
+    * API to submit user feedback (thumbs/rating/“accepted vs edited”).
+    * Correlate human feedback with eval scores and models.
+    * Per-task feedback stats (approval rate, by model/prompt).
+
+13. **Access Control & Tenancy (minimal product-level)**
+
+    * API keys per project/tenant.
+    * Basic user auth for UI.
+    * Logical separation of tasks, runs, configs per tenant.
+
+14. **Developer UX**
+
+    * Web UI to:
+
+      * Create/edit tasks, prompts, test cases, eval configs, routing configs.
+      * Run ad-hoc experiments on a single input across models.
+      * Inspect outputs and scores side-by-side.
+    * CLI for:
+
+      * Triggering benchmarks.
+      * Exporting/importing task configs and test suites.
+
 
