@@ -12,6 +12,7 @@ In future will expand to:
 
 Core components:
 - code index and understanding - something like cursor/claude-code. How they understand the codebase recuresively. Then I need to do this historically and get meaning out of individual commits.
+  - can also do changelogs across releases and discover outputs by devs
 - logs understanding - first need to create my own logging system, then how to plug it everywhere. then handle the storage and understanding of events/bugs with those logs
 - integration of analytic tools, linear and slack. User should be able to understand what ticket moved the needle. Slack answers are remembered.
 - saas tester - maybe the thing to test whether an app is useful (able) or not. And possible merger w sass maker.
