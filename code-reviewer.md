@@ -16,3 +16,15 @@ Core components:
 - logs understanding - first need to create my own logging system, then how to plug it everywhere. then handle the storage and understanding of events/bugs with those logs
 - integration of analytic tools, linear and slack. User should be able to understand what ticket moved the needle. Slack answers are remembered.
 - saas tester - maybe the thing to test whether an app is useful (able) or not. And possible merger w sass maker.
+
+Other bets:
+- complexity reduction for builders (dev productivity is still weak)
+  - next decade is about: build faster, ship safer, operate cheaper
+  - observability that ties costs + latency + errors to a specific change and owner
+  - automated remediation for common incidents (not dashboards)
+  - tooling that makes correctness easier than "move fast break things"
+- coordination compression (orgs waste insane time)
+  - most "enterprise software" is status meetings in UI form
+  - work graphs: decisions, dependencies, ownership, SLAs
+  - async alignment tooling that replaces meetings with durable state
+  - systems that make "who is doing what and why" obvious
