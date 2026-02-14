@@ -1,4 +1,7 @@
 # Saas Ideas
+
+![AI Generated](https://ai-percentage-pin.vercel.app/api/ai-percentage?value=0)
+![AI PRs Welcome](https://ai-percentage-pin.vercel.app/api/ai-prs?welcome=yes)
 - A browser that remembers everything you have searched and lets you handle things accordingly
 - Create a directory maker for fun. And release a bunch of directories for fun, they all can use the same DB, ofc. E.g., the AI Wrapper directory.All lists (directories or such) in the market should be collaborative and modifiable via votes. The problem with this would be verifying accounts. They should be able to be visible and absent based on votes. Categorised, ranked.
 - This directory can also act as a market place for domain selling. Will need to verify domain? Can do that by dns forwarding or whatever people do to take charge of what website domain points to. And can add a back link to my website there. Also need to know how to un verify it, ie someone verified and sold it elsewhere. can have auction system built it?
