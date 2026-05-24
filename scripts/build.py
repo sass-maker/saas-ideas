@@ -339,7 +339,53 @@ def revenue_per_month(rev_str):
     mult = {'B': 1e9, 'M': 1e6, 'K': 1e3, '': 1}[(m.group(2) or '').upper()]
     return n * mult
 
+# Boilerplate prefixes Starterstory founder interviews use. Strip these to
+# get to the actual product description.
+_BOILERPLATE = [
+    r"^[Hh](?:ello|i|ey)[,!]?\s*[Ww]ho are you (?:and what (?:are you (?:working on|building)|business did you start))?\??",
+    r"^What's up\s*everyone[!,]?\s*[Ww]ho are you[^?]*\??",
+    r"^[Hh](?:ello|i|ey)[,!]?\s*[Mm]y name is [^.,]+[,.]?",
+    r"^[Ii]'?m\s+[A-Z][a-z]+(?:\s+[A-Z][a-z]+)?[,.]?",
+    r"^(?:Hello|Hi|Hey)[!,]?\s*",
+    r"^[Tt]hank(?:s| you) for (?:having me|the opportunity)[!.]?",
+    r"^[Ww]ell[,]?\s*",
+]
+
+def extract_description(story_intro, title, customers, page_title):
+    """Return a clean 1-2 sentence product description from the Starterstory
+    founder interview. Falls back to title + customers if story_intro is weak."""
+    if not story_intro:
+        return f"_{title}._" + (f" Targets: {', '.join(customers[:2])}." if customers else "")
+    text = story_intro.strip()
+    # Iteratively strip common boilerplate prefixes
+    changed = True
+    while changed:
+        changed = False
+        for pat in _BOILERPLATE:
+            m = re.match(pat, text)
+            if m:
+                text = text[m.end():].lstrip(' .,!\n')
+                changed = True
+    # Stop at the first sign of marketing fluff ("our flagship products", "We are excited", etc.)
+    # Take the first ~280 chars, ending at a sentence boundary if possible.
+    if len(text) > 280:
+        cut = text[:280]
+        # try to end at the last full sentence
+        last = max(cut.rfind('. '), cut.rfind('! '), cut.rfind('? '))
+        if last > 120:
+            text = cut[:last+1]
+        else:
+            text = cut.rstrip() + "…"
+    return text.strip()
+
 MIN_REVENUE = 5000  # $5K/month
+# Pre-researched descriptions (built by parallel agents that fetched each
+# starterstory case-study URL and produced clean 1-2 sentence summaries).
+# Keyed by URL. Falls back to extract_description() if a URL isn't here.
+try:
+    SS_DESCRIPTIONS = json.loads((ROOT/'data'/'starterstory_descriptions.json').read_text())
+except FileNotFoundError:
+    SS_DESCRIPTIONS = {}
 sol = fetch_sol()
 sol_dropped_revenue = 0
 sol_dropped_nontech = 0
@@ -358,8 +404,14 @@ for x in sol:
     co    = (x.get('company_name') or '').strip()
     url   = (x.get('url') or '').strip()
     co_part = f" — {co}" if co else ''
-    link = f" — [story]({url})" if url else ''
-    idea = f"**{rev}** — {title}{co_part} _({label})_{link}"
+    link = f" [story]({url})" if url else ''
+    desc = SS_DESCRIPTIONS.get(url) or extract_description(
+        x.get('story_intro') or '',
+        title,
+        x.get('customers') or [],
+        x.get('page_title') or '',
+    )
+    idea = f"**{rev}** — **{title}**{co_part} _({label})_{link}<br>{desc}"
     all_items.append({
         'f':Fb,'m':M,'t':Tb,'c':Cb,'idea':idea,'source':'starterstory',
         '_pre_customer':'non-dev',  # external case studies; not your build to sell to devs
