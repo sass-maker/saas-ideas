@@ -67,32 +67,26 @@
     <select id="source">
       <option value="">All sources</option>
     </select>
-    <select id="minStrengths" title="Show only ideas strong on N axes (F, M_eff, or T ≥ 7)">
-      <option value="0">Any strength</option>
-      <option value="1">Strong on 1+ axes</option>
-      <option value="2">Strong on 2+ axes</option>
-      <option value="3">Strong on all 3</option>
-    </select>
     <label style="display:inline-flex; align-items:center; gap:.35rem; color:var(--muted); font-size:.85rem;">
-      min T <input type="number" id="minT" min="0" max="10" value="7" step="1" style="width:3.5rem; background:transparent; color:var(--fg); border:1px solid var(--border); border-radius:6px; padding:.4rem .4rem; font:inherit;">
+      min Feas <input type="number" id="minFeas" min="0" max="10" value="0" step="1" style="width:3.5rem; background:transparent; color:var(--fg); border:1px solid var(--border); border-radius:6px; padding:.4rem .4rem; font:inherit;">
     </label>
     <span class="count" id="count"></span>
   </div>
+  <div class="meta" style="margin-top:.5rem;">Data is hard-filtered to T ≥ 7 (real systems work). Drag "min Feas" up to see what's actually shippable solo. Hover a ★ for the feasibility reasoning.</div>
 </header>
 <table>
   <thead>
     <tr>
-      <th data-col="best_bet" data-type="num" class="num sorted desc" title="Curated best bets — click row star for the reasoning">★</th>
-      <th data-col="s_count" data-type="num" class="num" title="Number of axes (F/M_eff/T) ≥ 7">#</th>
-      <th data-col="strengths" data-type="str" title="Which axes are ≥ 7">Strong</th>
-      <th data-col="adj"   data-type="num" class="num">Adj</th>
-      <th data-col="f"     data-type="num" class="num">F</th>
-      <th data-col="m"     data-type="num" class="num">M</th>
-      <th data-col="t"     data-type="num" class="num">T</th>
-      <th data-col="c"     data-type="num" class="num">C</th>
-      <th data-col="m_eff" data-type="num" class="num">M<sub>eff</sub></th>
-      <th data-col="idea"  data-type="str">Idea</th>
-      <th data-col="source" data-type="str">Source</th>
+      <th data-col="best_bet" data-type="num" class="num sorted desc" title="Best bet: F_feas ≥ 5 AND (F ≥ 8 OR M_eff ≥ 6 OR T ≥ 9)">★</th>
+      <th data-col="adj"     data-type="num" class="num">Adj</th>
+      <th data-col="f"       data-type="num" class="num">F</th>
+      <th data-col="m_eff"   data-type="num" class="num" title="M with competition penalty">M_eff</th>
+      <th data-col="t"       data-type="num" class="num">T</th>
+      <th data-col="f_feas"  data-type="num" class="num" title="Feasibility for solo dev — capital, distribution, time-to-MVP">Feas</th>
+      <th data-col="c"       data-type="num" class="num" title="Competition pressure">C</th>
+      <th data-col="m"       data-type="num" class="num" title="Raw M (before competition)">M</th>
+      <th data-col="idea"    data-type="str">Idea</th>
+      <th data-col="source"  data-type="str">Source</th>
     </tr>
   </thead>
   <tbody id="tbody"></tbody>
@@ -106,8 +100,7 @@ let sortCol = 'best_bet', sortDesc = true;
 const tbody = document.getElementById('tbody');
 const q = document.getElementById('q');
 const sourceSel = document.getElementById('source');
-const minSel = document.getElementById('minStrengths');
-const minTEl = document.getElementById('minT');
+const minFeasEl = document.getElementById('minFeas');
 const bestOnly = document.getElementById('bestOnly');
 const bestToggle = document.getElementById('bestToggle');
 const countEl = document.getElementById('count');
@@ -127,15 +120,13 @@ function md(s) {
 function render() {
   const query = q.value.trim().toLowerCase();
   const src = sourceSel.value;
-  const minS = parseInt(minSel.value, 10) || 0;
-  const minT = parseInt(minTEl.value, 10) || 0;
+  const minFeas = parseInt(minFeasEl.value, 10) || 0;
   const onlyBest = bestOnly.checked;
   bestToggle.classList.toggle('on', onlyBest);
   const rows = DATA.filter(x => {
     if (onlyBest && !x.best_bet) return false;
     if (src && x.source !== src) return false;
-    if (x.s_count < minS) return false;
-    if (x.t < minT) return false;
+    if (x.f_feas < minFeas) return false;
     if (query && !x.idea.toLowerCase().includes(query)) return false;
     return true;
   });
@@ -148,16 +139,16 @@ function render() {
   const cls = (v) => v >= STRONG ? ' strong' : '';
   tbody.innerHTML = rows.map(x => {
     const star = x.best_bet ? `<span class="star" title="${(x.best_bet_why || '').replace(/"/g,'&quot;')}">★</span>` : '';
+    const feasCls = x.f_feas >= 5 ? ' strong' : '';
     return `<tr>` +
     `<td class="num">${star}</td>` +
-    `<td class="num strengths s-${x.s_count}">${x.s_count}</td>` +
-    `<td class="strengths s-${x.s_count}">${x.strengths}</td>` +
     `<td class="num">${x.adj}</td>` +
     `<td class="num${cls(x.f)}">${x.f}</td>` +
-    `<td class="num">${x.m}</td>` +
-    `<td class="num${cls(x.t)}">${x.t}</td>` +
-    `<td class="num">${x.c}</td>` +
     `<td class="num${cls(x.m_eff)}">${x.m_eff}</td>` +
+    `<td class="num${cls(x.t)}">${x.t}</td>` +
+    `<td class="num${feasCls}">${x.f_feas}</td>` +
+    `<td class="num">${x.c}</td>` +
+    `<td class="num">${x.m}</td>` +
     `<td class="idea">${md(x.idea)}</td>` +
     `<td><span class="badge">${x.source}</span></td>` +
     `</tr>`;
@@ -179,8 +170,7 @@ document.querySelectorAll('th[data-col]').forEach(th => {
 });
 q.addEventListener('input', render);
 sourceSel.addEventListener('change', render);
-minSel.addEventListener('change', render);
-minTEl.addEventListener('input', render);
+minFeasEl.addEventListener('input', render);
 bestOnly.addEventListener('change', render);
 
 fetch('ideas.json').then(r => r.json()).then(d => {

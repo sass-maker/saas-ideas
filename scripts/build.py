@@ -311,34 +311,82 @@ for x in all_items:
     x['strengths'] = ''.join(s) or '—'
     x['s_count']   = len(s)
 
-# Keep all ideas in the data; the live view has a T slider so the user
-# controls the tech-heavy threshold at view time.
-# (MIN_T retained as a documentation constant — the UI defaults to it.)
+# Hard filter: drop non-tech-heavy ideas from the data entirely.
+before = len(all_items)
+all_items = [x for x in all_items if x['t'] >= MIN_T]
+print(f"Filtered to T >= {MIN_T}: kept {len(all_items)} of {before}")
 
-# Best bets — curated picks where tech-heavy meets a credible wedge.
-# Match by substring on the idea body (stable enough for our small curated set).
-BEST_BETS = {
-    "B4 — AI step-through debugger":          "Production-trace replay debugging is novel + low competition + deep tech.",
-    "Bizarre idea: fluid apps":               "Bolt/Lovable own build-time; runtime-malleable UI is greenfield + hard.",
-    "StoryTunes — [spec]":                    "Only spec with a credible solo path. Multiplayer-vote-canon-with-AI-personas is open. $1–5M ceiling but life-changing for a solo.",
-    "An app that animates manga":             "Manga-specific wedge (voice consistency + dialogue ownership) is real; category demand growing.",
-    "A2 — Legacy code resurrection":          "Even with Anthropic/IBM circling, 1–2 six-figure consulting contracts/year is a real solo outcome.",
-    "DB → sheet/notion app with git-style":   "Dolt exists for the storage; Notion-UX over git-style data is open. Genuinely hard.",
-    "A SM with personality bots":             "Moltbook validated demand for AI-only socials. Multi-agent consensus is hard tech.",
-    "Time-series geographical heatmap":       "Kalman/Viterbi territory is satisfying; vertical (demand forecasting) is open.",
+# Feasibility for a solo dev /10. 1 = needs $10M and a sales team.
+# 10 = solo can ship V1 in a weekend with self-serve distribution.
+# Considers: capital required, distribution motion, cold-start network effects,
+# time-to-MVP, sales cycle, incumbent moats already locked in.
+FEAS = {
+    # (substring → (F_feas, one-line reasoning))
+    "An app that animates manga":         (2, "Massive ML compute + video models + dataset + voice consistency at scale. Not solo-shippable."),
+    "Trustworthy automation infra":       (2, "Theme, not product. Even narrow vertical needs deep enterprise relationships."),
+    "Time-series geographical heatmap":   (4, "Tractable to demo; B2B analytics sales is brutal for solo."),
+    "B4 — AI step-through debugger":      (6, "Devtool, solo can ship; OSS-launch + dev community is a real distribution path."),
+    "DB → sheet/notion app with git-style":(3, "Years of UX work to match Notion + merge correctness. B2B sales motion."),
+    "Bizarre idea: fluid apps":           (4, "Tech tractable; distribution against Lovable/Bolt's $200M+ funding is brutal."),
+    "An on-disk trie":                    (8, "Weekend project, ships as OSS. Not a business but a real artifact."),
+    "How to make AI work with a new programming":(3, "Pure research, no product path or market."),
+    "A website that tells you the time complexity":(7, "Weekend project, niche devtool, freemium/$5-mo viable."),
+    "A2 — Legacy code resurrection":      (2, "Enterprise sales, Fortune 500 access, multi-month cycles. Consulting is solo-doable but not a product."),
+    "AI analytics company":               (2, "Brutal market (PostHog $1.4B); multi-year build; B2B sales."),
+    "Build a minimalist graph library":   (8, "OSS library, weekend-to-month, devs install for themselves. M near zero."),
+    "Open world game with AI characters": (3, "Game dev complexity, marketing, content moderation, scaling AI costs."),
+    "Pluggable recommendation system":    (3, "SDK distribution + B2B sales + Algolia/Recombee free tiers undercut."),
+    "Productivity App — [spec]":          (2, "3-year solo build per the deep-dive; Notion+Motion own the lane."),
+    "An app that lets you build walkable 3D worlds":(3, "Game-engine complexity vs Roblox/Spatial install base."),
+    "FamilyTree — [spec]":                (2, "Multi-year build vs Ancestry/MyHeritage; per deep-dive, essentially dead."),
+    "An agent that deep-dives on a person":(4, "Legal/OSINT risk + B2B sales for revenue. Solo prototype OK; ship-to-revenue hard."),
+    "Scalable n8n alternative":           (2, "Fighting n8n at $2.5B + NVIDIA on their turf."),
+    "Interoperability / data plumbing":   (2, "Theme. Fivetran/Census just consolidated; enterprise sales required."),
+    "StoryTunes — [spec]":                (5, "Solo can build the engine; cold-start on multiplayer fiction is hard but doable with hand-curation."),
+    "A SM with personality bots":         (3, "Cold-start network effects, content moderation, AI costs at scale."),
+    "Storytunes. Multi-author":           (5, "Same as the spec — solo-buildable, distribution is the open question."),
+    "Let old machines be used as a server":(6, "Niche infra OSS project; devs interested; weak revenue but solo-shippable."),
+    "Tree Visualizer":                    (5, "Small product, niche audience, OSS-ish, hard to monetize."),
+    "AI social media with named personas":(3, "Same as SM bots — cold-start + moderation + AI scaling."),
+    "A browser that remembers everything you have searched":(4, "Tractable but Rewind/Dia/Limitless funded and incumbent."),
+    "C2 — Screen / browser copilot":      (4, "Cluely at $7M ARR with $20M funding sucked the oxygen out post-2025."),
+    "A chatbot arena where LLMs argue":   (5, "Research-y, OSS-friendly, low monetization but solo can ship."),
+    "magicform — [spec]":                 (3, "Form market saturated + every incumbent shipped AI gen + Tally's free tier."),
+    "An app like pager-duty but for live orders":(5, "Vertical SaaS — small TAM but real; solo can build + sell into one industry."),
+    "A1 — Synthetic user QA tester":      (4, "QA Wolf/Mabl/Octomind funded; solo can build but engineering-team distribution hard."),
+    "Build something like https://www.wikiboard.org":(5, "Tech tractable, niche audience, OSS-ish."),
+    "Analyses GitHub repository history": (4, "Devtool, solo can build; distribution against Greptile $25M/CodeRabbit $60M hard."),
+    "Personal knowledge assistant":       (5, "Solo can build the primitive; standalone monetization unclear; better as a feature."),
+    "C1 — LLM experiment / routing hub":  (3, "OpenRouter $500M val owns marketplace; LiteLLM owns OSS proxy."),
+    "Lightweight observability + logs framework":(2, "Datadog/Sentry/Axiom/BetterStack — brutally consolidated."),
+    "CCTV app customisable for special queries":(3, "Verkada owns hardware buyers; software-only B2B sales is brutal."),
+    "B1 — AI log / incident copilot":     (3, "Datadog Bits AI shipped, every incumbent racing; log-volume costs kill solo."),
+    "A3 — Deep-dive investment analyst":  (3, "AlphaSense $4B with data licensing moat; solo can't get the data."),
 }
-for x in all_items:
-    bet = None
-    for needle, why in BEST_BETS.items():
-        if needle in x['idea']:
-            bet = why; break
-    x['best_bet']    = bet is not None
-    x['best_bet_why'] = bet or ''
 
-# Sort: best_bet first, then strengths, then adj
-all_items.sort(key=lambda x: (-int(x['best_bet']), -x['s_count'], -x['adj'], -max(x['f'], x['m_eff'], x['t']), -x['f']))
+# Stamp F_feas on each item
+for x in all_items:
+    feas, why = 4, ""  # default for unmatched
+    for needle, (score, reason) in FEAS.items():
+        if needle in x['idea']:
+            feas, why = score, reason; break
+    x['f_feas']     = feas
+    x['f_feas_why'] = why
+
+# Best bet criterion: feasibility for a solo dev AND strong on at least one axis.
+# F_feas >= 5 (solo can plausibly ship) AND (F >= 8 OR M_eff >= 6 OR T >= 9).
+# Reasoning comes from f_feas_why.
+for x in all_items:
+    x['best_bet'] = (
+        x['f_feas'] >= 5 and
+        (x['f'] >= 8 or x['m_eff'] >= 6 or x['t'] >= 9)
+    )
+    x['best_bet_why'] = x['f_feas_why'] if x['best_bet'] else ''
+
+# Sort: best_bet first, then by adj (which already includes M_eff), then by f_feas
+all_items.sort(key=lambda x: (-int(x['best_bet']), -x['adj'], -x['f_feas'], -max(x['f'], x['m_eff'], x['t'])))
 from collections import Counter
-print(f"Total {len(all_items)} ideas | strength distribution: {dict(Counter(x['s_count'] for x in all_items))} | best bets: {sum(x['best_bet'] for x in all_items)}")
+print(f"Total {len(all_items)} ideas | best bets: {sum(x['best_bet'] for x in all_items)} | F_feas dist: {dict(Counter(x['f_feas'] for x in all_items))}")
 
 # ---------------------------------------------------------------------------
 # Write minimal README stub
