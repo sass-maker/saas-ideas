@@ -1,4 +1,6 @@
-# Productivity App
+# Productivity App `[F8 M5 T8]`
+
+_Scores out of 10 — fun to build, money potential, technically challenging._
 
 ## Tech Stack
 

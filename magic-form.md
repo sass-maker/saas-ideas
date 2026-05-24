@@ -1,4 +1,6 @@
-# magicform
+# magicform `[F7 M7 T7]`
+
+_Scores out of 10 — fun to build, money potential, technically challenging._
 
 - can have prebuilt templates, can let users publish them as well.
 - CustomForm with AI: You can get json structures from gpt responses, allowing you to create forms with very ease (google forms or custom). Summarize the response to make better sense easily.

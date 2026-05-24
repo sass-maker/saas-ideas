@@ -1,4 +1,6 @@
-# StoryTunes
+# StoryTunes `[F8 M4 T7]`
+
+_Scores out of 10 — fun to build, money potential, technically challenging._
 
 Collaborative storytelling with voting, branching canon, and optional AI co-authors.
 
