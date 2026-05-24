@@ -236,18 +236,20 @@ FRESH_IDEAS = [
 ]
 
 CAT = {
+    # Tech-first categories (T bumped to 7+ so they pass the T>=7 filter)
+    'gpt-wrapper-ideas':                              (7, 8, 8, 'GPT Wrappers'),
+    'micro-saas-ideas':                               (6, 7, 7, 'Micro SaaS'),
+    'solo-developer-ideas':                           (6, 7, 7, 'Solo Developer'),
+    'automation-ideas':                               (6, 7, 7, 'Automation'),
+    'digital-product-ideas':                          (6, 7, 7, 'Digital Products'),
+    'freemium-and-open-source-ideas':                 (6, 7, 7, 'Freemium / Open Source'),
+    'plugins':                                        (6, 7, 6, 'Plugins'),
+    'm2m-by-makers-for-makers':                       (7, 7, 6, 'Makers for Makers'),
+    # Mixed / case-by-case (left at non-tech-first baseline — will be filtered out)
     'greatest-hits':                                  (6, 4, 7, 'Greatest Hits'),
-    'micro-saas-ideas':                               (6, 6, 7, 'Micro SaaS'),
-    'solo-developer-ideas':                           (6, 6, 7, 'Solo Developer'),
     'solopreneur-ideas':                              (6, 4, 7, 'Solopreneur'),
-    'gpt-wrapper-ideas':                              (7, 6, 8, 'GPT Wrappers'),
-    'automation-ideas':                               (6, 6, 7, 'Automation'),
-    'digital-product-ideas':                          (6, 5, 7, 'Digital Products'),
     'productized-services':                           (4, 3, 6, 'Productized Services'),
-    'freemium-and-open-source-ideas':                 (6, 5, 7, 'Freemium / Open Source'),
     'weekend-projects':                               (7, 3, 5, 'Weekend Projects'),
-    'm2m-by-makers-for-makers':                       (7, 4, 6, 'Makers for Makers'),
-    'plugins':                                        (6, 5, 6, 'Plugins'),
     'apps-so-simple':                                 (6, 3, 6, 'Apps So Simple'),
     'one-page-websites':                              (4, 2, 7, 'One-Page Sites'),
     '1m-shovels':                                     (5, 3, 7, '$1M Shovels'),
@@ -326,9 +328,44 @@ for F, M, T, C, F_feas, customer, title, body in FRESH_IDEAS:
         '_pre_customer':customer,
     })
 
-# Starterstory extracts removed: per user, ignore externally-scraped products
-# entirely. (They were also all filtered out by T >= 7 since category
-# baselines maxed at T=6/7, but removing the load step makes intent explicit.)
+# Starterstory: include only entries with revenue >= $5K/mo AND from
+# tech-first categories (tech-first means T_baseline >= 7 in CAT above).
+def revenue_per_month(rev_str):
+    """Parse '$1M/month' or '$3K/month' → number of $/month. 0 if unknown."""
+    if not rev_str or rev_str.strip() in ('', '?'): return 0
+    m = re.search(r'\$([\d.]+)\s*([KMB])?', rev_str, re.I)
+    if not m: return 0
+    n = float(m.group(1))
+    mult = {'B': 1e9, 'M': 1e6, 'K': 1e3, '': 1}[(m.group(2) or '').upper()]
+    return n * mult
+
+MIN_REVENUE = 5000  # $5K/month
+sol = fetch_sol()
+sol_dropped_revenue = 0
+sol_dropped_nontech = 0
+for x in sol:
+    src = x.get('source')
+    if src in SOL_DROP or src not in CAT: continue
+    Fb, Tb, Cb, label = CAT[src]
+    if Tb < MIN_T:                       # non-tech-first category
+        sol_dropped_nontech += 1; continue
+    rev_mo = revenue_per_month(x.get('revenue'))
+    if rev_mo < MIN_REVENUE:             # <$5K/mo
+        sol_dropped_revenue += 1; continue
+    M = m_from_revenue(x.get('revenue'))
+    title = (x.get('title') or '').strip() or '(untitled)'
+    rev   = (x.get('revenue') or '?').strip() or '?'
+    co    = (x.get('company_name') or '').strip()
+    url   = (x.get('url') or '').strip()
+    co_part = f" — {co}" if co else ''
+    link = f" — [story]({url})" if url else ''
+    idea = f"**{rev}** — {title}{co_part} _({label})_{link}"
+    all_items.append({
+        'f':Fb,'m':M,'t':Tb,'c':Cb,'idea':idea,'source':'starterstory',
+        '_pre_customer':'non-dev',  # external case studies; not your build to sell to devs
+    })
+print(f"Starterstory: kept {sum(1 for x in all_items if x['source']=='starterstory')}; "
+      f"dropped {sol_dropped_revenue} for <$5K/mo, {sol_dropped_nontech} for non-tech-first category")
 
 # Add derived fields (no active/archive split — sorting in the site handles it)
 STRONG = 7  # threshold for "strong on an axis"
