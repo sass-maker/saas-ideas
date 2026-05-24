@@ -326,20 +326,9 @@ for F, M, T, C, F_feas, customer, title, body in FRESH_IDEAS:
         '_pre_customer':customer,
     })
 
-sol = fetch_sol()
-for x in sol:
-    src = x.get('source')
-    if src in SOL_DROP or src not in CAT: continue
-    Fb, Tb, Cb, label = CAT[src]
-    M = m_from_revenue(x.get('revenue'))
-    title = (x.get('title') or '').strip() or '(untitled)'
-    rev = (x.get('revenue') or '?').strip() or '?'
-    co = (x.get('company_name') or '').strip()
-    url = (x.get('url') or '').strip()
-    co_part = f" — {co}" if co else ''
-    link = f" — [story]({url})" if url else ''
-    idea = f"**{rev}** — {title}{co_part} _({label})_{link}"
-    all_items.append({'f':Fb,'m':M,'t':Tb,'c':Cb,'idea':idea,'source':'starterstory'})
+# Starterstory extracts removed: per user, ignore externally-scraped products
+# entirely. (They were also all filtered out by T >= 7 since category
+# baselines maxed at T=6/7, but removing the load step makes intent explicit.)
 
 # Add derived fields (no active/archive split — sorting in the site handles it)
 STRONG = 7  # threshold for "strong on an axis"
