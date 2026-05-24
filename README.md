@@ -5,7 +5,7 @@
 
 All ideas in one table. Scores `[F M T]` /10 each — **F**un to build, **M**oney potential, **T**echnical challenge. Sorted by Sum (F+M+T) descending.
 
-**For real click-to-sort + text filter: [open the live view →](https://sarthakagrawal927.github.io/saas-ideas/)** _(requires GitHub Pages enabled on this repo — Settings → Pages → Source: `main` branch, `/docs` folder)._ The table below is the same data, statically pre-sorted by Sum descending.
+**For click-to-sort + text filter: [open the live view →](https://saas-ideas.pages.dev/)** (Cloudflare Pages, redeploy via `npx wrangler pages deploy ./docs --project-name saas-ideas`). The table below is the same data, statically pre-sorted by Sum descending.
 
 **Active (110)** — at least one score ≥ 8. Anything weaker is in **Archive** at the bottom.
 
