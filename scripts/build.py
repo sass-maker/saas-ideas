@@ -201,6 +201,40 @@ SPEC_IDEAS = [
 # Solopreneur — category-based C baselines applied to scraped entries
 # ---------------------------------------------------------------------------
 
+# ---------------------------------------------------------------------------
+# Fresh ideas (outside the original backlog) — generated to fit the brief:
+# tech-heavy (T>=7), non-dev customer, $5K MRR achievable, solo-feasible,
+# real wedge against incumbents. Each tuple has explicit F_feas and customer.
+# ---------------------------------------------------------------------------
+
+FRESH_IDEAS = [
+    # (F, M, T, C, F_feas, customer, title, body)
+    (7, 7, 7, 4, 6, "non-dev",
+     "Construction daily report automation",
+     "Foremen take phone photos + voice notes; AI generates compliance-ready daily logs (weather, headcount, work completed, safety incidents) as branded PDFs. **Comp:** Procore, Buildertrend are heavy ERPs; lightweight AI-first reporting is open. **Wedge:** target the 1–10-employee general contractor who can't justify Procore's $7K/yr. $100/site/mo × 50 sites = $5K MRR. Tech: vision-LM on photos + voice-to-text + template engine."),
+    (7, 6, 7, 5, 6, "non-dev",
+     "Home inspector report automation",
+     "Photos + voice notes → branded customer-ready inspection PDFs with defect categorization, severity, and repair-cost ranges. **Comp:** Spectora (~$60/mo), HomeGauge — established, but AI-first photo workflow is the wedge. **Wedge:** 5× faster report generation. Each inspector does 5–15 reports/wk; $79/mo × 65 inspectors = $5K MRR. Tech: vision-LM defect detection + RICS-style template engine."),
+    (8, 6, 8, 4, 5, "non-dev",
+     "AI hyperlocal newsletter automation",
+     "For citizen-journalists & local-newsletter ops: scrapes Reddit, city council minutes (PDFs!), event sites, local news; dedups across sources; drafts neighborhood/city newsletter with embedded sources. **Comp:** none doing the *sourcing* — beehiiv/Substack are publishing tools, not content engines. **Wedge:** the data pipeline. $50–100/mo × 50–100 ops = $5K MRR. Tech: distributed scrapers + LLM synthesis + dedup + scheduling."),
+    (7, 6, 7, 6, 6, "non-dev",
+     "AI personal CRM with auto-drafted check-ins",
+     "\"Haven't talked to X in 90 days — here's a draft message based on past context.\" Reads email + calendar, builds a relationship graph, surfaces who's slipping. **Comp:** Dex, Clay (B2B-focused), Monica. **Wedge:** auto-draft with past-context memory is the gap — others just remind. $10–30/mo prosumer/exec. 200 users at $25/mo = $5K MRR. Tech: email/calendar ingest + relationship graph + RAG drafting."),
+    (8, 6, 8, 6, 5, "non-dev",
+     "Voice memo → publish pipeline",
+     "Record an idea; get published-ready blog post / newsletter / Twitter thread / LinkedIn post in your tone, with auto-pulled images/quotes. **Comp:** Castmagic ($23/mo), Cleft, Audiopen ($9/mo) — growing but specific *format-per-output* + tone-cloning is open. **Wedge:** style-transfer per channel + auto-image. $20/mo × 250 creators = $5K MRR. Tech: ASR + style-transfer + multi-format generation."),
+    (6, 7, 7, 6, 5, "non-dev",
+     "Etsy / Shopify niche listing optimizer",
+     "Upload a listing; get per-niche SEO scoring vs top sellers, photo enhancement, pricing recommendation, copy rewrite. **Comp:** eRank ($6/mo), Marmalead — keyword-only tools; AI-first generation is the gap. **Wedge:** per-niche tuning (jewelry vs digital products vs apparel). $30/mo × 170 sellers = $5K MRR. Tech: scraping top-seller signals + vision + LLM generation."),
+    (4, 7, 7, 4, 5, "non-dev",
+     "Memorial / obituary site generator for funeral homes",
+     "Funeral homes upload photos + bio; get a branded memorial page with comments, donation links, livestream embed. White-label per home. **Comp:** Tributes.com (Legacy.com — dominant but ugly), Ever Loved. **Wedge:** clean modern UX + AI-written tribute drafts. $50/mo per home × 100 homes = $5K MRR. Tech: white-label SaaS + media handling."),
+    (7, 5, 8, 5, 4, "non-dev",
+     "AI fact-checker / source surfacer for journalists",
+     "Paste a claim or article; get verified counter-sources with credibility scoring + key quotes. **Comp:** Originality.ai (plagiarism-focused), Logically (enterprise), Snopes (manual). **Wedge:** journalist/researcher tier at $30/mo with API access. 170 users = $5K MRR. Tech: source retrieval + cross-document NLI + credibility ranking."),
+]
+
 CAT = {
     'greatest-hits':                                  (6, 4, 7, 'Greatest Hits'),
     'micro-saas-ideas':                               (6, 6, 7, 'Micro SaaS'),
@@ -282,6 +316,15 @@ for F, M, T, C, body in README_IDEAS:
     all_items.append({'f':F,'m':M,'t':T,'c':C,'idea':body,'source':'README'})
 for F, M, T, C, body in SPEC_IDEAS:
     all_items.append({'f':F,'m':M,'t':T,'c':C,'idea':body,'source':'spec'})
+for F, M, T, C, F_feas, customer, title, body in FRESH_IDEAS:
+    all_items.append({
+        'f':F,'m':M,'t':T,'c':C,
+        'idea':f"**{title}.** {body}",
+        'source':'fresh',
+        # pre-populated so the dict-based lookups below don't override
+        '_pre_feas':F_feas, '_pre_feas_why':"Fresh idea — feasibility hand-set on add.",
+        '_pre_customer':customer,
+    })
 
 sol = fetch_sol()
 for x in sol:
@@ -364,8 +407,12 @@ FEAS = {
     "A3 — Deep-dive investment analyst":  (3, "AlphaSense $4B with data licensing moat; solo can't get the data."),
 }
 
-# Stamp F_feas on each item
+# Stamp F_feas on each item (use pre-populated value if present)
 for x in all_items:
+    if '_pre_feas' in x:
+        x['f_feas']     = x.pop('_pre_feas')
+        x['f_feas_why'] = x.pop('_pre_feas_why')
+        continue
     feas, why = 4, ""  # default for unmatched
     for needle, (score, reason) in FEAS.items():
         if needle in x['idea']:
@@ -373,13 +420,52 @@ for x in all_items:
     x['f_feas']     = feas
     x['f_feas_why'] = why
 
+# Customer type. "dev" = individual devs (hardest to monetize — they think
+# they can build it themselves). "b2b-tech" = companies buy for tech teams
+# (real motion, but slower). "non-dev" = everyone else (prosumers, vertical
+# ops, students, writers, recruiters — usually easier to extract $).
+CUSTOMER = {
+    # dev-individual
+    "An on-disk trie":                   "dev",
+    "Build a minimalist graph library":  "dev",
+    "A website that tells you the time complexity": "dev",
+    "Let old machines be used as a server": "dev",
+    "A chatbot arena where LLMs argue":  "dev",
+    "Analyses GitHub repository history":"dev",
+    "How to make AI work with a new programming": "dev",
+    # b2b-tech (companies buy for tech teams)
+    "B4 — AI step-through debugger":     "b2b-tech",
+    "A1 — Synthetic user QA tester":     "b2b-tech",
+    "B1 — AI log / incident copilot":    "b2b-tech",
+    "C1 — LLM experiment / routing hub": "b2b-tech",
+    "AI analytics company":              "b2b-tech",
+    "Pluggable recommendation system":   "b2b-tech",
+    "Scalable n8n alternative":          "b2b-tech",
+    "Lightweight observability":         "b2b-tech",
+    "Trustworthy automation infra":      "b2b-tech",
+    "Interoperability / data plumbing":  "b2b-tech",
+    "DB → sheet/notion app with git-style":"b2b-tech",
+    "A2 — Legacy code resurrection":     "b2b-tech",
+    "magicform — [spec]":                "b2b-tech",
+    # non-dev (everything else: prosumer, vertical, student, writer, ops, etc)
+}
+for x in all_items:
+    if '_pre_customer' in x:
+        x['customer'] = x.pop('_pre_customer')
+        continue
+    ctype = "non-dev"
+    for needle, c in CUSTOMER.items():
+        if needle in x['idea']:
+            ctype = c; break
+    x['customer'] = ctype
+
 # Best bet criterion calibrated to a $5K MRR target (100 users at $50/mo or
-# 1000 at $5/mo — a niche player can win even in saturated markets). Use raw M
-# (not M_eff) because competition matters less at $5K than at $5M ARR.
-# F_feas >= 4 (solo can ship with hustle) AND (F >= 7 OR M >= 4 OR T >= 8).
+# 1000 at $5/mo) AND excluding dev-individual ideas (devs love it; devs love
+# not paying). b2b-tech is allowed because companies do pay for their teams.
 for x in all_items:
     x['best_bet'] = (
         x['f_feas'] >= 4 and
+        x['customer'] != 'dev' and
         (x['f'] >= 7 or x['m'] >= 4 or x['t'] >= 8)
     )
     x['best_bet_why'] = x['f_feas_why'] if x['best_bet'] else ''

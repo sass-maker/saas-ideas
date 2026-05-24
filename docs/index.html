@@ -70,9 +70,15 @@
     <label style="display:inline-flex; align-items:center; gap:.35rem; color:var(--muted); font-size:.85rem;">
       min Feas <input type="number" id="minFeas" min="0" max="10" value="0" step="1" style="width:3.5rem; background:transparent; color:var(--fg); border:1px solid var(--border); border-radius:6px; padding:.4rem .4rem; font:inherit;">
     </label>
+    <select id="customer" title="Customer type">
+      <option value="">All customers</option>
+      <option value="non-dev">Non-dev only</option>
+      <option value="b2b-tech">B2B tech (company buys for team)</option>
+      <option value="dev">Dev (individual)</option>
+    </select>
     <span class="count" id="count"></span>
   </div>
-  <div class="meta" style="margin-top:.5rem;">Data is hard-filtered to T ≥ 7 (real systems work). Drag "min Feas" up to see what's actually shippable solo. Hover a ★ for the feasibility reasoning.</div>
+  <div class="meta" style="margin-top:.5rem;">Data hard-filtered to T ≥ 7. Best-bet rule: F_feas ≥ 4 AND (F ≥ 7 OR M ≥ 4 OR T ≥ 8) AND customer ≠ dev. Hover ★ for the feasibility reasoning.</div>
 </header>
 <table>
   <thead>
@@ -101,6 +107,7 @@ const tbody = document.getElementById('tbody');
 const q = document.getElementById('q');
 const sourceSel = document.getElementById('source');
 const minFeasEl = document.getElementById('minFeas');
+const customerSel = document.getElementById('customer');
 const bestOnly = document.getElementById('bestOnly');
 const bestToggle = document.getElementById('bestToggle');
 const countEl = document.getElementById('count');
@@ -121,11 +128,13 @@ function render() {
   const query = q.value.trim().toLowerCase();
   const src = sourceSel.value;
   const minFeas = parseInt(minFeasEl.value, 10) || 0;
+  const cust = customerSel.value;
   const onlyBest = bestOnly.checked;
   bestToggle.classList.toggle('on', onlyBest);
   const rows = DATA.filter(x => {
     if (onlyBest && !x.best_bet) return false;
     if (src && x.source !== src) return false;
+    if (cust && x.customer !== cust) return false;
     if (x.f_feas < minFeas) return false;
     if (query && !x.idea.toLowerCase().includes(query)) return false;
     return true;
@@ -150,7 +159,7 @@ function render() {
     `<td class="num">${x.c}</td>` +
     `<td class="num">${x.m}</td>` +
     `<td class="idea">${md(x.idea)}</td>` +
-    `<td><span class="badge">${x.source}</span></td>` +
+    `<td><span class="badge">${x.source}</span> <span class="badge">${x.customer}</span></td>` +
     `</tr>`;
   }).join('');
   countEl.textContent = `${rows.length} of ${DATA.length}`;
@@ -171,6 +180,7 @@ document.querySelectorAll('th[data-col]').forEach(th => {
 q.addEventListener('input', render);
 sourceSel.addEventListener('change', render);
 minFeasEl.addEventListener('input', render);
+customerSel.addEventListener('change', render);
 bestOnly.addEventListener('change', render);
 
 fetch('ideas.json').then(r => r.json()).then(d => {
