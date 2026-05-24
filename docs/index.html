@@ -73,9 +73,11 @@
       <option value="2">Strong on 2+ axes</option>
       <option value="3">Strong on all 3</option>
     </select>
+    <label style="display:inline-flex; align-items:center; gap:.35rem; color:var(--muted); font-size:.85rem;">
+      min T <input type="number" id="minT" min="0" max="10" value="7" step="1" style="width:3.5rem; background:transparent; color:var(--fg); border:1px solid var(--border); border-radius:6px; padding:.4rem .4rem; font:inherit;">
+    </label>
     <span class="count" id="count"></span>
   </div>
-  <div class="meta" style="margin-top:.5rem;">Data is pre-filtered to tech-heavy ideas (T ≥ 7). Non-tech-heavy items are dropped at build time.</div>
 </header>
 <table>
   <thead>
@@ -105,6 +107,7 @@ const tbody = document.getElementById('tbody');
 const q = document.getElementById('q');
 const sourceSel = document.getElementById('source');
 const minSel = document.getElementById('minStrengths');
+const minTEl = document.getElementById('minT');
 const bestOnly = document.getElementById('bestOnly');
 const bestToggle = document.getElementById('bestToggle');
 const countEl = document.getElementById('count');
@@ -125,12 +128,14 @@ function render() {
   const query = q.value.trim().toLowerCase();
   const src = sourceSel.value;
   const minS = parseInt(minSel.value, 10) || 0;
+  const minT = parseInt(minTEl.value, 10) || 0;
   const onlyBest = bestOnly.checked;
   bestToggle.classList.toggle('on', onlyBest);
   const rows = DATA.filter(x => {
     if (onlyBest && !x.best_bet) return false;
     if (src && x.source !== src) return false;
     if (x.s_count < minS) return false;
+    if (x.t < minT) return false;
     if (query && !x.idea.toLowerCase().includes(query)) return false;
     return true;
   });
@@ -175,6 +180,7 @@ document.querySelectorAll('th[data-col]').forEach(th => {
 q.addEventListener('input', render);
 sourceSel.addEventListener('change', render);
 minSel.addEventListener('change', render);
+minTEl.addEventListener('input', render);
 bestOnly.addEventListener('change', render);
 
 fetch('ideas.json').then(r => r.json()).then(d => {

@@ -311,10 +311,9 @@ for x in all_items:
     x['strengths'] = ''.join(s) or '—'
     x['s_count']   = len(s)
 
-# Drop non-tech-heavy ideas
-before = len(all_items)
-all_items = [x for x in all_items if x['t'] >= MIN_T]
-print(f"Filtered to T >= {MIN_T}: kept {len(all_items)} of {before}")
+# Keep all ideas in the data; the live view has a T slider so the user
+# controls the tech-heavy threshold at view time.
+# (MIN_T retained as a documentation constant — the UI defaults to it.)
 
 # Best bets — curated picks where tech-heavy meets a credible wedge.
 # Match by substring on the idea body (stable enough for our small curated set).
