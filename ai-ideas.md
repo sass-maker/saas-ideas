@@ -1,22 +1,150 @@
 # AI Ideas
 
-1) trustworthy automation (ai made this the bottleneck)
+Consolidated from earlier `ai-ideas.md`, `ai-knowledge-app.md`, and `by-ai.md`.
 
-we are moving from "software = tools you operate" to "software = agents that act". brutal requirement: trust.
+---
+
+## Themes worth building around
+
+### 1. Trustworthy automation (AI made this the bottleneck)
+
+We are moving from "software = tools you operate" to "software = agents that act". Brutal requirement: trust.
 
 - reliable agent execution in messy real-world systems (permissions, retries, state, idempotency, rollback, audits)
-- evaluation harnesses for ai behavior (tests for "does it do the right thing?" not just "does it compile?")
+- evaluation harnesses for AI behavior (tests for "does it do the right thing?" not just "does it compile?")
 - provenance: what data/model/tool produced this output; can it be traced and reproduced?
-- guardrails that arent theater: policy, monitoring, incident response for ai
+- guardrails that aren't theater: policy, monitoring, incident response for AI
 
-if you build anything ai-adjacent and dont solve trust, you're building a demo.
+If you build anything AI-adjacent and don't solve trust, you're building a demo.
 
-2) interoperability and data plumbing (still painfully unsolved)
+### 2. Interoperability and data plumbing (still painfully unsolved)
 
-world runs on broken pipes:
+World runs on broken pipes:
 
-- moving data across saas tools, warehouses, event streams, crms, internal systems
+- moving data across SaaS tools, warehouses, event streams, CRMs, internal systems
 - mapping schemas, resolving identities, deduping entities, lineage
 - "business logic glue" that currently lives in tribal knowledge and brittle scripts
 
-the opportunity isnt a new db. its making data movement + meaning cheap.
+The opportunity isn't a new DB. It's making data movement + meaning cheap.
+
+---
+
+## Knowledge-base / search / RAG product ideas
+
+### AI cacher
+A SaaS that stores all queries asked with their cached response and TTLs. User can see list of questions asked; when they start typing they see related questions and choose whether to create a new query. Response is fetched from DB and, based on TTL, either returned or re-asked.
+
+Features:
+- topic / subtopic level filtering
+- mass TTL cleanup based on topic/subtopic (store valid-till field per answer and topic)
+- works for a particular set of data
+- linked questions per response
+
+Extends to medicine knowledge base, education bots, etc. Works very well for knowledge bases that are not frequently updated. Won't be good where many personalizations / subsequent questions are needed. Stores two things in vector DB: the knowledge base, and all existing questions.
+
+### Build-a-vector-DB-from-a-website
+An app that builds a vector database by scraping a site (use sitemap). Embeddable as an extension of various apps. People can hoard stuff and let everyone query on it. See sitegpt.com.
+
+### Chat with content
+- Chat with any book
+- Search across podcasts (also across multiple)
+- Search across mine-hoarded stuff — books, starred repos (hoarder.com extension)
+- App should be able to take subtitles and find the point of a dialogue — index on complete lines, not timestamps
+
+### Personal knowledge assistant
+Acts as a personal knowledge base; helps you understand whether you've learned something new based on daily input. Gives most-similar stuff and asks whether you've learned new or not. The "is this new?" primitive can be used in many places — letting users enter products, building agents, etc. If a social network adopts it to improve content quality (by embedding original content and refusing duplicates), it would be gamed by users and counter-intuitive to what SM stands for today.
+
+### Find similar git commits
+An app to search across commit history. Also a primitive for finding similar git commits.
+
+### Search across browser history
+Need to handle sites whose content depends mostly on auth — just take base and info.
+
+### Multi-LLM Q&A with voting
+Answers previously-asked questions for free/instant with 10 different LLMs. Users vote which answer is best. Refresh, see related questions. No personalization — just general niche questions answered well and open for everyone. Like Stack Overflow, but answered by LLMs.
+
+### Research paper recommender
+Recommends papers based on what the user searches. Detailed, broken-down embeddings per paper. Similar well-cited papers recommended. Ad blocks between papers based on query. Graph-based hierarchy to show prerequisites.
+
+### Subreddit digester
+Stays posted on everything new in the subreddit. Checks trending posts every 8h; distills with LLM and Slacks you. For SEO, include Reddit hot-posts summary. Users enter their favorite subreddit — return cached version if exists, else build and store. Premium = immediate refresh. Custom prompts. Charge for latest data, faster refreshes, dynamic prompts, ability to export.
+
+- Tip: append `.json` to any reddit URL for the JSON
+- Cache user questions like `/q/What-about-this?`
+- Weekly / monthly summary pages with history
+
+### Celebrity / fictional-character site builder
+Generates SEO sites very fast. Community-driven articles (consensus). Track public/social appearances. Could combine with story-tunes. Could be a social network with celebrity-tracker AI personas that interact in public.
+
+### AI social media with personas
+A social media with AI influencers. They make reels and cross-post. AI personas hireable. Integrate vector-hot-feed logic. AI personalities create memes on news headlines; like/dislike each other's memes.
+
+---
+
+## AI Ayurveda / wellness store
+
+Problems → herbs → minerals, plus product links. Read prescriptions and test results.
+
+- Ayurveda website linked to an online store.
+- Pick a body part → relevant herbs to cure it. Figure (internalized human body) + list view.
+- People rate herbs and vote for the best herb for an illness.
+- Extend to all natural substances and where to buy.
+- RedwoodJS as CMS, Vercel Store as frontend.
+- Integrate food store and skincare. Break myths of food items. Choose foods per requirements.
+- For each generic query, auto-create a blog via DB insertion. Redeploy daily for SSG (JAMStack — like superblog). Something like Dukaan but more specific to advice + showing products.
+- Always include disclaimer and inform when a doctor is needed.
+
+Adjacent: chemist assistant after dumping all known chemicals. AI fitness chatbot (feed all exercises with tutorials; personalized plan based on what user has and needs). Quotes handbook.
+
+Can end up making copilots for all jobs — lawyers, doctors, etc. Can base any of them on a specific person's content.
+
+---
+
+## Memenza
+
+Multiple meme templates based on entered text. Give users multiple options and capture feedback to improve the algorithm. Website with latest memes in different categories.
+
+- Two uploader tiers: verified and not verified.
+- Top-memer awards. Leagues. Verified memers add their own categories (after moderator check).
+- Real-time AI meme generator from user input.
+- Best meme-format finder.
+- Different AI personalities create memes on news headlines for a feed. AI personas like/dislike memes.
+- Start as a simple meme generator; create embeddings of text explanations of all meme images; given a user prompt, find best-suited template.
+- For SEO: cache user queries.
+
+---
+
+## AI-generated suggestions (external)
+
+Ranked from earlier `by-ai.md`. Treat as a starter shortlist with reasoning attached.
+
+### Tier A — easy to price, easy to demo ROI
+- **B3 — Recruiter / Candidate Intelligence.** You already think about resumes/jobs. Small recruiters and in-house HR have clear pain and budgets.
+- **A1 — Synthetic User QA Tester.** QA is a real line item. Self-serve $50–$200/mo per team is believable. Competition exists; value story is simple.
+- **B2 — AI Postmortem & RCA Generator.** Narrow, painful, mandated in any semi-serious org. Turns hated work into editing. Good wedge into SRE/infra budgets.
+
+### Tier B — strong but harder
+- **B1 — AI Log & Incident Copilot.** Outage cost huge → value clear. But space is noisy and expectations high.
+- **A4 — Negotiation/Sales Roleplay Partner.** Corporate L&D spends a lot. Need sales motion and proof. Even a few teams at $200–$500/mo each matters.
+- **B5 — Customer Interview Digest.** PMs/founders already pay for Gong/Chorus/tl;dv. If you're "cheaper and simpler", you can carve out a niche.
+- **B6 — AI Knowledge Ops.** Big TAM, swamped with competitors, requires selling into mid-sized companies. Higher friction.
+
+### Tier C — interesting but slow / unclear monetization
+- **C2 — Screen/Browser Copilot.** Could get B2C subs from devs/researchers. Real but not obviously huge; needs UX polish + growth loops.
+- **B4 — AI Step-Through Debugger.** Strong devtool, but devtools hard to monetize early without distribution. More strategic than quick cash.
+- **A3 — Deep Dive Investment Analyst.** Very high ARPU if it works, but no VC/M&A network yet. Long sales cycles, trust barrier.
+- **A2 — Legacy Resurrection.** Enterprises could pay 5–6 figures, but won't trust a random new tool with their core systems. Multi-year credibility play.
+- **C1 — LLM Experiment & Routing Hub.** Devs love it; devs also love not paying. Many will self-host. Monetizable, but you'll fight "I can just script this".
+- **B7 — LLM Benchmarks & Cost Optimizer.** Nice-to-have. Budgets tiny unless you evolve into a full "LLM ops" platform (crowded).
+- **C3 — Builder Brain.** Emotionally compelling, but users don't pay reliably. Cool toy unless turned into a team product.
+- **C4 — Small Incident/Log Explainer.** Standalone is just a feature of B1, not a business.
+
+### Other framed pitches
+- **Idea #1 — Competitor listener.** Enter your company URL → monthly report on what's happening in your industry. Scan Twitter and LinkedIn for competitor info. Track employee movement and hiring.
+- **Idea #2 — The Society of VERY Interesting People.** Application-only community of 100–200 members. High-end service ($2.5K–$5K/year). Interview each member 3x/year with a set of life questions.
+- **Idea #3 — DateMyFriends.com.** Friends build/promote your dating profile and act as middlemen who must approve introductions.
+- **Idea #4 — Granola for Salespeople.** Video-call recording + automated personalized follow-up tailored to sales motion.
+- **Idea #5 — Undercover boss/customer as a service.** Send a real person through your sales funnel and report back what's broken.
+- **Idea #6 — Memories for your email.** Photos-style memories feature for old emails. Nostalgia + nudge to reconnect with long-forgotten contacts.
+- **Idea #7 — 360 life audit.** Service that audits your entire life (wardrobe, diet, skincare, hobbies, spending) and gives well-researched suggestions. Manual at first, automated over time.
+- **Idea #8 — Productivity palace (retreats).** Opposite of yoga retreat — sign up to be extremely productive for 30 or 90 days.
