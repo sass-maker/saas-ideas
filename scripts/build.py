@@ -373,13 +373,14 @@ for x in all_items:
     x['f_feas']     = feas
     x['f_feas_why'] = why
 
-# Best bet criterion: feasibility for a solo dev AND strong on at least one axis.
-# F_feas >= 5 (solo can plausibly ship) AND (F >= 8 OR M_eff >= 6 OR T >= 9).
-# Reasoning comes from f_feas_why.
+# Best bet criterion calibrated to a $5K MRR target (100 users at $50/mo or
+# 1000 at $5/mo — a niche player can win even in saturated markets). Use raw M
+# (not M_eff) because competition matters less at $5K than at $5M ARR.
+# F_feas >= 4 (solo can ship with hustle) AND (F >= 7 OR M >= 4 OR T >= 8).
 for x in all_items:
     x['best_bet'] = (
-        x['f_feas'] >= 5 and
-        (x['f'] >= 8 or x['m_eff'] >= 6 or x['t'] >= 9)
+        x['f_feas'] >= 4 and
+        (x['f'] >= 7 or x['m'] >= 4 or x['t'] >= 8)
     )
     x['best_bet_why'] = x['f_feas_why'] if x['best_bet'] else ''
 
