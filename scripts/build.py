@@ -347,7 +347,7 @@ for x in sol:
     src = x.get('source')
     if src in SOL_DROP or src not in CAT: continue
     Fb, Tb, Cb, label = CAT[src]
-    if Tb < MIN_T:                       # non-tech-first category
+    if Tb < 7:                           # non-tech-first category (matches MIN_T downstream)
         sol_dropped_nontech += 1; continue
     rev_mo = revenue_per_month(x.get('revenue'))
     if rev_mo < MIN_REVENUE:             # <$5K/mo
