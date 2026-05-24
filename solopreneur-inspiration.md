@@ -2,9 +2,15 @@
 
 Curated from the starterstory.com scrape. Grouped by curated category. Lifestyle, physical-product, and pure-content categories were dropped.
 
-Scores: `[F? M? T?]` per entry, each out of 10. **F**un to build (category-baseline), **M**oney potential (from listed revenue), **T**echnically challenging (category-baseline). Entries weak on every axis (max ≤ 3) were dropped.
+Scores: `[F? M? T?]` per entry, each out of 10. **F**un to build (category-baseline), **M**oney potential (from listed revenue), **T**echnically challenging (category-baseline).
 
-## Greatest Hits (17) — baseline F6 T4
+**Active** = at least one score is ≥ 7. **Archive** = below the bar, kept for reference.
+
+---
+
+## Active
+
+### Greatest Hits (16) — baseline F6 T4
 
 - `[F6 M9 T4]` **$3.5M/month** — Sports performance supplements — [story](https://www.starterstory.com/stories/how-i-grinded-for-years-to-build-6m-year-bare-performance-nutrition)
 - `[F6 M9 T4]` **$3.42M/month** — Stock market research tools — MarketBeat — [story](https://www.starterstory.com/stories/how-i-started-an-8m-year-stock-market-research-website)
@@ -22,9 +28,8 @@ Scores: `[F? M? T?]` per entry, each out of 10. **F**un to build (category-basel
 - `[F6 M7 T4]` **$35K/month** — Content repurposing agency — PodReacher(Now kn... — [story](https://www.starterstory.com/stories/podreacher)
 - `[F6 M7 T4]` **$25K/month** — Tweet framing service — [story](https://www.starterstory.com/stories/how-i-stumbled-into-a-300k-business-framing-tweets)
 - `[F6 M7 T4]` **$22.5K/month** — Custom planner creation service — [story](https://www.starterstory.com/stories/how-i-started-a-12k-month-selling-productivity-planners-online)
-- `[F6 M5 T4]` **$4K/month** — Trending stock insights service — Ticker Nerd — [story](https://www.starterstory.com/stories/how-we-started-a-4-5k-month-newsletter-for-investors-that-finds-trending-stocks-before-they-blow-up)
 
-## Micro SaaS (23) — baseline F6 T6
+### Micro SaaS (15) — baseline F6 T6
 
 - `[F6 M9 T6]` **$287K/month** — Automated reporting platform — [story](https://www.starterstory.com/stories/pointerpro)
 - `[F6 M9 T6]` **$225K/month** — Embedded analytics solution — Panintelligence — [story](https://www.starterstory.com/stories/panintelligence)
@@ -41,16 +46,8 @@ Scores: `[F? M? T?]` per entry, each out of 10. **F**un to build (category-basel
 - `[F6 M7 T6]` **$10K/month** — Client onboarding software — [story](https://www.starterstory.com/stories/binderr)
 - `[F6 M7 T6]` **$10K/month** — Ai-driven consultant optimizer — Artificial Workflow — [story](https://www.starterstory.com/stories/artificial-workflow)
 - `[F6 M7 T6]` **$10K/month** — Estimation and proposal platform — Estii — [story](https://www.starterstory.com/stories/estii)
-- `[F6 M5 T6]` **$9K/month** — Voice note to content converter — Talknotes — [story](https://www.starterstory.com/stories/talknotes-the-ai-voice-notes-app)
-- `[F6 M5 T6]` **$8.33K/month** — Commission tracking software — dashp — [story](https://www.starterstory.com/stories/dashp)
-- `[F6 M5 T6]` **$6K/month** — Text-to-video creator tool — Repurpose Pie — [story](https://www.starterstory.com/stories/repurposepie)
-- `[F6 M5 T6]` **$3.8K/month** — Automated image generation tool — [story](https://www.starterstory.com/stories/pika)
-- `[F6 M5 T6]` **$3K/month** — Golf tournament management tool — Live Tourney — [story](https://www.starterstory.com/stories/live-tourney)
-- `[F6 M2 T6]` **?** — Automated kubernetes management — [story](https://www.starterstory.com/stories/syself)
-- `[F6 M2 T6]` **?** — Mvp software development service — [story](https://www.starterstory.com/stories/uniqueside-mvp-in-15-days)
-- `[F6 M2 T6]` **?** — Ai-powered marketing strategist — FounderPal — [story](https://www.starterstory.com/stories/founderpal)
 
-## Solo Developer (20) — baseline F6 T6
+### Solo Developer (20) — baseline F6 T6
 
 - `[F6 M9 T6]` **$700K/month** — Print-on-demand product service — [story](https://www.starterstory.com/stories/jetprint)
 - `[F6 M9 T6]` **$533K/month** — Email template builder — Stripo — [story](https://www.starterstory.com/stories/stripo)
@@ -73,7 +70,7 @@ Scores: `[F? M? T?]` per entry, each out of 10. **F**un to build (category-basel
 - `[F6 M7 T6]` **$15K/month** — Pdf document generation API — [story](https://www.starterstory.com/stories/craftmypdf)
 - `[F6 M7 T6]` **$15K/month** — Reverse recruitment platform — [story](https://www.starterstory.com/stories/talent-service)
 
-## Solopreneur (24) — baseline F6 T4
+### Solopreneur (18) — baseline F6 T4
 
 - `[F6 M9 T4]` **$317K/month** — Social media growth courses — Justin Welsh — [story](https://www.starterstory.com/stories/justin-welsh)
 - `[F6 M9 T4]` **$233K/month** — Music production tool marketplace — Modern Producers — [story](https://www.starterstory.com/stories/85k-per-month-selling-tools-for-music-producers)
@@ -93,14 +90,8 @@ Scores: `[F? M? T?]` per entry, each out of 10. **F**un to build (category-basel
 - `[F6 M7 T4]` **$12K/month** — 85,000 plr digital products — UrbanPLR — [story](https://www.starterstory.com/stories/urbanplr)
 - `[F6 M7 T4]` **$11.3K/month** — Personal finance coaching platform — FITnancials — [story](https://www.starterstory.com/stories/how-i-started-a-7-5k-month-blog-about-personal-finances)
 - `[F6 M7 T4]` **$10K/month** — Weekly photo challenge community — 52Frames — [story](https://www.starterstory.com/stories/52frames)
-- `[F6 M5 T4]` **$9K/month** — Notion to sheets sync tool — Sync2Sheets — [story](https://www.starterstory.com/stories/sync2sheets-give-notion-the-superpowers-of-google-sheets)
-- `[F6 M5 T4]` **$9K/month** — Sales storytelling consultant — Steers Consulting... — [story](https://www.starterstory.com/stories/stephen-steers)
-- `[F6 M5 T4]` **$5.4K/month** — Food truck business guide — Food Truck Empire — [story](https://www.starterstory.com/stories/how-i-started-a-profitable-food-entrepreneurship-blog)
-- `[F6 M5 T4]` **$3K/month** — Personalized life coaching — Kindfulness Coaching — [story](https://www.starterstory.com/stories/kindfulness-coaching)
-- `[F6 M5 T4]` **$2.5K/month** — Early-stage startup lead service — Fuelblock leads — [story](https://www.starterstory.com/stories/fuelblock)
-- `[F6 M2 T4]` **?** — Automated email organizer — Baxter Inc. — [story](https://www.starterstory.com/stories/baxter-inc)
 
-## GPT Wrappers (13) — baseline F7 T6
+### GPT Wrappers (13) — baseline F7 T6
 
 - `[F7 M9 T6]` **$1M/month** — Ai-driven writing multitool — [story](https://www.starterstory.com/stories/aithor-online-essay-and-paper-writing-and-paraphrasing-tool)
 - `[F7 M9 T6]` **$250K/month** — Knowledge base creation tool — [story](https://www.starterstory.com/stories/i-built-a-408k-year-knowledge-base-saas-tool)
@@ -116,7 +107,7 @@ Scores: `[F? M? T?]` per entry, each out of 10. **F**un to build (category-basel
 - `[F7 M5 T6]` **$4K/month** — Ai-powered email outreach tool — Nureply — [story](https://www.starterstory.com/stories/nureply)
 - `[F7 M2 T6]` **?** — Ai-powered logo maker — Logo Crisp — [story](https://www.starterstory.com/stories/on-creating-an-ai-powered-free-logo-maker)
 
-## Automation (13) — baseline F6 T6
+### Automation (9) — baseline F6 T6
 
 - `[F6 M9 T6]` **$333K/month** — Content review and approval tool — [story](https://www.starterstory.com/stories/filestage-d7e896b6-e907-4968-9665-ae662f498792)
 - `[F6 M9 T6]` **$150K/month** — Collaborative crm platform — [story](https://www.starterstory.com/stories/folk)
@@ -127,12 +118,8 @@ Scores: `[F? M? T?]` per entry, each out of 10. **F**un to build (category-basel
 - `[F6 M7 T6]` **$17.5K/month** — Ecommerce automation agency — [story](https://www.starterstory.com/stories/compound)
 - `[F6 M7 T6]` **$14K/month** — Process automation consultancy — [story](https://www.starterstory.com/stories/idigitize)
 - `[F6 M7 T6]` **$12K/month** — Affordable all-in-one crm — OneHash, Inc. — [story](https://www.starterstory.com/stories/onehash-inc)
-- `[F6 M5 T6]` **$7K/month** — Cloud-based marketing automation — [story](https://www.starterstory.com/stories/mindbox)
-- `[F6 M5 T6]` **$5K/month** — Business process automation ser... — [story](https://www.starterstory.com/stories/ayh-consulting-ltd)
-- `[F6 M5 T6]` **$4K/month** — Data scraping automation tool — [story](https://www.starterstory.com/stories/data-excavator)
-- `[F6 M5 T6]` **$1.2K/month** — Appointment alert service — [story](https://www.starterstory.com/stories/global-entry-alerts)
 
-## Digital Products (18) — baseline F6 T5
+### Digital Products (12) — baseline F6 T5
 
 - `[F6 M9 T5]` **$1.2M/month** — Affordable virtual worker marke... — OnlineJobs — [story](https://www.starterstory.com/stories/onlinejobs)
 - `[F6 M9 T5]` **$350K/month** — Ux design agency service — CreateApe — [story](https://www.starterstory.com/stories/createape)
@@ -146,14 +133,8 @@ Scores: `[F? M? T?]` per entry, each out of 10. **F**un to build (category-basel
 - `[F6 M7 T5]` **$18.4K/month** — Daily baseball digest newsletter — [story](https://www.starterstory.com/stories/cup-of-coffee-by-craig-calcaterra)
 - `[F6 M7 T5]` **$18K/month** — Blogging and affiliate resources — Una Vida Online — [story](https://www.starterstory.com/stories/una-vida-online)
 - `[F6 M7 T5]` **$10.4K/month** — Fun budgeting template maker — Pretty Arrow — [story](https://www.starterstory.com/stories/pretty-arrow)
-- `[F6 M5 T5]` **$8K/month** — Curly hair coaching resource — The Holistic Ench... — [story](https://www.starterstory.com/stories/the-holistic-enchilada)
-- `[F6 M5 T5]` **$6K/month** — Weekly ai tools newsletter — World of AI by ai... — [story](https://www.starterstory.com/stories/world-of-ai-by-aitools-fyi)
-- `[F6 M5 T5]` **$5K/month** — Culinary resource platform — [story](https://www.starterstory.com/stories/i-created-a-resources-site-for-chefs-like-me-that-generates-60k-of-extra-income)
-- `[F6 M5 T5]` **$5K/month** — Actionable marketing resources — MakerBox — [story](https://www.starterstory.com/stories/makerbox)
-- `[F6 M5 T5]` **$4.5K/month** — Ready-to-go training materials — Just Ninety — [story](https://www.starterstory.com/stories/just-ninety)
-- `[F6 M5 T5]` **$4.33K/month** — Remix-based saas boilerplate — [story](https://www.starterstory.com/stories/saasrock)
 
-## Productized Services (23) — baseline F4 T3
+### Productized Services (20) — baseline F4 T3
 
 - `[F4 M9 T3]` **$317K/month** — Technical content subscription — Draft.dev — [story](https://www.starterstory.com/stories/how-i-started-an-8k-month-technical-content-marketing-agency)
 - `[F4 M9 T3]` **$135K/month** — Digital marketing campaign partner — [story](https://www.starterstory.com/stories/how-we-started-a-digital-marketing-agency-and-grew-it-to-90k-month-and-a-team-of-11-people)
@@ -175,11 +156,8 @@ Scores: `[F? M? T?]` per entry, each out of 10. **F**un to build (category-basel
 - `[F4 M7 T3]` **$13.3K/month** — Reverse job board for devs — [story](https://www.starterstory.com/stories/railsdevs)
 - `[F4 M7 T3]` **$12K/month** — Saas comparison page experts — [story](https://www.starterstory.com/stories/stack-against)
 - `[F4 M7 T3]` **$10K/month** — On-demand copywriting credits — [story](https://www.starterstory.com/stories/snap-copy)
-- `[F4 M5 T3]` **$7.32K/month** — Unlimited graphic design service — [story](https://www.starterstory.com/stories/how-i-started-a-7k-month-uber-for-graphic-designs)
-- `[F4 M5 T3]` **$4.8K/month** — Wordpress maintenance service — [story](https://www.starterstory.com/stories/how-i-started-a-3-5k-month-wordpress-maintenance-service)
-- `[F4 M5 T3]` **$2.5K/month** — Unlimited design subscription — [story](https://www.starterstory.com/stories/coloristy-media-and-anytime-design)
 
-## Freemium / Open Source (11) — baseline F6 T5
+### Freemium / Open Source (9) — baseline F6 T5
 
 - `[F6 M9 T5]` **$113K/month** — Twitter thread writing tool — [story](https://www.starterstory.com/stories/typefully-twitter-thread-maker-twitter-analytics)
 - `[F6 M7 T5]` **$83K/month** — Ai-powered video localization — [story](https://www.starterstory.com/stories/vidby)
@@ -190,10 +168,8 @@ Scores: `[F? M? T?]` per entry, each out of 10. **F**un to build (category-basel
 - `[F6 M7 T5]` **$25K/month** — Digital business card manager — [story](https://www.starterstory.com/stories/wave-cnct)
 - `[F6 M7 T5]` **$20K/month** — Ai-powered writing assistant — [story](https://www.starterstory.com/stories/textero)
 - `[F6 M7 T5]` **$14K/month** — Flexible workspace search platform — [story](https://www.starterstory.com/stories/the-office-providers)
-- `[F6 M5 T5]` **$5K/month** — Appointment scheduling software — [story](https://www.starterstory.com/stories/calday)
-- `[F6 M3 T5]` **$200/month** — Online video editing tool — VideoFast — [story](https://www.starterstory.com/stories/videofast)
 
-## Weekend Projects (9) — baseline F7 T3
+### Weekend Projects (9) — baseline F7 T3
 
 - `[F7 M9 T3]` **$500K/month** — Medical malpractice law firm — [story](https://www.starterstory.com/stories/james-woods-law)
 - `[F7 M7 T3]` **$17K/month** — Sustainable fashion resource — [story](https://www.starterstory.com/stories/on-growing-a-blog-about-sustainable-fashion-to-60k-monthly-visitors-and-6k-month-in-revenue)
@@ -205,7 +181,7 @@ Scores: `[F? M? T?]` per entry, each out of 10. **F**un to build (category-basel
 - `[F7 M5 T3]` **$4K/month** — Full-service reselling platform — [story](https://www.starterstory.com/stories/rooted-drawers)
 - `[F7 M5 T3]` **$1K/month** — Ai-powered domain name generator — [story](https://www.starterstory.com/stories/smartynames-com)
 
-## Makers for Makers (6) — baseline F7 T4
+### Makers for Makers (6) — baseline F7 T4
 
 - `[F7 M9 T4]` **$215K/month** — Ai-powered resume builder — [story](https://www.starterstory.com/stories/ai-powered-free-ats-resume-builder)
 - `[F7 M7 T4]` **$55K/month** — Email signature marketing hub — [story](https://www.starterstory.com/stories/mysignature-84b72d95-8f5a-474d-aeb0-f295e20dddcf)
@@ -214,41 +190,32 @@ Scores: `[F? M? T?]` per entry, each out of 10. **F**un to build (category-basel
 - `[F7 M5 T4]` **$3.18K/month** — Live styling browser extension — [story](https://www.starterstory.com/stories/tailscan)
 - `[F7 M5 T4]` **$3K/month** — Postgresql query optimizer — pgMustard — [story](https://www.starterstory.com/stories/pgmustard)
 
-## Plugins (5) — baseline F6 T5
+### Plugins (3) — baseline F6 T5
 
 - `[F6 M7 T5]` **$32K/month** — Software deployment simplifier — [story](https://www.starterstory.com/stories/pckgr)
 - `[F6 M7 T5]` **$29K/month** — Whatsapp chat for shopify — [story](https://www.starterstory.com/stories/how-we-developed-a-29k-month-whatsapp-plugin-for-shopify)
 - `[F6 M7 T5]` **$12K/month** — Sms marketing & cart recovery — [story](https://www.starterstory.com/stories/cartfox)
-- `[F6 M3 T5]` **$800/month** — Google docs to wordpress tool — DocPress.it — [story](https://www.starterstory.com/stories/docpress-it)
-- `[F6 M3 T5]` **$20/month** — Gdpr-compliant web analytics — [story](https://www.starterstory.com/stories/beam)
 
-## Apps So Simple (4) — baseline F6 T3
+### Apps So Simple (1) — baseline F6 T3
 
 - `[F6 M9 T3]` **$1.2M/month** — Sms marketing platform — TextMagic — [story](https://www.starterstory.com/stories/textmagic)
-- `[F6 M5 T3]` **$8.5K/month** — Html to pdf converter — PDFShift — [story](https://www.starterstory.com/stories/how-i-developed-a-3-5k-month-tool-that-converts-html-to-pdf)
-- `[F6 M5 T3]` **$8.33K/month** — Remote-controlled countdown timer — stagetimer.io — [story](https://www.starterstory.com/stories/stagetimer-io-11b472c9-5746-4fea-ae5f-8c82cd389346)
-- `[F6 M5 T3]` **$8.33K/month** — Focus-enhancing productivity app — Session — [story](https://www.starterstory.com/stories/i-built-a-timer-app-that-generates-66k-year-in-profit)
 
-## One-Page Sites (4) — baseline F4 T2
+### One-Page Sites (2) — baseline F4 T2
 
 - `[F4 M7 T2]` **$20K/month** — Online mexican train dominoes — Dilly Dally Games... — [story](https://www.starterstory.com/stories/mexican-train-dominoes)
 - `[F4 M7 T2]` **$20K/month** — Online word counting tool — The Word Counter — [story](https://www.starterstory.com/stories/i-built-an-online-word-counter-tool-that-makes-40-000-month-google-s-top-result)
-- `[F4 M5 T2]` **$4.34K/month** — Interactive excel training plat... — Excel Exercises — [story](https://www.starterstory.com/stories/excel-exercises-fun-hands-on-excel-practice-problems)
-- `[F4 M3 T2]` **$500/month** — Dns lookup tool — nslookup.io — [story](https://www.starterstory.com/stories/nslookup-io)
 
-## $1M Shovels (5) — baseline F5 T3
+### $1M Shovels (3) — baseline F5 T3
 
 - `[F5 M9 T3]` **$274K/month** — Ai-generated headshot service — [story](https://www.starterstory.com/stories/betterpic)
 - `[F5 M9 T3]` **$142K/month** — Webpage data extraction tool — [story](https://www.starterstory.com/stories/mrscraper)
 - `[F5 M7 T3]` **$30K/month** — Ai-driven content generator — [story](https://www.starterstory.com/stories/cuppa-ai-40dcf579-57bd-4746-b8be-e462511f01b9)
-- `[F5 M5 T3]` **$5.2K/month** — Seo backlink guide for startups — [story](https://www.starterstory.com/stories/backl-io-build-backlinks-for-your-startup)
-- `[F5 M5 T3]` **$2K/month** — Viral video meme generator — AutoMemes.ai — [story](https://www.starterstory.com/stories/automemes-ai-create-viral-memes-in-seconds)
 
-## No Audience Required (1) — baseline F7 T3
+### No Audience Required (1) — baseline F7 T3
 
 - `[F7 M7 T3]` **$40K/month** — Automated email data extractor — Parseur — [story](https://www.starterstory.com/stories/how-we-developed-a-40k-month-email-parser-application)
 
-## No-Code Ideas (19) — baseline F4 T2
+### No-Code Ideas (14) — baseline F4 T2
 
 - `[F4 M9 T2]` **$2.38M/month** — Admin-free invoicing solution — [story](https://www.starterstory.com/stories/this-admin-tool-for-freelancers-now-generates-1-8m-year-denmark)
 - `[F4 M9 T2]` **$858K/month** — Ai content marketing platform — [story](https://www.starterstory.com/stories/scalenut)
@@ -264,26 +231,17 @@ Scores: `[F? M? T?]` per entry, each out of 10. **F**un to build (category-basel
 - `[F4 M7 T2]` **$39K/month** — Corporate gifting automation — [story](https://www.starterstory.com/stories/giftsenda)
 - `[F4 M7 T2]` **$23K/month** — Data import tool for airtable — [story](https://www.starterstory.com/stories/how-i-built-an-airtable-plugin-will-lets-users-visualize-and-manage-their-data-better-60k-year)
 - `[F4 M7 T2]` **$15K/month** — One-click link shortener — [story](https://www.starterstory.com/stories/i-built-a-28k-year-and-350k-users-url-shortener-side-hustle)
-- `[F4 M5 T2]` **$4K/month** — Multiplayer card game platform — [story](https://www.starterstory.com/stories/world-of-card-games)
-- `[F4 M5 T2]` **$4K/month** — Founder community platform — [story](https://www.starterstory.com/stories/how-we-bootstrapped-a-co-working-space-and-make-48k-year-united-kingdom)
-- `[F4 M5 T2]` **$1.5K/month** — Sensitive info blurring tool — [story](https://www.starterstory.com/stories/i-built-a-tool-that-helps-blur-sensitive-information-with-just-5)
-- `[F4 M5 T2]` **$1K/month** — Social media caption hub — [story](https://www.starterstory.com/stories/our-captions)
-- `[F4 M3 T2]` **$600/month** — Website monitoring alerts tool — [story](https://www.starterstory.com/stories/acquiring-a-wordpress-plugin-and-growing-its-revenue-50)
 
-## Bubble Ideas (5) — baseline F4 T2
+### Bubble Ideas (2) — baseline F4 T2
 
 - `[F4 M9 T2]` **$100K/month** — No-code product development agency — [story](https://www.starterstory.com/stories/creme-digital)
 - `[F4 M7 T2]` **$30K/month** — Tax residency optimization service — SavvyNomad — [story](https://www.starterstory.com/stories/your-passport-to-tax-savings)
-- `[F4 M5 T2]` **$7K/month** — No-code talent marketplace — [story](https://www.starterstory.com/stories/how-i-started-a-7k-month-marketplace-to-connect-companies-with-no-code-talent)
-- `[F4 M5 T2]` **$1K/month** — Prospecting email finder tool — [story](https://www.starterstory.com/stories/i-grew-my-saas-project-from-idea-to-1-5k-mrr-in-7-weeks)
-- `[F4 M2 T2]` **?** — Ai coaching clone platform — [story](https://www.starterstory.com/stories/jodie-cook)
 
-## No-Code (2) — baseline F4 T2
+### No-Code (1) — baseline F4 T2
 
 - `[F4 M7 T2]` **$80K/month** — Us business incorporation service — [story](https://www.starterstory.com/stories/theitin)
-- `[F4 M5 T2]` **$1K/month** — Ai-generated finance updates — [story](https://www.starterstory.com/stories/uptrends-ai-track-trending-stocks)
 
-## Real Problems (12) — baseline F5 T5
+### Real Problems (10) — baseline F5 T5
 
 - `[F5 M9 T5]` **$500K/month** — Affordable filmmaking courses — [story](https://www.starterstory.com/stories/content-creator)
 - `[F5 M9 T5]` **$300K/month** — Title quoting app — [story](https://www.starterstory.com/stories/titlecapture)
@@ -295,10 +253,8 @@ Scores: `[F? M? T?]` per entry, each out of 10. **F**un to build (category-basel
 - `[F5 M7 T5]` **$28K/month** — Weight loss coaching program — [story](https://www.starterstory.com/stories/rise-lean)
 - `[F5 M7 T5]` **$15K/month** — Customer insights research agency — Deep Research — [story](https://www.starterstory.com/stories/deep-research)
 - `[F5 M7 T5]` **$10K/month** — Tech sales training platform — [story](https://www.starterstory.com/stories/higher-levels)
-- `[F5 M5 T5]` **$8K/month** — Competitor app analysis tool — [story](https://www.starterstory.com/stories/appstorespy)
-- `[F5 M5 T5]` **$6.05K/month** — Custom sneaker design studio — [story](https://www.starterstory.com/stories/wokecustoms)
 
-## Marketplaces (20) — baseline F4 T5
+### Marketplaces (18) — baseline F4 T5
 
 - `[F4 M9 T5]` **$4.17M/month** — Custom home audio solutions — [story](https://www.starterstory.com/stories/world-wide-stereo)
 - `[F4 M9 T5]` **$2.47M/month** — Virtual assistant marketplace — [story](https://www.starterstory.com/stories/wishup)
@@ -318,10 +274,8 @@ Scores: `[F? M? T?]` per entry, each out of 10. **F**un to build (category-basel
 - `[F4 M7 T5]` **$30K/month** — Financial advisor review platform — [story](https://www.starterstory.com/stories/wealthtender)
 - `[F4 M7 T5]` **$15K/month** — Ai-enabled influencer marketplace — [story](https://www.starterstory.com/stories/drope-me)
 - `[F4 M7 T5]` **$12.5K/month** — Digital fashion twin platform — Seamm — [story](https://www.starterstory.com/stories/seamm)
-- `[F4 M5 T5]` **$1.5K/month** — Jobs board for filipinos — Permworks — [story](https://www.starterstory.com/stories/permworks)
-- `[F4 M5 T5]` **$1K/month** — Fee-free sneaker marketplace — [story](https://www.starterstory.com/stories/estuary)
 
-## David vs Goliath (15) — baseline F4 T3
+### David vs Goliath (10) — baseline F4 T3
 
 - `[F4 M9 T3]` **$12M/month** — Insulated beverage containers — BrüMate — [story](https://www.starterstory.com/stories/brumate)
 - `[F4 M9 T3]` **$773K/month** — Online casino information hub — Casino Guru — [story](https://www.starterstory.com/stories/how-i-started-a-500k-month-website-about-online-casinos)
@@ -333,13 +287,8 @@ Scores: `[F? M? T?]` per entry, each out of 10. **F**un to build (category-basel
 - `[F4 M7 T3]` **$55K/month** — Travel blogging courses — Travel Blogging 101 — [story](https://www.starterstory.com/stories/travel-blogging-101)
 - `[F4 M7 T3]` **$40K/month** — Customizable admin dashboard kits — ThemeSelection — [story](https://www.starterstory.com/stories/themeselection)
 - `[F4 M7 T3]` **$20K/month** — Digital nomad lifestyle guide — The Wayward Home — [story](https://www.starterstory.com/stories/the-wayward-home)
-- `[F4 M5 T3]` **$4.5K/month** — Creative business-building blog — Stray Curls — [story](https://www.starterstory.com/stories/how-i-started-a-4-5k-month-blog-helping-young-women-build-creative-online-businesses)
-- `[F4 M5 T3]` **$4.5K/month** — Activity booklets for leaders — Leader Connecting... — [story](https://www.starterstory.com/stories/how-jodi-carlson-grew-a-niche-blog-to-6-5k-month)
-- `[F4 M5 T3]` **$4K/month** — Book club discussion starter — Book Club Chat — [story](https://www.starterstory.com/stories/how-i-started-a-4k-month-website-dedicated-to-book-club-questions-reviews-and-book-lists)
-- `[F4 M5 T3]` **$4K/month** — Movie mistake finder tool — Movie mistakes — [story](https://www.starterstory.com/stories/i-make-my-living-from-a-movie-website-that-i-started-as-a-teenager)
-- `[F4 M5 T3]` **$3.38K/month** — Expert hr software reviews — SelectSoftware Re... — [story](https://www.starterstory.com/stories/this-vc-taught-himself-how-to-code-and-is-bootstrapping-his-own-startup)
 
-## Weird but Profitable (19) — baseline F5 T3
+### Weird but Profitable (14) — baseline F5 T3
 
 - `[F5 M9 T3]` **$2.8M/month** — Refillable natural deodorant — Wild — [story](https://www.starterstory.com/stories/wild)
 - `[F5 M9 T3]` **$1.25M/month** — Immersive escape room experiences — [story](https://www.starterstory.com/stories/paniq-escape-room)
@@ -355,6 +304,121 @@ Scores: `[F? M? T?]` per entry, each out of 10. **F**un to build (category-basel
 - `[F5 M7 T3]` **$21K/month** — Clean air purification systems — AirTulip — [story](https://www.starterstory.com/stories/airtulip)
 - `[F5 M7 T3]` **$18K/month** — Cannabis-friendly lodging service — [story](https://www.starterstory.com/stories/vibesbnb)
 - `[F5 M7 T3]` **$10K/month** — Infused honey delights — [story](https://www.starterstory.com/stories/chandler-honey)
+
+---
+
+## Archive (no single score ≥ 7)
+
+### Greatest Hits (1) — baseline F6 T4
+
+- `[F6 M5 T4]` **$4K/month** — Trending stock insights service — Ticker Nerd — [story](https://www.starterstory.com/stories/how-we-started-a-4-5k-month-newsletter-for-investors-that-finds-trending-stocks-before-they-blow-up)
+
+### Micro SaaS (8) — baseline F6 T6
+
+- `[F6 M5 T6]` **$9K/month** — Voice note to content converter — Talknotes — [story](https://www.starterstory.com/stories/talknotes-the-ai-voice-notes-app)
+- `[F6 M5 T6]` **$8.33K/month** — Commission tracking software — dashp — [story](https://www.starterstory.com/stories/dashp)
+- `[F6 M5 T6]` **$6K/month** — Text-to-video creator tool — Repurpose Pie — [story](https://www.starterstory.com/stories/repurposepie)
+- `[F6 M5 T6]` **$3.8K/month** — Automated image generation tool — [story](https://www.starterstory.com/stories/pika)
+- `[F6 M5 T6]` **$3K/month** — Golf tournament management tool — Live Tourney — [story](https://www.starterstory.com/stories/live-tourney)
+- `[F6 M2 T6]` **?** — Automated kubernetes management — [story](https://www.starterstory.com/stories/syself)
+- `[F6 M2 T6]` **?** — Mvp software development service — [story](https://www.starterstory.com/stories/uniqueside-mvp-in-15-days)
+- `[F6 M2 T6]` **?** — Ai-powered marketing strategist — FounderPal — [story](https://www.starterstory.com/stories/founderpal)
+
+### Solopreneur (6) — baseline F6 T4
+
+- `[F6 M5 T4]` **$9K/month** — Notion to sheets sync tool — Sync2Sheets — [story](https://www.starterstory.com/stories/sync2sheets-give-notion-the-superpowers-of-google-sheets)
+- `[F6 M5 T4]` **$9K/month** — Sales storytelling consultant — Steers Consulting... — [story](https://www.starterstory.com/stories/stephen-steers)
+- `[F6 M5 T4]` **$5.4K/month** — Food truck business guide — Food Truck Empire — [story](https://www.starterstory.com/stories/how-i-started-a-profitable-food-entrepreneurship-blog)
+- `[F6 M5 T4]` **$3K/month** — Personalized life coaching — Kindfulness Coaching — [story](https://www.starterstory.com/stories/kindfulness-coaching)
+- `[F6 M5 T4]` **$2.5K/month** — Early-stage startup lead service — Fuelblock leads — [story](https://www.starterstory.com/stories/fuelblock)
+- `[F6 M2 T4]` **?** — Automated email organizer — Baxter Inc. — [story](https://www.starterstory.com/stories/baxter-inc)
+
+### Automation (4) — baseline F6 T6
+
+- `[F6 M5 T6]` **$7K/month** — Cloud-based marketing automation — [story](https://www.starterstory.com/stories/mindbox)
+- `[F6 M5 T6]` **$5K/month** — Business process automation ser... — [story](https://www.starterstory.com/stories/ayh-consulting-ltd)
+- `[F6 M5 T6]` **$4K/month** — Data scraping automation tool — [story](https://www.starterstory.com/stories/data-excavator)
+- `[F6 M5 T6]` **$1.2K/month** — Appointment alert service — [story](https://www.starterstory.com/stories/global-entry-alerts)
+
+### Digital Products (6) — baseline F6 T5
+
+- `[F6 M5 T5]` **$8K/month** — Curly hair coaching resource — The Holistic Ench... — [story](https://www.starterstory.com/stories/the-holistic-enchilada)
+- `[F6 M5 T5]` **$6K/month** — Weekly ai tools newsletter — World of AI by ai... — [story](https://www.starterstory.com/stories/world-of-ai-by-aitools-fyi)
+- `[F6 M5 T5]` **$5K/month** — Culinary resource platform — [story](https://www.starterstory.com/stories/i-created-a-resources-site-for-chefs-like-me-that-generates-60k-of-extra-income)
+- `[F6 M5 T5]` **$5K/month** — Actionable marketing resources — MakerBox — [story](https://www.starterstory.com/stories/makerbox)
+- `[F6 M5 T5]` **$4.5K/month** — Ready-to-go training materials — Just Ninety — [story](https://www.starterstory.com/stories/just-ninety)
+- `[F6 M5 T5]` **$4.33K/month** — Remix-based saas boilerplate — [story](https://www.starterstory.com/stories/saasrock)
+
+### Productized Services (3) — baseline F4 T3
+
+- `[F4 M5 T3]` **$7.32K/month** — Unlimited graphic design service — [story](https://www.starterstory.com/stories/how-i-started-a-7k-month-uber-for-graphic-designs)
+- `[F4 M5 T3]` **$4.8K/month** — Wordpress maintenance service — [story](https://www.starterstory.com/stories/how-i-started-a-3-5k-month-wordpress-maintenance-service)
+- `[F4 M5 T3]` **$2.5K/month** — Unlimited design subscription — [story](https://www.starterstory.com/stories/coloristy-media-and-anytime-design)
+
+### Freemium / Open Source (2) — baseline F6 T5
+
+- `[F6 M5 T5]` **$5K/month** — Appointment scheduling software — [story](https://www.starterstory.com/stories/calday)
+- `[F6 M3 T5]` **$200/month** — Online video editing tool — VideoFast — [story](https://www.starterstory.com/stories/videofast)
+
+### Plugins (2) — baseline F6 T5
+
+- `[F6 M3 T5]` **$800/month** — Google docs to wordpress tool — DocPress.it — [story](https://www.starterstory.com/stories/docpress-it)
+- `[F6 M3 T5]` **$20/month** — Gdpr-compliant web analytics — [story](https://www.starterstory.com/stories/beam)
+
+### Apps So Simple (3) — baseline F6 T3
+
+- `[F6 M5 T3]` **$8.5K/month** — Html to pdf converter — PDFShift — [story](https://www.starterstory.com/stories/how-i-developed-a-3-5k-month-tool-that-converts-html-to-pdf)
+- `[F6 M5 T3]` **$8.33K/month** — Remote-controlled countdown timer — stagetimer.io — [story](https://www.starterstory.com/stories/stagetimer-io-11b472c9-5746-4fea-ae5f-8c82cd389346)
+- `[F6 M5 T3]` **$8.33K/month** — Focus-enhancing productivity app — Session — [story](https://www.starterstory.com/stories/i-built-a-timer-app-that-generates-66k-year-in-profit)
+
+### One-Page Sites (2) — baseline F4 T2
+
+- `[F4 M5 T2]` **$4.34K/month** — Interactive excel training plat... — Excel Exercises — [story](https://www.starterstory.com/stories/excel-exercises-fun-hands-on-excel-practice-problems)
+- `[F4 M3 T2]` **$500/month** — Dns lookup tool — nslookup.io — [story](https://www.starterstory.com/stories/nslookup-io)
+
+### $1M Shovels (2) — baseline F5 T3
+
+- `[F5 M5 T3]` **$5.2K/month** — Seo backlink guide for startups — [story](https://www.starterstory.com/stories/backl-io-build-backlinks-for-your-startup)
+- `[F5 M5 T3]` **$2K/month** — Viral video meme generator — AutoMemes.ai — [story](https://www.starterstory.com/stories/automemes-ai-create-viral-memes-in-seconds)
+
+### No-Code Ideas (5) — baseline F4 T2
+
+- `[F4 M5 T2]` **$4K/month** — Multiplayer card game platform — [story](https://www.starterstory.com/stories/world-of-card-games)
+- `[F4 M5 T2]` **$4K/month** — Founder community platform — [story](https://www.starterstory.com/stories/how-we-bootstrapped-a-co-working-space-and-make-48k-year-united-kingdom)
+- `[F4 M5 T2]` **$1.5K/month** — Sensitive info blurring tool — [story](https://www.starterstory.com/stories/i-built-a-tool-that-helps-blur-sensitive-information-with-just-5)
+- `[F4 M5 T2]` **$1K/month** — Social media caption hub — [story](https://www.starterstory.com/stories/our-captions)
+- `[F4 M3 T2]` **$600/month** — Website monitoring alerts tool — [story](https://www.starterstory.com/stories/acquiring-a-wordpress-plugin-and-growing-its-revenue-50)
+
+### Bubble Ideas (3) — baseline F4 T2
+
+- `[F4 M5 T2]` **$7K/month** — No-code talent marketplace — [story](https://www.starterstory.com/stories/how-i-started-a-7k-month-marketplace-to-connect-companies-with-no-code-talent)
+- `[F4 M5 T2]` **$1K/month** — Prospecting email finder tool — [story](https://www.starterstory.com/stories/i-grew-my-saas-project-from-idea-to-1-5k-mrr-in-7-weeks)
+- `[F4 M2 T2]` **?** — Ai coaching clone platform — [story](https://www.starterstory.com/stories/jodie-cook)
+
+### No-Code (1) — baseline F4 T2
+
+- `[F4 M5 T2]` **$1K/month** — Ai-generated finance updates — [story](https://www.starterstory.com/stories/uptrends-ai-track-trending-stocks)
+
+### Real Problems (2) — baseline F5 T5
+
+- `[F5 M5 T5]` **$8K/month** — Competitor app analysis tool — [story](https://www.starterstory.com/stories/appstorespy)
+- `[F5 M5 T5]` **$6.05K/month** — Custom sneaker design studio — [story](https://www.starterstory.com/stories/wokecustoms)
+
+### Marketplaces (2) — baseline F4 T5
+
+- `[F4 M5 T5]` **$1.5K/month** — Jobs board for filipinos — Permworks — [story](https://www.starterstory.com/stories/permworks)
+- `[F4 M5 T5]` **$1K/month** — Fee-free sneaker marketplace — [story](https://www.starterstory.com/stories/estuary)
+
+### David vs Goliath (5) — baseline F4 T3
+
+- `[F4 M5 T3]` **$4.5K/month** — Creative business-building blog — Stray Curls — [story](https://www.starterstory.com/stories/how-i-started-a-4-5k-month-blog-helping-young-women-build-creative-online-businesses)
+- `[F4 M5 T3]` **$4.5K/month** — Activity booklets for leaders — Leader Connecting... — [story](https://www.starterstory.com/stories/how-jodi-carlson-grew-a-niche-blog-to-6-5k-month)
+- `[F4 M5 T3]` **$4K/month** — Book club discussion starter — Book Club Chat — [story](https://www.starterstory.com/stories/how-i-started-a-4k-month-website-dedicated-to-book-club-questions-reviews-and-book-lists)
+- `[F4 M5 T3]` **$4K/month** — Movie mistake finder tool — Movie mistakes — [story](https://www.starterstory.com/stories/i-make-my-living-from-a-movie-website-that-i-started-as-a-teenager)
+- `[F4 M5 T3]` **$3.38K/month** — Expert hr software reviews — SelectSoftware Re... — [story](https://www.starterstory.com/stories/this-vc-taught-himself-how-to-code-and-is-bootstrapping-his-own-startup)
+
+### Weird but Profitable (5) — baseline F5 T3
+
 - `[F5 M5 T3]` **$8.33K/month** — Thank you note generator — [story](https://www.starterstory.com/stories/tons-of-thanks)
 - `[F5 M5 T3]` **$6.5K/month** — Indoor worm composting kit — [story](https://www.starterstory.com/stories/worm-bucket)
 - `[F5 M5 T3]` **$5K/month** — Mobility scooter rental service — [story](https://www.starterstory.com/stories/la-mobility-scooter-rentals)
@@ -364,4 +428,4 @@ Scores: `[F? M? T?]` per entry, each out of 10. **F**un to build (category-basel
 
 ---
 
-**Scored 288 entries. Kept 288, dropped 0 (max F/M/T ≤ 3).**
+**Scored 288 entries. Active 226, archive 62.**
