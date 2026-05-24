@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Saas Ideas</title>
+<style>
+  :root { --bg:#0d1117; --fg:#e6edf3; --muted:#8b949e; --border:#30363d; --accent:#58a6ff; --active:#2ea043; --archive:#6e7681; }
+  @media (prefers-color-scheme: light) { :root { --bg:#fff; --fg:#1f2328; --muted:#656d76; --border:#d0d7de; --accent:#0969da; --active:#1a7f37; --archive:#6e7781; } }
+  * { box-sizing: border-box; }
+  body { margin:0; font:14px/1.5 -apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif; background:var(--bg); color:var(--fg); }
+  header { padding:1rem 1.25rem; border-bottom:1px solid var(--border); position:sticky; top:0; background:var(--bg); z-index:10; }
+  h1 { margin:0 0 .25rem; font-size:1.25rem; }
+  .meta { color:var(--muted); font-size:.85rem; margin-bottom:.75rem; }
+  .controls { display:flex; gap:.5rem; flex-wrap:wrap; align-items:center; }
+  input[type=search], select { background:transparent; color:var(--fg); border:1px solid var(--border); border-radius:6px; padding:.4rem .6rem; font:inherit; }
+  input[type=search] { min-width:240px; }
+  .count { color:var(--muted); margin-left:auto; }
+  table { width:100%; border-collapse:collapse; }
+  th, td { padding:.5rem .75rem; text-align:left; border-bottom:1px solid var(--border); vertical-align:top; }
+  th { cursor:pointer; user-select:none; position:sticky; top:0; background:var(--bg); white-space:nowrap; border-bottom:2px solid var(--border); }
+  th:hover { color:var(--accent); }
+  th.sorted::after { content:" ▲"; color:var(--accent); }
+  th.sorted.desc::after { content:" ▼"; }
+  td.num { text-align:right; font-variant-numeric:tabular-nums; }
+  tr:hover { background:rgba(127,127,127,.08); }
+  .badge { display:inline-block; padding:.05rem .4rem; border-radius:10px; font-size:.7rem; font-weight:600; text-transform:uppercase; letter-spacing:.05em; }
+  .b-Active { color:white; background:var(--active); }
+  .b-Archive { color:white; background:var(--archive); }
+  .b-source { color:var(--muted); border:1px solid var(--border); }
+  a { color:var(--accent); text-decoration:none; }
+  a:hover { text-decoration:underline; }
+  td.idea { max-width:780px; }
+  .empty { padding:2rem; text-align:center; color:var(--muted); }
+</style>
+</head>
+<body>
+<header>
+  <h1>Saas Ideas</h1>
+  <div class="meta">Click any column to sort. Scores /10 — <b>F</b>un, <b>M</b>oney, <b>T</b>ech. <b>Active</b> = at least one score ≥ 8.</div>
+  <div class="controls">
+    <input type="search" id="q" placeholder="Filter by text…">
+    <select id="status">
+      <option value="">All</option>
+      <option value="Active">Active only</option>
+      <option value="Archive">Archive only</option>
+    </select>
+    <select id="source">
+      <option value="">All sources</option>
+    </select>
+    <span class="count" id="count"></span>
+  </div>
+</header>
+<table>
+  <thead>
+    <tr>
+      <th data-col="sum" data-type="num" class="sorted desc">Sum</th>
+      <th data-col="f" data-type="num">F</th>
+      <th data-col="m" data-type="num">M</th>
+      <th data-col="t" data-type="num">T</th>
+      <th data-col="status" data-type="str">Status</th>
+      <th data-col="idea" data-type="str">Idea</th>
+      <th data-col="source" data-type="str">Source</th>
+    </tr>
+  </thead>
+  <tbody id="tbody"></tbody>
+</table>
+<div class="empty" id="empty" hidden>No matches.</div>
+
+<script>
+let DATA = [];
+let sortCol = 'sum', sortDesc = true;
+
+const tbody = document.getElementById('tbody');
+const q = document.getElementById('q');
+const statusSel = document.getElementById('status');
+const sourceSel = document.getElementById('source');
+const countEl = document.getElementById('count');
+const emptyEl = document.getElementById('empty');
+
+// Tiny markdown subset: [text](url) → <a>, **text** → <b>
+function md(s) {
+  return s
+    .replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;')
+    .replace(/\[([^\]]+)\]\(([^)]+)\)/g, '<a href="$2" target="_blank" rel="noopener">$1</a>')
+    .replace(/\*\*([^*]+)\*\*/g, '<b>$1</b>')
+    .replace(/`([^`]+)`/g, '<code>$1</code>');
+}
+
+function render() {
+  const query = q.value.trim().toLowerCase();
+  const st = statusSel.value;
+  const src = sourceSel.value;
+  const rows = DATA.filter(x => {
+    if (st && x.status !== st) return false;
+    if (src && x.source !== src) return false;
+    if (query && !x.idea.toLowerCase().includes(query)) return false;
+    return true;
+  });
+  rows.sort((a,b) => {
+    const va = a[sortCol], vb = b[sortCol];
+    let c = typeof va === 'number' ? va - vb : String(va).localeCompare(String(vb));
+    return sortDesc ? -c : c;
+  });
+  tbody.innerHTML = rows.map(x =>
+    `<tr><td class="num">${x.sum}</td><td class="num">${x.f}</td><td class="num">${x.m}</td><td class="num">${x.t}</td>` +
+    `<td><span class="badge b-${x.status}">${x.status}</span></td>` +
+    `<td class="idea">${md(x.idea)}</td>` +
+    `<td><span class="badge b-source">${x.source}</span></td></tr>`
+  ).join('');
+  countEl.textContent = `${rows.length} of ${DATA.length}`;
+  emptyEl.hidden = rows.length > 0;
+}
+
+document.querySelectorAll('th[data-col]').forEach(th => {
+  th.addEventListener('click', () => {
+    const col = th.dataset.col;
+    if (sortCol === col) sortDesc = !sortDesc;
+    else { sortCol = col; sortDesc = (th.dataset.type === 'num'); }
+    document.querySelectorAll('th').forEach(t => t.classList.remove('sorted','desc'));
+    th.classList.add('sorted');
+    if (sortDesc) th.classList.add('desc');
+    render();
+  });
+});
+q.addEventListener('input', render);
+statusSel.addEventListener('change', render);
+sourceSel.addEventListener('change', render);
+
+fetch('ideas.json').then(r => r.json()).then(d => {
+  DATA = d;
+  const sources = [...new Set(d.map(x => x.source))].sort();
+  for (const s of sources) {
+    const o = document.createElement('option');
+    o.value = s; o.textContent = s;
+    sourceSel.appendChild(o);
+  }
+  render();
+});
+</script>
+</body>
+</html>
