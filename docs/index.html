@@ -51,14 +51,10 @@
 <header>
   <h1>Saas Ideas</h1>
   <div class="meta">
-    All scores /10. Click any column header to sort. Default sort: <b>Adj</b> descending.
+    Click any column to sort. Default: best bets first, then money desc.
     <div class="legend">
-      <span><b>F</b> Fun to build</span>
-      <span><b>M</b> Money potential (raw)</span>
-      <span><b>T</b> Tech challenge</span>
-      <span><b>C</b> Competition pressure (1 open / 10 brutal)</span>
-      <span><b>M<sub>eff</sub></b> = max(M − max(C−3, 0), 0)</span>
-      <span><b>Adj</b> = F + M<sub>eff</sub> + T</span>
+      <span><b>Fun</b> = F + T (each /10) — tech challenge + how fun to build</span>
+      <span><b>Money</b> = M + Feas − C — raw money potential + solo feasibility − competition</span>
     </div>
   </div>
   <div class="controls">
@@ -68,7 +64,10 @@
       <option value="">All sources</option>
     </select>
     <label style="display:inline-flex; align-items:center; gap:.35rem; color:var(--muted); font-size:.85rem;">
-      min Feas <input type="number" id="minFeas" min="0" max="10" value="0" step="1" style="width:3.5rem; background:transparent; color:var(--fg); border:1px solid var(--border); border-radius:6px; padding:.4rem .4rem; font:inherit;">
+      min Money <input type="number" id="minMoney" min="-10" max="20" value="-10" step="1" style="width:3.5rem; background:transparent; color:var(--fg); border:1px solid var(--border); border-radius:6px; padding:.4rem .4rem; font:inherit;">
+    </label>
+    <label style="display:inline-flex; align-items:center; gap:.35rem; color:var(--muted); font-size:.85rem;">
+      min Fun <input type="number" id="minFun" min="0" max="20" value="0" step="1" style="width:3.5rem; background:transparent; color:var(--fg); border:1px solid var(--border); border-radius:6px; padding:.4rem .4rem; font:inherit;">
     </label>
     <select id="customer" title="Customer type">
       <option value="">All customers</option>
@@ -83,16 +82,11 @@
 <table>
   <thead>
     <tr>
-      <th data-col="best_bet" data-type="num" class="num sorted desc" title="Best bet: F_feas ≥ 5 AND (F ≥ 8 OR M_eff ≥ 6 OR T ≥ 9)">★</th>
-      <th data-col="adj"     data-type="num" class="num">Adj</th>
-      <th data-col="f"       data-type="num" class="num">F</th>
-      <th data-col="m_eff"   data-type="num" class="num" title="M with competition penalty">M_eff</th>
-      <th data-col="t"       data-type="num" class="num">T</th>
-      <th data-col="f_feas"  data-type="num" class="num" title="Feasibility for solo dev — capital, distribution, time-to-MVP">Feas</th>
-      <th data-col="c"       data-type="num" class="num" title="Competition pressure">C</th>
-      <th data-col="m"       data-type="num" class="num" title="Raw M (before competition)">M</th>
-      <th data-col="idea"    data-type="str">Idea</th>
-      <th data-col="source"  data-type="str">Source</th>
+      <th data-col="best_bet" data-type="num" class="num" title="Best bet: customer ≠ dev AND (fun ≥ 14 OR money ≥ 5)">★</th>
+      <th data-col="money"    data-type="num" class="num sorted desc" title="M + Feas − C. Range roughly -3 to 17.">Money</th>
+      <th data-col="fun"      data-type="num" class="num" title="F + T. Range 2 to 20.">Fun</th>
+      <th data-col="idea"     data-type="str">Idea</th>
+      <th data-col="source"   data-type="str">Source</th>
     </tr>
   </thead>
   <tbody id="tbody"></tbody>
@@ -106,7 +100,8 @@ let sortCol = 'best_bet', sortDesc = true;
 const tbody = document.getElementById('tbody');
 const q = document.getElementById('q');
 const sourceSel = document.getElementById('source');
-const minFeasEl = document.getElementById('minFeas');
+const minMoneyEl = document.getElementById('minMoney');
+const minFunEl   = document.getElementById('minFun');
 const customerSel = document.getElementById('customer');
 const bestOnly = document.getElementById('bestOnly');
 const bestToggle = document.getElementById('bestToggle');
@@ -127,7 +122,8 @@ function md(s) {
 function render() {
   const query = q.value.trim().toLowerCase();
   const src = sourceSel.value;
-  const minFeas = parseInt(minFeasEl.value, 10) || 0;
+  const minMoney = parseInt(minMoneyEl.value, 10);
+  const minFun   = parseInt(minFunEl.value, 10) || 0;
   const cust = customerSel.value;
   const onlyBest = bestOnly.checked;
   bestToggle.classList.toggle('on', onlyBest);
@@ -135,7 +131,8 @@ function render() {
     if (onlyBest && !x.best_bet) return false;
     if (src && x.source !== src) return false;
     if (cust && x.customer !== cust) return false;
-    if (x.f_feas < minFeas) return false;
+    if (x.money < minMoney) return false;
+    if (x.fun   < minFun)   return false;
     if (query && !x.idea.toLowerCase().includes(query)) return false;
     return true;
   });
@@ -148,16 +145,13 @@ function render() {
   const cls = (v) => v >= STRONG ? ' strong' : '';
   tbody.innerHTML = rows.map(x => {
     const star = x.best_bet ? `<span class="star" title="${(x.best_bet_why || '').replace(/"/g,'&quot;')}">★</span>` : '';
-    const feasCls = x.f_feas >= 5 ? ' strong' : '';
+    const tip = `F${x.f} M${x.m} T${x.t} C${x.c} Feas${x.f_feas}`;
+    const funCls   = x.fun   >= 14 ? ' strong' : '';
+    const moneyCls = x.money >= 5  ? ' strong' : '';
     return `<tr>` +
     `<td class="num">${star}</td>` +
-    `<td class="num">${x.adj}</td>` +
-    `<td class="num${cls(x.f)}">${x.f}</td>` +
-    `<td class="num${cls(x.m_eff)}">${x.m_eff}</td>` +
-    `<td class="num${cls(x.t)}">${x.t}</td>` +
-    `<td class="num${feasCls}">${x.f_feas}</td>` +
-    `<td class="num">${x.c}</td>` +
-    `<td class="num">${x.m}</td>` +
+    `<td class="num${moneyCls}" title="${tip}">${x.money}</td>` +
+    `<td class="num${funCls}" title="${tip}">${x.fun}</td>` +
     `<td class="idea">${md(x.idea)}</td>` +
     `<td><span class="badge">${x.source}</span> <span class="badge">${x.customer}</span></td>` +
     `</tr>`;
@@ -179,7 +173,8 @@ document.querySelectorAll('th[data-col]').forEach(th => {
 });
 q.addEventListener('input', render);
 sourceSel.addEventListener('change', render);
-minFeasEl.addEventListener('input', render);
+minMoneyEl.addEventListener('input', render);
+minFunEl.addEventListener('input', render);
 customerSel.addEventListener('change', render);
 bestOnly.addEventListener('change', render);
 

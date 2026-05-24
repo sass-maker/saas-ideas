@@ -419,18 +419,9 @@ for x in sol:
 print(f"Starterstory: kept {sum(1 for x in all_items if x['source']=='starterstory')}; "
       f"dropped {sol_dropped_revenue} for <$5K/mo, {sol_dropped_nontech} for non-tech-first category")
 
-# Add derived fields (no active/archive split — sorting in the site handles it)
-STRONG = 7  # threshold for "strong on an axis"
-MIN_T  = 7  # filter: drop ideas that aren't tech-heavy
-for x in all_items:
-    x['m_eff'] = m_eff(x['m'], x['c'])
-    x['adj']   = x['f'] + x['m_eff'] + x['t']
-    s = []
-    if x['f']     >= STRONG: s.append('F')
-    if x['m_eff'] >= STRONG: s.append('M')
-    if x['t']     >= STRONG: s.append('T')
-    x['strengths'] = ''.join(s) or '—'
-    x['s_count']   = len(s)
+# Two derived scores will be computed AFTER F_feas + customer are stamped
+# (see below). Just declare MIN_T here for the filter that comes next.
+MIN_T = 7  # filter: drop ideas that aren't tech-heavy
 
 # Hard filter: drop non-tech-heavy ideas from the data entirely.
 before = len(all_items)
@@ -537,21 +528,31 @@ for x in all_items:
             ctype = c; break
     x['customer'] = ctype
 
-# Best bet criterion calibrated to a $5K MRR target (100 users at $50/mo or
-# 1000 at $5/mo) AND excluding dev-individual ideas (devs love it; devs love
-# not paying). b2b-tech is allowed because companies do pay for their teams.
+# Two derived scores per user spec:
+#   fun   = F + T            (range 2..20)
+#   money = M + F_feas - C   (range -8..19, practical -3..17)
+for x in all_items:
+    x['fun']   = x['f'] + x['t']
+    x['money'] = x['m'] + x['f_feas'] - x['c']
+    # legacy fields kept in data for tooltip/debug only
+    x['m_eff'] = m_eff(x['m'], x['c'])
+    x['adj']   = x['fun'] + max(x['money'], 0)
+
+# Best bet: strong on at least one of the two collapsed axes, AND not
+# selling to individual devs.
+#   fun   >= 14 (= e.g. F7 T7, or F8 T6) OR
+#   money >= 5  (clear positive after competition penalty)
 for x in all_items:
     x['best_bet'] = (
-        x['f_feas'] >= 4 and
         x['customer'] != 'dev' and
-        (x['f'] >= 7 or x['m'] >= 4 or x['t'] >= 8)
+        (x['fun'] >= 14 or x['money'] >= 5)
     )
     x['best_bet_why'] = x['f_feas_why'] if x['best_bet'] else ''
 
-# Sort: best_bet first, then by adj (which already includes M_eff), then by f_feas
-all_items.sort(key=lambda x: (-int(x['best_bet']), -x['adj'], -x['f_feas'], -max(x['f'], x['m_eff'], x['t'])))
-from collections import Counter
-print(f"Total {len(all_items)} ideas | best bets: {sum(x['best_bet'] for x in all_items)} | F_feas dist: {dict(Counter(x['f_feas'] for x in all_items))}")
+# Sort: best_bet first, then by money desc, then fun desc
+all_items.sort(key=lambda x: (-int(x['best_bet']), -x['money'], -x['fun']))
+print(f"Total {len(all_items)} | best bets: {sum(x['best_bet'] for x in all_items)} | "
+      f"fun max {max(x['fun'] for x in all_items)} | money max {max(x['money'] for x in all_items)}")
 
 # ---------------------------------------------------------------------------
 # Write minimal README stub
