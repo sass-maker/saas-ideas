@@ -300,6 +300,7 @@ for x in sol:
 
 # Add derived fields (no active/archive split — sorting in the site handles it)
 STRONG = 7  # threshold for "strong on an axis"
+MIN_T  = 7  # filter: drop ideas that aren't tech-heavy
 for x in all_items:
     x['m_eff'] = m_eff(x['m'], x['c'])
     x['adj']   = x['f'] + x['m_eff'] + x['t']
@@ -310,9 +311,35 @@ for x in all_items:
     x['strengths'] = ''.join(s) or '—'
     x['s_count']   = len(s)
 
-all_items.sort(key=lambda x: (-x['s_count'], -x['adj'], -max(x['f'], x['m_eff'], x['t']), -x['f']))
+# Drop non-tech-heavy ideas
+before = len(all_items)
+all_items = [x for x in all_items if x['t'] >= MIN_T]
+print(f"Filtered to T >= {MIN_T}: kept {len(all_items)} of {before}")
+
+# Best bets — curated picks where tech-heavy meets a credible wedge.
+# Match by substring on the idea body (stable enough for our small curated set).
+BEST_BETS = {
+    "B4 — AI step-through debugger":          "Production-trace replay debugging is novel + low competition + deep tech.",
+    "Bizarre idea: fluid apps":               "Bolt/Lovable own build-time; runtime-malleable UI is greenfield + hard.",
+    "StoryTunes — [spec]":                    "Only spec with a credible solo path. Multiplayer-vote-canon-with-AI-personas is open. $1–5M ceiling but life-changing for a solo.",
+    "An app that animates manga":             "Manga-specific wedge (voice consistency + dialogue ownership) is real; category demand growing.",
+    "A2 — Legacy code resurrection":          "Even with Anthropic/IBM circling, 1–2 six-figure consulting contracts/year is a real solo outcome.",
+    "DB → sheet/notion app with git-style":   "Dolt exists for the storage; Notion-UX over git-style data is open. Genuinely hard.",
+    "A SM with personality bots":             "Moltbook validated demand for AI-only socials. Multi-agent consensus is hard tech.",
+    "Time-series geographical heatmap":       "Kalman/Viterbi territory is satisfying; vertical (demand forecasting) is open.",
+}
+for x in all_items:
+    bet = None
+    for needle, why in BEST_BETS.items():
+        if needle in x['idea']:
+            bet = why; break
+    x['best_bet']    = bet is not None
+    x['best_bet_why'] = bet or ''
+
+# Sort: best_bet first, then strengths, then adj
+all_items.sort(key=lambda x: (-int(x['best_bet']), -x['s_count'], -x['adj'], -max(x['f'], x['m_eff'], x['t']), -x['f']))
 from collections import Counter
-print(f"Total {len(all_items)} ideas | strength distribution: {dict(Counter(x['s_count'] for x in all_items))}")
+print(f"Total {len(all_items)} ideas | strength distribution: {dict(Counter(x['s_count'] for x in all_items))} | best bets: {sum(x['best_bet'] for x in all_items)}")
 
 # ---------------------------------------------------------------------------
 # Write minimal README stub
