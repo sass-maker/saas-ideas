@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Saas Ideas</title>
+<style>
+  :root { --bg:#0d1117; --fg:#e6edf3; --muted:#8b949e; --border:#30363d; --accent:#58a6ff; }
+  @media (prefers-color-scheme: light) { :root { --bg:#fff; --fg:#1f2328; --muted:#656d76; --border:#d0d7de; --accent:#0969da; } }
+  * { box-sizing: border-box; }
+  body { margin:0; font:14px/1.5 -apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif; background:var(--bg); color:var(--fg); }
+  header { padding:1rem 1.25rem; border-bottom:1px solid var(--border); position:sticky; top:0; background:var(--bg); z-index:10; }
+  h1 { margin:0 0 .25rem; font-size:1.25rem; }
+  .meta { color:var(--muted); font-size:.85rem; margin-bottom:.75rem; }
+  .meta code { background:rgba(127,127,127,.15); padding:0 .25rem; border-radius:3px; font-size:.85em; }
+  .controls { display:flex; gap:.5rem; flex-wrap:wrap; align-items:center; }
+  input[type=search], select { background:transparent; color:var(--fg); border:1px solid var(--border); border-radius:6px; padding:.4rem .6rem; font:inherit; }
+  input[type=search] { min-width:280px; }
+  .count { color:var(--muted); margin-left:auto; font-variant-numeric:tabular-nums; }
+  table { width:100%; border-collapse:collapse; }
+  th, td { padding:.5rem .75rem; text-align:left; border-bottom:1px solid var(--border); vertical-align:top; }
+  th { cursor:pointer; user-select:none; position:sticky; top:0; background:var(--bg); white-space:nowrap; border-bottom:2px solid var(--border); }
+  th:hover { color:var(--accent); }
+  th.sorted::after { content:" ▲"; color:var(--accent); }
+  th.sorted.desc::after { content:" ▼"; }
+  td.num, th.num { text-align:right; font-variant-numeric:tabular-nums; }
+  tr:hover { background:rgba(127,127,127,.08); }
+  .badge { display:inline-block; padding:.05rem .4rem; border-radius:10px; font-size:.7rem; font-weight:600; color:var(--muted); border:1px solid var(--border); }
+  a { color:var(--accent); text-decoration:none; }
+  a:hover { text-decoration:underline; }
+  td.idea { max-width:820px; }
+  td.idea code { background:rgba(127,127,127,.15); padding:0 .25rem; border-radius:3px; font-size:.92em; }
+  .empty { padding:2rem; text-align:center; color:var(--muted); }
+  .legend { display:inline-flex; gap:1rem; flex-wrap:wrap; color:var(--muted); font-size:.8rem; margin-top:.25rem; }
+  td.strong { background:rgba(46,160,67,.18); color:#3fb950; font-weight:600; }
+  @media (prefers-color-scheme: light) { td.strong { background:rgba(31,136,61,.12); color:#1a7f37; } }
+  .strengths { font-variant:tabular-nums; letter-spacing:.05em; font-weight:600; }
+  .s-3 { color:#3fb950; }
+  .s-2 { color:#d29922; }
+  .s-1 { color:var(--muted); }
+  .s-0 { color:var(--muted); opacity:.5; }
+  @media (prefers-color-scheme: light) { .s-3 { color:#1a7f37; } .s-2 { color:#9a6700; } }
+  .star { color:#d29922; font-size:1.05em; cursor:help; }
+  .toggle { display:inline-flex; align-items:center; gap:.35rem; padding:.4rem .6rem; border:1px solid var(--border); border-radius:6px; cursor:pointer; user-select:none; }
+  .toggle input { margin:0; }
+  .toggle.on { background:rgba(210,153,34,.12); border-color:#d29922; color:#d29922; }
+  @media (prefers-color-scheme: light) { .toggle.on { background:rgba(154,103,0,.1); color:#9a6700; border-color:#9a6700; } }
+</style>
+</head>
+<body>
+<header>
+  <h1>Saas Ideas</h1>
+  <div class="meta">
+    Click any column to sort. Default: best bets first, then money desc.
+    <div class="legend">
+      <span><b>Fun</b> = F + T (each /10) — tech challenge + how fun to build</span>
+      <span><b>Money</b> = M + Feas − C — raw money potential + solo feasibility − competition</span>
+    </div>
+  </div>
+  <div class="controls">
+    <label class="toggle" id="bestToggle"><input type="checkbox" id="bestOnly"> ★ Best bets only</label>
+    <input type="search" id="q" placeholder="Filter by text…">
+    <select id="source">
+      <option value="">All sources</option>
+    </select>
+    <label style="display:inline-flex; align-items:center; gap:.35rem; color:var(--muted); font-size:.85rem;">
+      min Money <input type="number" id="minMoney" min="-10" max="20" value="-10" step="1" style="width:3.5rem; background:transparent; color:var(--fg); border:1px solid var(--border); border-radius:6px; padding:.4rem .4rem; font:inherit;">
+    </label>
+    <label style="display:inline-flex; align-items:center; gap:.35rem; color:var(--muted); font-size:.85rem;">
+      min Fun <input type="number" id="minFun" min="0" max="20" value="0" step="1" style="width:3.5rem; background:transparent; color:var(--fg); border:1px solid var(--border); border-radius:6px; padding:.4rem .4rem; font:inherit;">
+    </label>
+    <select id="customer" title="Customer type">
+      <option value="">All customers</option>
+      <option value="non-dev">Non-dev only</option>
+      <option value="b2b-tech">B2B tech (company buys for team)</option>
+      <option value="dev">Dev (individual)</option>
+    </select>
+    <span class="count" id="count"></span>
+  </div>
+  <div class="meta" style="margin-top:.5rem;">Data hard-filtered to T ≥ 7. Best-bet rule: F_feas ≥ 4 AND (F ≥ 7 OR M ≥ 4 OR T ≥ 8) AND customer ≠ dev. Hover ★ for the feasibility reasoning.</div>
+</header>
+<table>
+  <thead>
+    <tr>
+      <th data-col="best_bet" data-type="num" class="num" title="Best bet: customer ≠ dev AND (fun ≥ 14 OR money ≥ 5)">★</th>
+      <th data-col="money"    data-type="num" class="num sorted desc" title="M + Feas − C. Range roughly -3 to 17.">Money</th>
+      <th data-col="fun"      data-type="num" class="num" title="F + T. Range 2 to 20.">Fun</th>
+      <th data-col="idea"     data-type="str">Idea</th>
+      <th data-col="source"   data-type="str">Source</th>
+    </tr>
+  </thead>
+  <tbody id="tbody"></tbody>
+</table>
+<div class="empty" id="empty" hidden>No matches.</div>
+
+<script>
+let DATA = [];
+let sortCol = 'best_bet', sortDesc = true;
+
+const tbody = document.getElementById('tbody');
+const q = document.getElementById('q');
+const sourceSel = document.getElementById('source');
+const minMoneyEl = document.getElementById('minMoney');
+const minFunEl   = document.getElementById('minFun');
+const customerSel = document.getElementById('customer');
+const bestOnly = document.getElementById('bestOnly');
+const bestToggle = document.getElementById('bestToggle');
+const countEl = document.getElementById('count');
+const emptyEl = document.getElementById('empty');
+const STRONG = 7;
+
+// Tiny markdown subset: [text](url) → <a>, **text** → <b>, *text* → <i>, `text` → <code>
+function md(s) {
+  return s
+    .replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;')
+    .replace(/\[([^\]]+)\]\(([^)]+)\)/g, '<a href="$2" target="_blank" rel="noopener">$1</a>')
+    .replace(/\*\*([^*]+)\*\*/g, '<b>$1</b>')
+    .replace(/(?<!\*)\*([^*]+)\*(?!\*)/g, '<i>$1</i>')
+    .replace(/`([^`]+)`/g, '<code>$1</code>');
+}
+
+function render() {
+  const query = q.value.trim().toLowerCase();
+  const src = sourceSel.value;
+  const minMoney = parseInt(minMoneyEl.value, 10);
+  const minFun   = parseInt(minFunEl.value, 10) || 0;
+  const cust = customerSel.value;
+  const onlyBest = bestOnly.checked;
+  bestToggle.classList.toggle('on', onlyBest);
+  const rows = DATA.filter(x => {
+    if (onlyBest && !x.best_bet) return false;
+    if (src && x.source !== src) return false;
+    if (cust && x.customer !== cust) return false;
+    if (x.money < minMoney) return false;
+    if (x.fun   < minFun)   return false;
+    if (query && !x.idea.toLowerCase().includes(query)) return false;
+    return true;
+  });
+  rows.sort((a,b) => {
+    let va = a[sortCol], vb = b[sortCol];
+    if (typeof va === 'boolean') { va = va ? 1 : 0; vb = vb ? 1 : 0; }
+    let c = typeof va === 'number' ? va - vb : String(va).localeCompare(String(vb));
+    return sortDesc ? -c : c;
+  });
+  const cls = (v) => v >= STRONG ? ' strong' : '';
+  tbody.innerHTML = rows.map(x => {
+    const star = x.best_bet ? `<span class="star" title="${(x.best_bet_why || '').replace(/"/g,'&quot;')}">★</span>` : '';
+    const tip = `F${x.f} M${x.m} T${x.t} C${x.c} Feas${x.f_feas}`;
+    const funCls   = x.fun   >= 14 ? ' strong' : '';
+    const moneyCls = x.money >= 5  ? ' strong' : '';
+    return `<tr>` +
+    `<td class="num">${star}</td>` +
+    `<td class="num${moneyCls}" title="${tip}">${x.money}</td>` +
+    `<td class="num${funCls}" title="${tip}">${x.fun}</td>` +
+    `<td class="idea">${md(x.idea)}</td>` +
+    `<td><span class="badge">${x.source}</span> <span class="badge">${x.customer}</span></td>` +
+    `</tr>`;
+  }).join('');
+  countEl.textContent = `${rows.length} of ${DATA.length}`;
+  emptyEl.hidden = rows.length > 0;
+}
+
+document.querySelectorAll('th[data-col]').forEach(th => {
+  th.addEventListener('click', () => {
+    const col = th.dataset.col;
+    if (sortCol === col) sortDesc = !sortDesc;
+    else { sortCol = col; sortDesc = (th.dataset.type === 'num'); }
+    document.querySelectorAll('th').forEach(t => t.classList.remove('sorted','desc'));
+    th.classList.add('sorted');
+    if (sortDesc) th.classList.add('desc');
+    render();
+  });
+});
+q.addEventListener('input', render);
+sourceSel.addEventListener('change', render);
+minMoneyEl.addEventListener('input', render);
+minFunEl.addEventListener('input', render);
+customerSel.addEventListener('change', render);
+bestOnly.addEventListener('change', render);
+
+fetch('ideas.json').then(r => r.json()).then(d => {
+  DATA = d;
+  const sources = [...new Set(d.map(x => x.source))].sort();
+  for (const s of sources) {
+    const o = document.createElement('option');
+    o.value = s; o.textContent = s;
+    sourceSel.appendChild(o);
+  }
+  render();
+});
+</script>
+</body>
+</html>

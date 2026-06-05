@@ -1,4 +1,4 @@
-FamilyTree
+FamilyTree `[F7 M5 T8]` (F/M/T each out of 10 — fun, money, tech challenge)
 
 About Me
 An website that lets you make your profile and then provides URLs for redirects according to your need. Let’s you export your profile and turn your profile into api. So that you can fill your details one place and update everywhere else automatically.

@@ -1,111 +1,19 @@
 # Saas Ideas
 
-![AI Generated](https://ai-percentage-pin.vercel.app/api/ai-percentage?value=0)
-![AI PRs Welcome](https://ai-percentage-pin.vercel.app/api/ai-prs?welcome=yes)
-- A browser that remembers everything you have searched and lets you handle things accordingly
-- Create a directory maker for fun. And release a bunch of directories for fun, they all can use the same DB, ofc. E.g., the AI Wrapper directory.All lists (directories or such) in the market should be collaborative and modifiable via votes. The problem with this would be verifying accounts. They should be able to be visible and absent based on votes. Categorised, ranked.
-- This directory can also act as a market place for domain selling. Will need to verify domain? Can do that by dns forwarding or whatever people do to take charge of what website domain points to. And can add a back link to my website there. Also need to know how to un verify it, ie someone verified and sold it elsewhere. can have auction system built it?
-- Why don’t people selling SASS, don’t have a bid system. For bidders you can create a profile (with social profile connected for added verification). Can gamify it a bit by adding: bids placed (and unique products bidded on), bids won and actual payment count.
-- An app that quickly creates mock APi using AI and deploys it. Can just use redis to store the sample data and generate random query params to make it work.
-- An app that tells you what anime character you are based on your tweets or you can write your bio. Might have to scrap anime characters from their own wiki pages, Reddit reviews etc
+Browse the full sorted list at **https://saas-ideas.pages.dev/**.
 
-- An app to handle time series geographical data from various sources and view them like a heat map in the map. Can be used for Swiggy orders or stuff like that. Should be able to handle multiple sources and try to approximate future demand. Can also use take input as IP address. Useful for all kinds of analytics and to see active people and how many people are active on the app. Using timeseries DB or CH. https://en.wikipedia.org/wiki/Kalman_filter, https://en.wikipedia.org/wiki/Viterbi_algorithm
-- Summarise threads - twitter, reddit etc
+All ideas live in `docs/ideas.json`. To edit scores or add new ideas, edit
+`scripts/build.py` (single source of truth), then:
 
-* A pluggable recommendation system that anyone can plug in with custom field inputs and custom interactions with weightages. Something that I did for feed, simple vector search just scaled and made much more configurable. Can also add a beta mode to let them test my new developments and a test env to let people test various configs. Will store recommendation items and user interactions in my db. 
-* A super app to help you prepare for tests, integrate AI-based questioning, anki notes and is extremely personalised.
-* A browser extension that has your various info and just fills all the forms for you. Be it regular form, post/comment creation. How can it go beyond what browsers are already capable of doing
-* An extension that can read everything on web and lets you query on it.
-* An app that can teach any concept in an interactive story with cartoons and stuff.
-* An app that scrap websites to decipher the current mood about things like: fundraise, hiring, scandals etc,
-* A vscode extension that checks your commits before allowing to push via AI. Need to think on how can this better after lint, beautify and build function post hooks
-* A better ad experience based on where the users are going instead of where they want to go. For example in airports, the ads can be improved based on where the flight is being sent, you can add some ad for the destination.
-* Linkedtree. like product that shares ad revenue. Can start with Google ads but move to our product ideas, and we can pay the extra credit-saving cut. People can also add the products they use (or advertise) in their linked tree. There can be 3 stages for a user-company relation based on which ad can be made: visited, tried and paid. User can be paid in coins which can also be used with e-commerce after tie ups. To begin can seed bunch of celebrities with their link to see if they love it. Maybe make it as a service, where you personally tailor each page. Why not have analytics like datafast
-Let users vibe design their page. Let them paste other linkedtree urls and import data, maybe make a form of some sort and they can edit and share? Build a market place in which people can share templates? Or charge others for designing their page?
-- Rag is mostly dependent on data prep. Maybe buy something like Memoryrag.com. Post training studying can be useful. And inference optimisation
-* There is plethora of fake tweet screenshots, how about something like verified tweet. Can use a tool like: https://tweethunter.io/tweetpik to generate screenshot and easy share button to share with link and image. Or maybe people want to be misinformed or manipulate others. There are ways to tweet text directly, if you can figure out how to tweet image just by clicking can also turn it into browser extension.
-* a SM with bunch of different personality bots, they interact with all posts and with each other. Can also act as a user’s advisors. Can let people create different agents with their own API keys for a price. Also need to think of scaling when there are too many AI agents? Do we limit them to topics or subreddits?. Also can we use this system for StoryTunes? (the realtime collaboration). Agents should be able to discuss among themselves and reach a consensus about decisionsboration app).
-* Build a minimalist graph library for fun. Can be based on canvas, webgl and svg. The graph building library can be super helpful:
-•⁠  ⁠knowledge graph 
-•⁠  ⁠⁠family tree / relationship manager.
-•⁠  ⁠⁠agent decision diagram (for saas maker, with various components integrated)
-•⁠  ⁠⁠learning tool, graphic of things. You can click on something and make an anki card and stuff
-* Adult School ? adults organizing fest , sport events etc. A place where they can spend working on building whatever they want. They can pick any job they want to do as well.
-* An app (maybe integrated in SH as list or something like feature list in saasmaker). People can recommend books/movies in groups
-* EverythingRated.com - a website where people can rate anything and everything on different aspects. People can create new aspects, new categories , new things to rate etc
-* An app like pager duty but for orders live. Just need to build a system that will be used everywhere (elixir sounds good)
-* What about having a podcaster embedded? At ALL places.
-* Bizarre idea: fluid apps - apps that let users prompt and modify the app to their liking.
-* Tree Visualizer - An app to visualise tree algorithms, let users build tree and write algo there itself. Can extend this with an ide for people to collaborate on leetcode problems, which lets them test and submit for all collaborators as well.
-* A website that tells you the complexity of your code if you write your code on it. Tests your code for possible edge cases when described with time of input is expected. An exception handling class which can detect infinite loops, misc errors etc Tells you the execution time of your code on various inputs, jato judge the complexity.
-* A dedicated app for lawyers, CA to highlight and provide their services - like practo and all for health. Plumber, carpenter , driver for rent can also be available. Assuming they are as educated as swiggy drivers. But there are different skill levels. People can add voice prompts to decrease the overhead of understanding the requirements before the professional accepts the requests.
-* An app that lets you book transport for local tourism. Provides you with a lot of packages of travelling, main target audience would be tourists. We will probably have to partner with a lot of agencies. Soon we can shift towards one one-stop platform for tourism. This will be like mmt but for taxis.
-* Vodka vanilla Oreo drink. A website where cocktails across different places are rated and reviewed. Just directly make EverythingIsRated?
-* An app that people wanna use in case of panic. The app will provide less options, will learn from user experience what suits them. Give personalised care, a less overwhelming option and welcoming app. Can be extended as something for old people to use.
-* Let old machine be used as a server. Next step would be to do something like Dukaan, if local drops shift to cloud. A simple project with complete CI/CD, metrics and log management. Maybe scaling and descaling as well. #infra
-* An app to make tier lists easily. People can vote, so consider merging with similar ideas like storytunes or everythingRated
-* Temp splitwise (can also be used to host lists and shti) - https://github.com/sarthakagrawal927/temp-splitwise
-* A shareable music list (with DnD realtime editing, different source handling) - https://github.com/sarthakagrawal927/musicDnD/
-* A location tracking app https://github.com/sarthakagrawal927/location-tracker-app
-* An app that lets you find relevant places based on user’s feedback, something like nomad list but for similar stuff. https://github.com/sarthakagrawal927/maps-server
-* The family tree app https://github.com/sarthakagrawal927/Tree
-* Storytunes. An app where people can write stories with voted collaboration from peers 0r public. Each single line can be voted against other lines, can involve AI in it. Overall a voted collaboration writing experience. Can move to spreadsheet and others as well later on. Also each on-site event is also like a story, people can collaborate their ideas and have a nice event summary towards the end. StoryTunes data feedback can be used to generate a really good dataset. Spec: `storytunes.md`
-* https://docs.google.com/spreadsheets/d/1s_ZDKtOoGqi1FtTyPeeS0h_0d96jOFJ-TuzwjWnnCPo/edit?gid=1478931401#gid=1478931401
-* https://www.ycombinator.com/rfs
-* https://octolens.com/
-* Scalable n8n or similar tool
-* performance marketing agents
-* cctv app that is able to customize for various special queries like for how long was the doctor sitting, how long the patient sat etc. The bin is in the position or not.
-* a meeting helper (https://www.shadow.do/, https://cluely.com)
-* DB to sheet/notion app with features like: git style data merge, virtual grid for high capacity (cache all data and update on change, maybe cache via some compression mechanism, ai copilot, shareable subData, etc)
-* Analytics: An AI analytics company that auto generates user reports based on analytics. Can require manual plumbing or just sdk install (detects all user interactions). Makes flow diagrams, maps old website cta to newer cta. Let clients fix mistakes. Auto generates relevant flow diagrams based on asked queries (as it will have entire context of The app). Can identify pain points, will self label where not plumbed. Can be advertised as a browser extension for users to check how they interact with the websites. Can also identify where Agent/human would fail to understand. Can merge context from Product Dev replacement, extension in which you can prompt and modify websites. Based on how user interacts try to extract information on how they shop/behave etc. Also integrate foresight , predict user’s next move. For all flows, ends up creating a huge flow diagram (state machine kind of to show the entire life cycle of user, time spent on screen/between events etc). Should have option to remove anomalies in avg (top10, bottom10 for example). Convert each user's action into statements and generalise user behaviour on platform.
-* Product called Propoganda for ai short video form marketing. Should have discovering new ideas, generation, posting, analytics and optimisation. Fullstack product with analytics, automation, content generation and optimisation. Can be part of saas-maker. Cheap prices, direct AI integration into discussion with data and everything. Premium packages could include private data, otherwise we can sell the data to others building similar products. An app that helps you create social creds ( images, videos), by suggesting what’s popular, what’s good etc. Can also tell how likely a particular item is to do, based on market analysis. You can have virtual friends with personality and they can be part of their social cred.
-* Personal Reporter: Where all can I used it:
-•⁠  ⁠Reddit daily update summary
-•⁠  ⁠⁠mails I received summary
-•⁠  ⁠⁠news I care about
-A bunch of similar things which can be like watching tv for the user from their fav character/voice
+```
+python3 scripts/build.py
+npx wrangler pages deploy ./docs --project-name saas-ideas
+```
 
-* While I plan to build a light weight analytics framework with more details written ( something like datafast). I should also make my own observability plus logs framework. A simplified tailored version. Something that I can attach to all my products with one click
+Scoring: F/M/T/C each /10 — **F**un to build, **M**oney potential (raw),
+**T**ech challenge, **C**ompetition pressure (1 open / 10 brutal).
+M_eff = max(M − max(C − 3, 0), 0). Adj = F + M_eff + T (default sort).
 
-Will research what’s trending and suggest ideas. Can be part of propaganda.
-* Website recommender - Share some of your history/bookmarks or manual enter. And it will give you some samples you would want. A url shortener with super analytics like datafast. Everyone you click on a short url, you first see a screen with either your recommended websites (we can save cookies based on what user have previously visited) or what people also visited. LinkedTree should also have super analytics free in build, with similar loader.
-* - Learning App (purpose is active recall, anki, journal, mind maps & general notes), plus access to general wike (aka AI, try Apple AI also). Focus on [interportability](https://chatgpt.com/share/68d77d9f-594c-8008-aa81-a9faeb3b1779). Should base my learning app off of tldraw sdk.
-- Complete Movies, Anime, Manga APp with watchlist and active recommendations. Already have manga, anime setup. For movies/tv check [this](https://chatgpt.com/share/68d77dff-7a6c-8008-bab4-a252c26d241d). Should work with my existing app (anime_list), with focus on informing users about their relevant content, followed series etc.
-- An app to understand users' needs. Can be used to sell (software, medicine, cosmetics, clothes, food etc)
-- A simple web based sql table viewer with AI capabilities built in.
-- An app that summarises git commits and posts them on Twitter (also build the tweet scheduling bot) (https://github.com/jnsahaj/lumen)
-- An agent that deep dives into someone and finds out almost everything about them. Once they have their full info, they use it to trade info from other people and then try to verify that info from other sources, eventually gaining more and more info. Will have to create a source authenticity framework where each source will be rated based on past info (can be part of everythingIsRated)
--  A chatbot arena where I put in some thought, where LLMs argue and come to a consensus (something is already built). Are results always better when the same questions is asked to multiple models? can we do it something like a consensus algorithm of blockchain? Or they feel better for complex reasoning tasks, and a multi-agent approach essentially breaks it into simpler pieces, resulting in better results.
--  An app that analyses stock data to determine purchases by determining its health in short term, long term etc.
--  An app to help practice different boxing moves with different modes. can extend to various other sports and add vision model for giving better direction and scoring to the user.
--  An app that animates manga, comics. Need to ensure voice for a particular character, remains same and we are properly able to identify the dialogue owner each time and create a profile for the character to assign suitable voice and tone. Also need to fill bunch of scenes in middle, add proper bgm, expand wherever necessary. If this can be done why not also animate the novel by giving initial character designs. Maybe by training on bunch of anime fights we can teach it how anime actions work and it can replicate it then. We have input output for this as there are plenty of manga converted to anime. But it might end up learning messing with the story😂.
-- How to make AI work with new language. Given all syntax and a compiler+test suite to continuously test, AI can iteratively write a lot of code as it can definitely create logic.
-- An app that tells you how much gay you are based on your data, can reel market this. Can make bunch of similar apps in this direction: Just simple api to ask get some data from user - process it -> ask ai for some conclusion and add poppy images that they can share. Maybe an app with full of surveys like this. Then people can hold bunch of badges. For example they can select their most likely character within a particular universe. Can them connect with people with most common groups? Seems like a good way to monetise, by some mid games and leaderboard or some city creation. Or AI social media merger. If badges seem important maybe a serious version of it with tie ups to real world organization like firesight girls in phineous ferb.
-- An app that analyses GitHub repositories history. Something like codiem also explains how the codebase works and behaves. Can determine importance of codebase based on how frequent changes were made to the file/flow. What each commit meant? What was probable effort involved? What is the general contribution on this repo? What is general contribution across org?
-- An app to have maps for everything, starting off rental properties. Users will be able to add entries for all sorts of stuff, including: Where sceneries are great? Where food is great ( not all places can be listed on Zomato )? Where to go to see the sunset? Which area is lit?
-- An application to help companies track the location of their employees, give them directions/tasks etc.
-- storyTunes - an app on which people can collaborate on scenarios/stories. Best voted sentence/part wins its place. Can have AI contributers and realtime collaboration.
-- use n throw splitwise
-- build something like https://www.wikiboard.org, but for entire net, click to zoom on tab, multiple parallel threads etc. AI summary and reasoning. A simple app that embeds the full page and that is scrollable. You can write comments on the side for each particular part by highlighting it. PDFs too, can merge with interconnected browser thing.
-- An on disk trie made of 1m sentences that tries to predict next word quickly.Can’t have all in memory, so it will have to read from disk. First node will be start , and will have multiple child nodes as possible start of sentences. Each new sentence with common path can increase the path nodes count. Can also be used to find grammatical mistakes if there is no existing mapping? Or it will just become a really good suggestor.
-- A tool which feeds entire repo to llm in readable way. Just give github link and to get a review.
-- Start a business with payment integration, Provide to people with no business a way to collect money. And send the amount they made to them as contractual pay.
-
-## Games
-- A tambola game which takes real money and sends back real money. Custom rooms can be created with or without money. Like the IPL betting game.
-- An app that requires you to answer some questions before opening up. Difficulty keeps on increasing with the count you opened the app already. An app that allows you to set the amount of time u use your phone when u start using it. It's asks Everytime for how long u want to use whenever u unlock the phone. Also it can keep decreasing the contrast of phone. Eventually converting it to black n white.
-- Anti Chess App
-- Monopoly Game
-- Game of catan but at a much larger scale, playable online for companies. Main feature of catans can be scaled: more bricks, dice roll numbers can be repeated.
-- A dashboard filled with mini-games.
-- A poker game with stakes of tasks instead of money. Everyone playing can add a few tasks on others, their value can be decided via consensus among other players. This will let you have some solid stake without involving money. Something like truth and dare but for poker. Can be extended to different betting/gambling games.
-- A JS implementation of the game in which people match glasses. People predict an initial order of glasses, then the computer will give you the number of correct glass positions
-- Small web. Games directory
-- Build a project using t3-app and party-kit
-- Since people now a days love reels and games, how about ab app that combines both. An app where you swipe and get to play a new game or next level of old game. Can also have reels on the side. Will make revenue with ads ofc. Would be even better if you can somehow let people submit games, maybe embed web app that has been integrated well.
-- An app that lets you build walkable 3d worlds, you can choose to design each building and stuff.
-- TD (https://github.com/maciej-trebacz/tower-of-time-game?tab=readme-ov-file)
-
-- An app (chrome extension) to download a good amount of blogs as pdf. People index already, why can't I render what I index in a pretty way. Since most websites use SPA, we might need to use AI to ask it to add tailwind classes to it after cleaning the html.
-- Open world game with AI characters
+Flushed-out specs (one doc each): [FamilyTree](family-tree.md),
+[magicform](magic-form.md), [Productivity App](productivity.md),
+[StoryTunes](storytunes.md). Portfolio doc: [PROJECT-STRATEGY.md](PROJECT-STRATEGY.md).
