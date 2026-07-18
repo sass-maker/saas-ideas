@@ -1,3 +1,8 @@
+---
+title: FamilyTree — Spec
+description: Original product spec for the FamilyTree idea (tree + About Me + GiftMe + matrimonial + commerce). See the failed-approach verdict for why it is unshippable solo.
+---
+
 FamilyTree `[F7 M5 T8]` (F/M/T each out of 10 — fun, money, tech challenge)
 
 About Me

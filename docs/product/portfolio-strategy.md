@@ -1,3 +1,8 @@
+---
+title: Portfolio Strategy
+description: Fleet-wide portfolio operating model — Commercial / Personal / Infra / Playground buckets, current commercial focus, and promotion criteria. Fleet-level doc that lives in this repo.
+---
+
 # Project Strategy — April 2026
 
 This doc is the portfolio operating model.

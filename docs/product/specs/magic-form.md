@@ -1,3 +1,8 @@
+---
+title: magicform — Spec
+description: Original product spec for the magicform AI form-builder idea. See the failed-approach verdict for why the core wedge is gone.
+---
+
 # magicform `[F7 M7 T7]`
 
 _Scores out of 10 — fun to build, money potential, technically challenging._

@@ -1,2 +1,11 @@
 .wrangler/
 .DS_Store
+
+# Blume presentation-layer build outputs (docs/ Markdown is the source of truth)
+.blume/
+dist/
+node_modules/
+
+# Local agent logs
+*.agent.log
+.agent-logs/

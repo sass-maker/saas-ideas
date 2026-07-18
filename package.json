@@ -1,0 +1,19 @@
+{
+  "name": "saas-ideas-docs",
+  "private": true,
+  "description": "Blume presentation layer for the saas-ideas knowledge system (docs/). The catalog itself is built with scripts/build.py and deployed from site/.",
+  "type": "module",
+  "engines": {
+    "node": ">=22.12"
+  },
+  "scripts": {
+    "docs:dev": "blume dev",
+    "docs:build": "blume build",
+    "docs:preview": "blume preview",
+    "docs:validate": "blume validate",
+    "docs:check": "python3 scripts/check-docs.py"
+  },
+  "devDependencies": {
+    "blume": "1.0.2"
+  }
+}

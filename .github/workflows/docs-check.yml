@@ -1,0 +1,60 @@
+name: docs-check
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - "docs/**"
+      - "AGENTS.md"
+      - "STATUS.md"
+      - "scripts/check-docs.py"
+      - ".github/workflows/docs-check.yml"
+  pull_request:
+    paths:
+      - "docs/**"
+      - "AGENTS.md"
+      - "STATUS.md"
+      - "scripts/check-docs.py"
+      - ".github/workflows/docs-check.yml"
+
+permissions:
+  contents: read
+
+jobs:
+  validate-docs:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.x"
+
+      - name: Validate docs (frontmatter + internal links)
+        run: python3 scripts/check-docs.py
+
+      - name: Validate docs (external links, best-effort, non-blocking)
+        continue-on-error: true
+        run: python3 scripts/check-docs.py --external
+
+  build-catalog:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0  # build.py reads solopreneur_ideas.json from git history
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.x"
+
+      - name: Rebuild catalog from source of truth
+        run: python3 scripts/build.py
+
+      - name: Verify generated artifacts exist and are non-empty
+        run: |
+          test -s README.md
+          test -s site/ideas.json
+          python3 -c "import json;d=json.load(open('site/ideas.json'));assert len(d)>0,'ideas.json empty';print('rows:',len(d),'best_bets:',sum(x['best_bet'] for x in d))"

@@ -1,3 +1,8 @@
+---
+title: StoryTunes — Spec
+description: Product spec for the multiplayer story engine with canon voting and AI co-authors. The one spec the deep-dive endorses shipping.
+---
+
 # StoryTunes `[F8 M4 T7]`
 
 _Scores out of 10 — fun to build, money potential, technically challenging._

@@ -1,3 +1,8 @@
+---
+title: Productivity App — Spec
+description: Original product spec for the life-OS productivity app idea. See the failed-approach verdict for why it is a build-for-self-only, not a business.
+---
+
 # Productivity App `[F8 M5 T8]`
 
 _Scores out of 10 — fun to build, money potential, technically challenging._

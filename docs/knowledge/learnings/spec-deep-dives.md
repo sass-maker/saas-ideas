@@ -1,3 +1,8 @@
+---
+title: Spec Deep-Dives
+description: Honest market analyses for the four flushed-out specs (FamilyTree, magicform, Productivity App, StoryTunes). Source for the C-bumps in scripts/build.py and the failed-approach verdicts.
+---
+
 # Spec deep-dives
 
 Honest market analyses for the four flushed-out specs, produced via web research (Nov 2026). Source for the C-bumps in `scripts/build.py`.

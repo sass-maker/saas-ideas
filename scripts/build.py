@@ -121,8 +121,8 @@ README_IDEAS = [
     (8, 3, 7, 8, "Tree Visualizer — visualise tree algorithms; let users build trees and write algo there. Extend with an IDE for collaborative leetcode (test + submit for all). **Comp:** LeetCode, Coderpad, HackerRank, VisuAlgo, AlgoExpert. **Wedge:** real-time collab on the algorithm canvas; small TAM though, hard to monetise."),
     (7, 3, 9, 4, "A website that tells you the time complexity of code you paste. Tests for edge cases when given expected input size. Class to detect infinite loops, misc errors. Reports execution time on various inputs. **Comp:** Big-O calculators (academic), Codility-style runners, ChatGPT itself does this. **Wedge:** rigorous empirical testing not just static analysis."),
     (7, 4, 7, 4, "Let old machines be used as a server. Next step Dukaan-style hosting. Full CI/CD, metrics, log management. Auto scale/descale. **Comp:** Hetzner/OVH self-host, Coolify, Caprover, Dokploy. **Wedge:** repurposing-old-hardware angle is novel for indie/hobby; weak monetization."),
-    (7, 4, 6, 8, "The family tree app — https://github.com/sarthakagrawal927/Tree. **Comp:** Ancestry, MyHeritage (21B records, 81M trees), FamilySearch (free), 23andMe, Geni. Market is locked by DNA + records moats; M_eff is brutal. (full spec in `family-tree.md`)"),
-    (8, 4, 7, 5, "Storytunes. Multi-author collab story writing with line-by-line voting; can include AI contributors. Each on-site event = a story; auto-summarised. Spec: `storytunes.md`. **Comp:** Storium, PlotVote, WriteJam, Storyfall, Mycelore, NovelAI (single-player). **Wedge:** AI persona contributors voted alongside humans — fun, niche, hard to scale revenue."),
+    (7, 4, 6, 8, "The family tree app — https://github.com/sarthakagrawal927/Tree. **Comp:** Ancestry, MyHeritage (21B records, 81M trees), FamilySearch (free), 23andMe, Geni. Market is locked by DNA + records moats; M_eff is brutal. (full spec in `docs/product/specs/family-tree.md`)"),
+    (8, 4, 7, 5, "Storytunes. Multi-author collab story writing with line-by-line voting; can include AI contributors. Each on-site event = a story; auto-summarised. Spec: `docs/product/specs/storytunes.md`. **Comp:** Storium, PlotVote, WriteJam, Storyfall, Mycelore, NovelAI (single-player). **Wedge:** AI persona contributors voted alongside humans — fun, niche, hard to scale revenue."),
     (5, 6, 6, 10, "Meeting helper a la shadow.do / cluely.com. **Comp:** Granola ($125M Series C at $1.5B Mar 2026, 250% q/q growth), Fathom (free + unlimited), Otter, Cluely ($20M raised), Tactiq, tl;dv. **Wedge:** specific vertical only — interview/therapy/legal — generic note-taking is fully cooked. M_eff ≈ 0 generically."),
     (5, 5, 7, 7, "CCTV app customisable for special queries (\"how long did the doctor sit?\", \"is the bin in position?\"). **Comp:** Verkada (shipped AI-powered natural-language search Oct 2025: \"person driving forklift\" queries), Camio, Lumana, custom CV. **Wedge:** Verkada owns this for hardware buyers; software-only/BYO-camera angle is the only opening."),
     (8, 3, 8, 5, "Open world game with AI characters. NPCs with persistent memory, emergent storylines. **Comp:** Inworld AI, Convai, Altera, Skyrim modding scene with LLM mods. **Wedge:** indie title scale; tech is fun but monetisation is brutal for solo."),
@@ -191,10 +191,10 @@ README_IDEAS = [
 # ---------------------------------------------------------------------------
 
 SPEC_IDEAS = [
-    (7, 5, 8, 9, "FamilyTree — [spec](family-tree.md). Social tree + auth + giftme + matrimonial + commerce + genetic angles. **Comp:** Ancestry ($1.3B rev/$10B mooted exit), MyHeritage, FamilySearch (free), Geni (200M profiles), WikiTree (free volunteer). **Reality:** records/DNA owned by incumbents; free/social owned by FamilySearch+WikiTree; MyFamily.com (the social-tree play) already shuttered in 2014. Spec scope is unshippable solo. **Wedge:** thin — maybe diaspora-Indian matrimonial-meets-tree only."),
-    (7, 6, 7, 9, "magicform — [spec](magic-form.md). AI-built forms with realtime/2-way comms + SDK embed. **Comp:** Typeform ($141M ARR, $935M val), Jotform ($145M, bootstrapped), Tally ($4M ARR, bootstrapped, aggressive free tier eating the low end), Fillout ($19/mo w/ AI built-in), Google Forms (47% share). **Reality:** every incumbent shipped AI form generation in 2024-25; the 'AI builds forms' wedge is gone. Pricing race-to-zero. **Wedge:** 2-way comms + embeddable SDK is real but niche."),
-    (8, 5, 8, 9, "Productivity App — [spec](productivity.md). Life-OS combining habits, schedule, goals, journal, social mode. **Comp:** Notion ($400M ARR), Todoist (50M users), Motion ($50M ARR, $550M val, $75M raised), Sunsama, Akiflow, Habitica, Streaks, Habitify. **Reality:** life-OS scope graveyard — flexibility (Notion templates) consistently beats opinionated all-in-one. Spec is ~3 years of solo work. The dev will be the only user. **Wedge:** none defensible; build only if it's your daily driver."),
-    (8, 3, 7, 4, "StoryTunes — [spec](storytunes.md). Multiplayer story engine with canon voting + AI co-authors. **Comp:** Storium (crowdfunded 2014, tiny), Storyfall (solo indie), PlotVote, Mycelore (preview), Sudowrite ($1.8M ARR after 5yrs, bootstrapped), NovelAI (subs only), AI Dungeon (-46% players Feb25→Apr26). Wattpad ($895M rev) owns social-serialized but not multiplayer. **Reality:** lane is open — no funded incumbent in voted-canon-multiplayer. But the cat is small (Sudowrite at $1.8M tells you ceiling). **Wedge:** real; monetization is the question."),
+    (7, 5, 8, 9, "FamilyTree — [spec](https://github.com/sass-maker/saas-ideas/blob/main/docs/product/specs/family-tree.md). Social tree + auth + giftme + matrimonial + commerce + genetic angles. **Comp:** Ancestry ($1.3B rev/$10B mooted exit), MyHeritage, FamilySearch (free), Geni (200M profiles), WikiTree (free volunteer). **Reality:** records/DNA owned by incumbents; free/social owned by FamilySearch+WikiTree; MyFamily.com (the social-tree play) already shuttered in 2014. Spec scope is unshippable solo. **Wedge:** thin — maybe diaspora-Indian matrimonial-meets-tree only."),
+    (7, 6, 7, 9, "magicform — [spec](https://github.com/sass-maker/saas-ideas/blob/main/docs/product/specs/magic-form.md). AI-built forms with realtime/2-way comms + SDK embed. **Comp:** Typeform ($141M ARR, $935M val), Jotform ($145M, bootstrapped), Tally ($4M ARR, bootstrapped, aggressive free tier eating the low end), Fillout ($19/mo w/ AI built-in), Google Forms (47% share). **Reality:** every incumbent shipped AI form generation in 2024-25; the 'AI builds forms' wedge is gone. Pricing race-to-zero. **Wedge:** 2-way comms + embeddable SDK is real but niche."),
+    (8, 5, 8, 9, "Productivity App — [spec](https://github.com/sass-maker/saas-ideas/blob/main/docs/product/specs/productivity.md). Life-OS combining habits, schedule, goals, journal, social mode. **Comp:** Notion ($400M ARR), Todoist (50M users), Motion ($50M ARR, $550M val, $75M raised), Sunsama, Akiflow, Habitica, Streaks, Habitify. **Reality:** life-OS scope graveyard — flexibility (Notion templates) consistently beats opinionated all-in-one. Spec is ~3 years of solo work. The dev will be the only user. **Wedge:** none defensible; build only if it's your daily driver."),
+    (8, 3, 7, 4, "StoryTunes — [spec](https://github.com/sass-maker/saas-ideas/blob/main/docs/product/specs/storytunes.md). Multiplayer story engine with canon voting + AI co-authors. **Comp:** Storium (crowdfunded 2014, tiny), Storyfall (solo indie), PlotVote, Mycelore (preview), Sudowrite ($1.8M ARR after 5yrs, bootstrapped), NovelAI (subs only), AI Dungeon (-46% players Feb25→Apr26). Wattpad ($895M rev) owns social-serialized but not multiplayer. **Reality:** lane is open — no funded incumbent in voted-canon-multiplayer. But the cat is small (Sudowrite at $1.8M tells you ceiling). **Wedge:** real; monetization is the question."),
 ]
 
 # ---------------------------------------------------------------------------
@@ -562,27 +562,33 @@ stub = """# Saas Ideas
 
 Browse the full sorted list at **https://saas-ideas.pages.dev/**.
 
-All ideas live in `docs/ideas.json`. To edit scores or add new ideas, edit
-`scripts/build.py` (single source of truth), then:
+All ideas live in `site/ideas.json` (generated). The single source of truth is
+`scripts/build.py`; edit it to change scores or add ideas, then:
 
 ```
 python3 scripts/build.py
-npx wrangler pages deploy ./docs --project-name saas-ideas
+npx wrangler pages deploy ./site --project-name saas-ideas
 ```
 
 Scoring: F/M/T/C each /10 — **F**un to build, **M**oney potential (raw),
 **T**ech challenge, **C**ompetition pressure (1 open / 10 brutal).
-M_eff = max(M − max(C − 3, 0), 0). Adj = F + M_eff + T (default sort).
+M_eff = max(M − max(C − 3, 0), 0). Adj = F + M_eff + T (legacy sort).
+Derived: `fun = F + T`, `money = M + F_feas − C`; `best_bet` iff customer ≠ dev
+AND (fun ≥ 14 OR money ≥ 5). Default sort: best_bet, then money, then fun.
 
-Flushed-out specs (one doc each): [FamilyTree](family-tree.md),
-[magicform](magic-form.md), [Productivity App](productivity.md),
-[StoryTunes](storytunes.md). Portfolio doc: [PROJECT-STRATEGY.md](PROJECT-STRATEGY.md).
+Knowledge system (architecture, decisions, specs, learnings): see [docs/](docs/)
+and [AGENTS.md](AGENTS.md). Flushed-out specs:
+[FamilyTree](docs/product/specs/family-tree.md),
+[magicform](docs/product/specs/magic-form.md),
+[Productivity App](docs/product/specs/productivity.md),
+[StoryTunes](docs/product/specs/storytunes.md).
+Portfolio doc: [portfolio strategy](docs/product/portfolio-strategy.md).
 """
 (ROOT/'README.md').write_text(stub)
 
 # ---------------------------------------------------------------------------
-# Write docs/ideas.json
+# Write site/ideas.json (published static site)
 # ---------------------------------------------------------------------------
 
-(ROOT/'docs'/'ideas.json').write_text(json.dumps(all_items))
-print("Wrote README.md (stub) and docs/ideas.json")
+(ROOT/'site'/'ideas.json').write_text(json.dumps(all_items))
+print("Wrote README.md (stub) and site/ideas.json")
