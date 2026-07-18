@@ -1,6 +1,6 @@
 ---
 title: SaaS Ideas — Knowledge System
-description: Source of truth for the saas-ideas catalog: product, architecture, decisions, operations, and durable learnings.
+description: "Source of truth for the saas-ideas catalog: product, architecture, decisions, operations, and durable learnings."
 ---
 
 # SaaS Ideas — Knowledge System

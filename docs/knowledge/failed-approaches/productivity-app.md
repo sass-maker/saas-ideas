@@ -43,7 +43,7 @@ Each of those is a focused product; the life-OS is not.
 
 ## Why C = 9
 
-Notion ($400M ARR), Todoist (50M users), Motion ($50M ARR), Sunsama, Akiflog,
+Notion ($400M ARR), Todoist (50M users), Motion ($50M ARR), Sunsama, Akiflow,
 Habitica, Streaks, Habitify — dozens of funded incumbents across every slice
 the spec touches.
 
