@@ -11,7 +11,8 @@
     "docs:build": "blume build",
     "docs:preview": "blume preview",
     "docs:validate": "blume validate",
-    "docs:check": "python3 scripts/check-docs.py"
+    "docs:check": "python3 scripts/check-docs.py",
+    "deploy": "python3 scripts/build.py && npx wrangler pages deploy ./site --project-name=saas-ideas --branch=main"
   },
   "devDependencies": {
     "blume": "1.0.2"
