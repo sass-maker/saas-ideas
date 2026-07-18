@@ -1,0 +1,16 @@
+# SaaS Ideas
+
+> A scored, sortable catalog of SaaS product ideas.
+
+## Product
+
+
+## Machine surfaces
+
+- [Agent catalog](https://ideas.sassmaker.com/api/ai): JSON inventory of public surfaces
+- [Homepage markdown](https://ideas.sassmaker.com/index.md): Product brief without JS
+- [This index](https://ideas.sassmaker.com/llms.txt)
+
+## Optional
+
+- [Foundry](https://sassmaker.com): Parent fleet showcase

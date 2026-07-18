@@ -1,0 +1,26 @@
+# SaaS Ideas — full agent brief
+
+A scored, sortable catalog of SaaS product ideas.
+
+## Index
+
+# SaaS Ideas
+
+Scored catalog of SaaS product ideas.
+
+## Product links
+
+
+## Machine surfaces
+
+- https://ideas.sassmaker.com/llms.txt
+- https://ideas.sassmaker.com/llms-full.txt
+- https://ideas.sassmaker.com/api/ai
+- https://ideas.sassmaker.com/index.md
+- https://ideas.sassmaker.com/sitemap.xml
+- https://ideas.sassmaker.com/robots.txt
+
+## Contact / fleet
+
+- Fleet: https://sassmaker.com
+- Agent email for directory verification: sarthakagrawal@agentmail.to
