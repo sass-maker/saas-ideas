@@ -5,7 +5,7 @@ description: Honest market analyses for the four flushed-out specs (FamilyTree, 
 
 # Spec deep-dives
 
-Honest market analyses for the four flushed-out specs, produced via web research (Nov 2026). Source for the C-bumps in `scripts/build.py`.
+Honest market analyses for the four flushed-out specs, produced via web research (2026). Source for the C-bumps in `scripts/build.py`.
 
 ## FamilyTree — `[F7 M5 T8 C9]` → Adj 15
 

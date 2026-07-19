@@ -6,7 +6,7 @@ description: Where the ideas in the catalog come from and how each source is sco
 # Idea Sources
 
 Every idea in `site/ideas.json` carries a `source` field. The build pipeline
-treats each source differently. The four sources, in `scripts/build.py`:
+treats each source differently. The five sources, in `scripts/build.py`:
 
 ## `ai-ideas` — `AI_IDEAS`
 

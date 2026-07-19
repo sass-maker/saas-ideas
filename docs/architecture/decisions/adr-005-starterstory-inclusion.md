@@ -1,5 +1,5 @@
 ---
-title: ADR-005 — Starterstory inclusion: tech-first + >= $5K/mo
+title: "ADR-005 — Starterstory inclusion: tech-first + >= $5K/mo"
 description: Include Starterstory case studies only if tech-first category and >= $5K/month revenue.
 ---
 
@@ -49,7 +49,7 @@ interview boilerplate.
 - **Pro:** the catalog includes real revenue existence proofs without being
   drowned by non-tech or sub-$5K entries.
 - **Pro:** derived scoring means no per-entry hand-scoring effort for
-  ~30-40 kept entries.
+  the ~90 kept entries.
 - **Con:** the source data is frozen in git history (`fetch_sol()` reads it
   from there, not the network). New Starterstory stories are not picked up
   automatically. This is accepted — re-scraping would re-introduce ToS and
