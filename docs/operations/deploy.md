@@ -25,16 +25,14 @@ python3 -m http.server -d site 8000
 npx wrangler pages deploy ./site --project-name saas-ideas
 ```
 
-### One-time Cloudflare dashboard step (after ADR-007)
+### Git-connected production builds
 
-The Pages project's build output directory was `docs/` and is now `site/`. Either:
+`wrangler.jsonc` is the tracked source of truth for the Pages output directory
+and points production builds at `site/`. Cloudflare's Git integration publishes
+`main`; do not add a second Actions deployment pipeline.
 
-- keep passing `./site` explicitly on every deploy (the command above does), or
-- update the project's **Build output directory** to `site/` in the Cloudflare
-  dashboard so git-connected builds resolve correctly.
-
-Until that dashboard field is updated, do not rely on git-connected automatic
-deploys — use the explicit `wrangler pages deploy ./site` command.
+The explicit Wrangler command above remains the recovery path when a clean,
+validated `main` deployment must be republished manually.
 
 ## Docs site (Blume → static)
 
@@ -48,7 +46,8 @@ npx wrangler pages deploy ./dist --project-name saas-ideas-docs
 ```
 
 The docs site is a separate Pages project from the catalog. Its URL is not yet
-fixed — see [STATUS.md](../../STATUS.md).
+fixed — see
+[STATUS.md](https://github.com/sass-maker/saas-ideas/blob/main/STATUS.md).
 
 ## Rollback
 

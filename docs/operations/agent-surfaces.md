@@ -30,13 +30,11 @@ if you add a new public route to the catalog, add it to `api-ai.json`'s
 
 ## Canonical URL
 
-The surfaces currently reference `https://ideas.sassmaker.com/...`. The
-generated `README.md` references `https://saas-ideas.pages.dev/`. Both resolve
-to the same Pages project. Pick one canonical URL and align both — see
-[operations index](index.md) and [STATUS.md](../../STATUS.md).
+All public and agent surfaces use `https://ideas.sassmaker.com/...` as the
+canonical URL. The provider-managed `saas-ideas.pages.dev` hostname is only a
+deployment origin alias. See the [operations index](index.md).
 
 ## Sitemap
 
-`robots.txt` references `https://ideas.sassmaker.com/sitemap.xml`, but no
-`sitemap.xml` is committed in `site/`. This is an open gap — either generate
-one or drop the reference. Tracked in [STATUS.md](../../STATUS.md).
+`robots.txt` and `api-ai.json` reference the committed
+`site/sitemap.xml`, which lists the canonical catalog homepage.

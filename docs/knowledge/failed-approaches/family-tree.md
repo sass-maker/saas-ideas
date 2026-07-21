@@ -7,7 +7,7 @@ description: Why the FamilyTree spec is unshippable solo and what (if anything) 
 
 - **Spec:** [docs/product/specs/family-tree.md](../../product/specs/family-tree.md)
 - **Scores:** `F7 M5 T8 C9` → `money = 5 + 2 - 9 = -2`
-- **Deep-dive:** [spec-deep-dives.md](../learnings/spec-deep-dives.md#familytree-f7-m5-t8-c9-adj-15)
+- **Deep-dive:** [spec-deep-dives.md](../learnings/spec-deep-dives.md)
 
 ## Verdict: niche-pivot or dead
 

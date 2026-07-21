@@ -7,7 +7,7 @@ description: Why the magicform AI-form-builder spec's core wedge is gone.
 
 - **Spec:** [docs/product/specs/magic-form.md](../../product/specs/magic-form.md)
 - **Scores:** `F7 M6 T7 C9` → `money = 6 + 3 - 9 = 0`
-- **Deep-dive:** [spec-deep-dives.md](../learnings/spec-deep-dives.md#magicform-f7-m6-t7-c9-adj-14)
+- **Deep-dive:** [spec-deep-dives.md](../learnings/spec-deep-dives.md)
 
 ## Verdict: niche-pivot
 

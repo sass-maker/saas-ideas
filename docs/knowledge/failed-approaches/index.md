@@ -19,7 +19,7 @@ verdict-only index.
 
 StoryTunes is the one spec the deep-dive endorses shipping — it is **not** a
 failed approach. See its [spec](../../product/specs/storytunes.md) and the
-[deep-dive](../learnings/spec-deep-dives.md#storytunes-f8-m3-t7-c4-adj-17).
+[deep-dive](../learnings/spec-deep-dives.md).
 
 ## Other dropped categories (not full specs)
 

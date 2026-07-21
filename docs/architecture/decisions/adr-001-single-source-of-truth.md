@@ -33,7 +33,8 @@ partial state, no database, no migration step.
   This is accepted; splitting idea text into per-file markdown would reintroduce
   the scattered-source problem this ADR was meant to solve.
 - **Con:** `README.md` is generated, so it must never be hand-edited —
-  documented in the README itself and in [AGENTS.md](../../../AGENTS.md).
+  documented in the README itself and in
+  [AGENTS.md](https://github.com/sass-maker/saas-ideas/blob/main/AGENTS.md).
 
 ## Notes
 

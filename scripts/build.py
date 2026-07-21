@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Source of truth for the master idea list. Rebuilds README + docs/ideas.json.
+"""Source of truth for the master idea list. Rebuilds README + site/ideas.json.
 
 Run: python3 scripts/build.py
 
@@ -560,7 +560,7 @@ print(f"Total {len(all_items)} | best bets: {sum(x['best_bet'] for x in all_item
 
 stub = """# Saas Ideas
 
-Browse the full sorted list at **https://saas-ideas.pages.dev/**.
+Browse the full sorted list at **https://ideas.sassmaker.com/**.
 
 All ideas live in `site/ideas.json` (generated). The single source of truth is
 `scripts/build.py`; edit it to change scores or add ideas, then:

@@ -7,10 +7,12 @@ description: "Source of truth for the saas-ideas catalog: product, architecture,
 
 This is the canonical documentation for the `saas-ideas` repository. The
 committed Markdown here is the source of truth; the published sortable catalog
-at <https://saas-ideas.pages.dev/> is a generated artifact built from
+at <https://ideas.sassmaker.com/> is a generated artifact built from
 `scripts/build.py`.
 
-> New here? Read [AGENTS.md](../AGENTS.md) first (repository bootloader), then
+> New here? Read
+> [AGENTS.md](https://github.com/sass-maker/saas-ideas/blob/main/AGENTS.md)
+> first (repository bootloader), then
 > [Product overview](product/overview.md).
 
 ## What this repo is

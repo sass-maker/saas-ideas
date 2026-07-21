@@ -1,6 +1,6 @@
 # Saas Ideas
 
-Browse the full sorted list at **https://saas-ideas.pages.dev/**.
+Browse the full sorted list at **https://ideas.sassmaker.com/**.
 
 All ideas live in `site/ideas.json` (generated). The single source of truth is
 `scripts/build.py`; edit it to change scores or add ideas, then:

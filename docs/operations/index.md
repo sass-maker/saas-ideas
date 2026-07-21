@@ -22,14 +22,12 @@ automated scraping (see
 
 ## Domains
 
-The catalog is reachable at two URLs that resolve to the same Cloudflare Pages
-project:
+The catalog is published through one Cloudflare Pages project:
 
-- `https://saas-ideas.pages.dev/` — the Pages default domain (referenced in
-  the generated `README.md`).
-- `https://ideas.sassmaker.com/` — custom domain (referenced in the agent/GEO
-  surfaces in `site/`).
+- `https://ideas.sassmaker.com/` — the canonical public URL used by the
+  generated README and agent/GEO surfaces.
+- `https://saas-ideas.pages.dev/` — the provider-managed origin alias, useful
+  only for deployment diagnostics.
 
-**Open inconsistency:** the two surfaces use different canonical URLs. Pick one
-(`ideas.sassmaker.com` is the friendlier, branded one) and align both before
-the next deploy. Tracked in [STATUS.md](../../STATUS.md).
+The branded custom domain is canonical; do not present the provider alias as a
+second public product URL.

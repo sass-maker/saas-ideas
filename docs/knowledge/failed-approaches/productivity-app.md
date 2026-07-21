@@ -7,7 +7,7 @@ description: Why the life-OS spec is a 3-year solo build with no defensible wedg
 
 - **Spec:** [docs/product/specs/productivity.md](../../product/specs/productivity.md)
 - **Scores:** `F8 M5 T8 C9` → `money = 5 + 2 - 9 = -2`
-- **Deep-dive:** [spec-deep-dives.md](../learnings/spec-deep-dives.md#productivity-app-f8-m5-t8-c9-adj-16)
+- **Deep-dive:** [spec-deep-dives.md](../learnings/spec-deep-dives.md)
 
 ## Verdict: build for self only
 
