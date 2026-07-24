@@ -109,10 +109,12 @@ const countEl = document.getElementById('count');
 const emptyEl = document.getElementById('empty');
 const STRONG = 7;
 
-// Tiny markdown subset: [text](url) → <a>, **text** → <b>, *text* → <i>, `text` → <code>
+// Tiny markdown subset: [text](url) → <a>, **text** → <b>, *text* → <i>,
+// `text` → <code>, and the build pipeline's <br> separator → a line break.
 function md(s) {
   return s
     .replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;')
+    .replace(/&lt;br\s*\/?&gt;/gi, '<br>')
     .replace(/\[([^\]]+)\]\(([^)]+)\)/g, '<a href="$2" target="_blank" rel="noopener">$1</a>')
     .replace(/\*\*([^*]+)\*\*/g, '<b>$1</b>')
     .replace(/(?<!\*)\*([^*]+)\*(?!\*)/g, '<i>$1</i>')
