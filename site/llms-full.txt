@@ -10,6 +10,8 @@ Scored catalog of SaaS product ideas.
 
 ## Product links
 
+- Catalog: https://ideas.sassmaker.com/
+- Generated idea data: https://ideas.sassmaker.com/ideas.json
 
 ## Machine surfaces
 

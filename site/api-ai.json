@@ -19,6 +19,14 @@
       "description": "Product home"
     }
   ],
+  "dataResources": [
+    {
+      "id": "ideas",
+      "url": "https://ideas.sassmaker.com/ideas.json",
+      "kind": "json",
+      "description": "Generated public idea records and scoring fields"
+    }
+  ],
   "auth": {
     "public": true,
     "notes": "Auth-walled app routes are not agent-indexed unless listed here."
