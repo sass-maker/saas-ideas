@@ -17,7 +17,7 @@ has its own Blume-managed surfaces. See
 | --- | --- |
 | `llms.txt` | Agent index per the llms.txt convention — one-line product description + links to other surfaces. |
 | `llms-full.txt` | Full agent brief — product description, machine surface URLs, sitemap, robots, fleet/contact. |
-| `index.md` | Markdown homepage (markdown negotiation; agents fetch `.md` to skip JS). Intentionally a 2-line pointer; real data is in `ideas.json`. |
+| `index.md` | Markdown homepage with the scoring model, public data links, and product boundaries. |
 | `api-ai.json` | JSON inventory of public surfaces, `markdown.negotiation: true`, `auth.public: true`. |
 | `robots.txt` | Allows all agents + explicitly allows `/llms.txt`, `/llms-full.txt`, `/index.md`, `/api/ai`; points to sitemap. |
 

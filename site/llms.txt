@@ -4,6 +4,8 @@
 
 ## Product
 
+- [Catalog](https://ideas.sassmaker.com/): Sort and filter scored SaaS ideas
+- [Idea data](https://ideas.sassmaker.com/ideas.json): Generated public catalog data
 
 ## Machine surfaces
 
