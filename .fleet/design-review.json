@@ -1,0 +1,62 @@
+{
+  "$schema": "fleet.design-review.v1",
+  "version": 1,
+  "project": "repo",
+  "target": "mobile ideas catalog",
+  "mode": "preserve",
+  "register": "product",
+  "context": {
+    "product": "PRODUCT.md",
+    "design": "DESIGN.md"
+  },
+  "direction": {
+    "references": [],
+    "probes": [],
+    "selected": "existing-design",
+    "approval": "not-required",
+    "before": "artifacts/design/mobile-ideas-catalog/before-390.png"
+  },
+  "evidence": {
+    "screenshots": [
+      {
+        "width": 390,
+        "path": "artifacts/design/mobile-ideas-catalog/after-390.png"
+      },
+      {
+        "width": 768,
+        "path": "artifacts/design/mobile-ideas-catalog/after-768.png"
+      },
+      {
+        "width": 1440,
+        "path": "artifacts/design/mobile-ideas-catalog/after-1440.png"
+      }
+    ],
+    "projectCheck": {
+      "command": "python3 scripts/build.py && python3 scripts/check-docs.py && npm run docs:build",
+      "status": "pass"
+    },
+    "critique": {
+      "score": 37,
+      "maximum": 40
+    },
+    "audit": {
+      "score": 18,
+      "maximum": 20
+    },
+    "unresolved": {
+      "p0": 0,
+      "p1": 0
+    },
+    "detector": {
+      "posture": "advisory",
+      "findings": [
+        "Incumbent translucent state colors and compact badge tokens are intentional preserve-mode values.",
+        "The compact type range reflects the catalog's dense operator-ledger hierarchy."
+      ]
+    }
+  },
+  "ownerFeedback": {
+    "decision": "delegated",
+    "note": "Owner explicitly delegated completing the selected issues one by one and instructed the agent to keep going."
+  }
+}
