@@ -71,6 +71,30 @@
   .toggle input { margin:0; }
   .toggle.on { background:rgba(210,153,34,.12); border-color:#d29922; color:#d29922; }
   @media (prefers-color-scheme: light) { .toggle.on { background:rgba(154,103,0,.1); color:#9a6700; border-color:#9a6700; } }
+  .mobile-sort { display:none; }
+  @media (max-width:680px) {
+    header { position:static; padding:1rem; }
+    .controls { align-items:stretch; }
+    .controls > * { min-height:44px; }
+    input[type=search], select { width:100%; min-width:0; }
+    .toggle { justify-content:center; }
+    .controls label:not(.toggle) { flex:1 1 calc(50% - .25rem); justify-content:space-between; }
+    .controls label input[type=number] { min-height:44px; }
+    .mobile-sort { display:block; }
+    .count { width:100%; margin:0; text-align:right; }
+    table, tbody { display:block; }
+    thead { display:none; }
+    tbody { padding:0 .75rem 1rem; }
+    tr { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); margin-top:.75rem; border:1px solid var(--border); border-radius:6px; overflow:hidden; }
+    tr:hover { background:transparent; }
+    td { min-width:0; padding:.7rem .75rem; border:0; }
+    td::before { display:block; margin-bottom:.2rem; color:var(--muted); font-size:.68rem; font-weight:600; letter-spacing:.04em; text-transform:uppercase; content:attr(data-label); }
+    td.idea { grid-column:1/-1; grid-row:1; max-width:none; border-bottom:1px solid var(--border); font-size:1rem; line-height:1.55; overflow-wrap:anywhere; }
+    td.num { text-align:left; font-size:1.05rem; }
+    td.source-context { grid-column:1/-1; border-top:1px solid var(--border); }
+    td.strong { background:rgba(46,160,67,.12); }
+    .star { display:inline-flex; min-width:24px; min-height:24px; align-items:center; }
+  }
 </style>
 </head>
 <body>
@@ -101,6 +125,13 @@
       <option value="b2b-tech">B2B tech (company buys for team)</option>
       <option value="dev">Dev (individual)</option>
     </select>
+    <select id="mobileSort" class="mobile-sort" aria-label="Sort ideas">
+      <option value="best_bet:desc">Sort: Best bets</option>
+      <option value="money:desc">Sort: Money high to low</option>
+      <option value="fun:desc">Sort: Fun high to low</option>
+      <option value="idea:asc">Sort: Idea A–Z</option>
+      <option value="source:asc">Sort: Source A–Z</option>
+    </select>
     <span class="count" id="count"></span>
   </div>
   <div class="meta" style="margin-top:.5rem;">Data hard-filtered to T ≥ 7. Best-bet rule: F_feas ≥ 4 AND (F ≥ 7 OR M ≥ 4 OR T ≥ 8) AND customer ≠ dev. Hover ★ for the feasibility reasoning.</div>
@@ -129,6 +160,7 @@ const sourceSel = document.getElementById('source');
 const minMoneyEl = document.getElementById('minMoney');
 const minFunEl   = document.getElementById('minFun');
 const customerSel = document.getElementById('customer');
+const mobileSort = document.getElementById('mobileSort');
 const bestOnly = document.getElementById('bestOnly');
 const bestToggle = document.getElementById('bestToggle');
 const countEl = document.getElementById('count');
@@ -177,11 +209,11 @@ function render() {
     const funCls   = x.fun   >= 14 ? ' strong' : '';
     const moneyCls = x.money >= 5  ? ' strong' : '';
     return `<tr>` +
-    `<td class="num">${star}</td>` +
-    `<td class="num${moneyCls}" title="${tip}">${x.money}</td>` +
-    `<td class="num${funCls}" title="${tip}">${x.fun}</td>` +
-    `<td class="idea">${md(x.idea)}</td>` +
-    `<td><span class="badge">${x.source}</span> <span class="badge">${x.customer}</span></td>` +
+    `<td class="num" data-label="Best bet">${star || '—'}</td>` +
+    `<td class="num${moneyCls}" data-label="Money" title="${tip}">${x.money}</td>` +
+    `<td class="num${funCls}" data-label="Fun" title="${tip}">${x.fun}</td>` +
+    `<td class="idea" data-label="Idea">${md(x.idea)}</td>` +
+    `<td class="source-context" data-label="Source · Customer"><span class="badge">${x.source}</span> <span class="badge">${x.customer}</span></td>` +
     `</tr>`;
   }).join('');
   countEl.textContent = `${rows.length} of ${DATA.length}`;
@@ -205,6 +237,16 @@ minMoneyEl.addEventListener('input', render);
 minFunEl.addEventListener('input', render);
 customerSel.addEventListener('change', render);
 bestOnly.addEventListener('change', render);
+mobileSort.addEventListener('change', () => {
+  const [column, direction] = mobileSort.value.split(':');
+  sortCol = column;
+  sortDesc = direction === 'desc';
+  document.querySelectorAll('th').forEach(th => {
+    th.classList.toggle('sorted', th.dataset.col === sortCol);
+    th.classList.toggle('desc', th.dataset.col === sortCol && sortDesc);
+  });
+  render();
+});
 
 fetch('ideas.json').then(r => r.json()).then(d => {
   DATA = d;

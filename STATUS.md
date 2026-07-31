@@ -1,7 +1,7 @@
 # STATUS.md
 
 Short view of the current objective, active work, blockers, and next steps.
-Last updated: 2026-07-21.
+Last updated: 2026-08-01.
 
 ## Current objective
 
@@ -12,6 +12,9 @@ Blume is presentation only.
 
 ## Just completed
 
+- Added an intentional 390px catalog layout that presents each idea first,
+  keeps Best/Money/Fun plus source/customer context visible, and exposes mobile
+  sorting without changing desktop table, filter, or score behavior.
 - Made `ideas.sassmaker.com` the single canonical public URL.
 - Added tracked Cloudflare Pages configuration for the `site/` output directory
   so Git-connected builds cannot publish the Blume docs tree by mistake.

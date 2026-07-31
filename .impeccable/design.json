@@ -1,0 +1,21 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-08-01T00:00:00.000Z",
+  "title": "Design System: SaaS Ideas",
+  "extensions": {
+    "colorMeta": {
+      "canvas-dark": { "role": "neutral", "displayName": "Ledger Canvas", "canonical": "#0d1117", "tonalRamp": ["#0d1117", "#161b22"] },
+      "accent-dark": { "role": "primary", "displayName": "Link Blue", "canonical": "#58a6ff", "tonalRamp": ["#0969da", "#58a6ff"] }
+    },
+    "breakpoints": [{ "name": "mobile-ledger", "value": "680px" }]
+  },
+  "components": [],
+  "narrative": {
+    "northStar": "The Operator's Ledger",
+    "overview": "A flat, dense decision surface that preserves transparent ranking and makes idea substance primary.",
+    "keyCharacteristics": ["dense", "flat", "scan-first", "data-led", "restrained"],
+    "rules": [{ "name": "Idea First", "body": "At phone width, idea substance precedes scores and provenance.", "section": "layout" }],
+    "dos": ["Keep all decision-critical fields visible at every width."],
+    "donts": ["Do not rely on horizontal scrolling for the phone layout."]
+  }
+}
