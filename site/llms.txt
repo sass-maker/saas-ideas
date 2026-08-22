@@ -2,6 +2,13 @@
 
 > A scored, sortable catalog of SaaS product ideas.
 
+## When to use this
+
+- Browsing scored, sortable SaaS product ideas filtered to tech-heavy solo-feasible bets
+- Finding SaaS ideas targeting $5K MRR with computed feasibility, customer, fun, and money scores
+- Checking the full catalog as JSON for agent consumption
+- Getting the product brief as markdown without JavaScript
+
 ## Product
 
 - [Catalog](https://ideas.sassmaker.com/): Sort and filter scored SaaS ideas
@@ -10,6 +17,7 @@
 ## Machine surfaces
 
 - [Agent catalog](https://ideas.sassmaker.com/api/ai): JSON inventory of public surfaces
+- [OpenAPI spec](https://ideas.sassmaker.com/openapi.json): Machine-readable API contract
 - [Homepage markdown](https://ideas.sassmaker.com/index.md): Product brief without JS
 - [This index](https://ideas.sassmaker.com/llms.txt)
 
