@@ -279,6 +279,7 @@ export const onRequest: PagesFunction<Env> = async (context) => {
 
   // Pass through to static assets.
   const response = await next();
+  const contentType = response.headers.get('content-type') || '';
 
   // Agent-friendly 404: markdown body for Accept: text/markdown, or ensure 404 status.
   if (response.status === 404 && !pathname.startsWith('/api/')) {
@@ -290,8 +291,36 @@ export const onRequest: PagesFunction<Env> = async (context) => {
     return new Response(response.body, { status: 404, headers });
   }
 
+  // Soft-404 detection: Cloudflare Pages serves index.html with 200 for unknown
+  // paths. Detect by checking if the response body's canonical URL matches the
+  // request path — if the body has the homepage canonical but the request is for
+  // a different path, it's a soft-404.
+  if (
+    response.status === 200 &&
+    contentType.includes('text/html') &&
+    !pathname.startsWith('/api/') &&
+    !KNOWN_MD_PAGES.has(normalizePath(pathname)) &&
+    !pathname.includes('.')
+  ) {
+    const body = await response.text();
+    const pathCanonical = `href="${origin}${pathname}"`;
+    if (!body.includes(pathCanonical)) {
+      // The canonical URL doesn't match the request path → soft-404
+      if (wantsMarkdown(request)) {
+        return markdown404(pathname, origin);
+      }
+      const headers = withRateLimit(new Headers(response.headers));
+      headers.set('vary', 'Accept, Accept-Encoding');
+      return new Response(body, { status: 404, headers });
+    }
+    // Valid page — reconstruct with rate-limit + Vary headers
+    const headers = withRateLimit(new Headers(response.headers));
+    const existingVary = headers.get('vary');
+    headers.set('vary', existingVary ? `${existingVary}, Accept, Accept-Encoding` : 'Accept, Accept-Encoding');
+    return new Response(body, { status: response.status, statusText: response.statusText, headers });
+  }
+
   // Add Vary: Accept, Accept-Encoding to HTML responses that have markdown alternates.
-  const contentType = response.headers.get('content-type') || '';
   if (response.status === 200 && contentType.includes('text/html') && KNOWN_MD_PAGES.has(normalizePath(pathname))) {
     const headers = withRateLimit(new Headers(response.headers));
     const existingVary = headers.get('vary');
